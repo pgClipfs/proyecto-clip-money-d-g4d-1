@@ -54,3 +54,14 @@ pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
 - XXII. Transferencia a otra billetera digital
 - XXIII. Mostrar comisiones vigentes
 - XXIV. Consulta últimas operaciones
+
+----
+## **Equipo**
+
+- Belen OCHI
+- Enzo David VAZQUEZ ALTAMIRANO
+- Lautaro Joaquin BUSTOS RAIZ
+- Ivan BURCHER
+- Lisandro MICHLIG
+- Marcos Emanuel FLORES
+- Joel Santiago VIDAL
