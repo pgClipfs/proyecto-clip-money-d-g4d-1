@@ -13,7 +13,7 @@ de datos.
 móviles.
 - Conectar con un servicio web para traer información relevante para la app, por ej traer las
 cotizaciones en tiempo real en un tablero.
-----
+--
 #### **Requerimientos operatoria básica en pesos argentinos**
 
 - I. Ingresar dinero
@@ -23,7 +23,7 @@ registrarse ver cómo podríamos implementar esto.
 - IV. Consultar el saldo actualizado
 - V. Consultar últimas operaciones en pesos
 - VI. Transferir a otras cuentas en pesos
-----
+--
 #### **Requerimientos operatoria básica en moneda extranjera**
 
 - VII. Compra de moneda extranjera dólar (comisión 0.5 sobre el total de la compra)
@@ -40,13 +40,13 @@ registrarse ver cómo podríamos implementar esto.
 - XV. Consulta de últimos servicios pagados.
 - XVI. Consultas de facturas a vencer mostradas automáticamente por el sistema (lo ideal sería
 pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
-----
+--
 #### **Módulos Inversiones**
 
 - XVII. Permitir la creación de plazos fijos, ingresando tiempos y cantidad a invertir
 - XVIII. Permitir ingresar a FCI
 - XIX. Consultar últimas operaciones
-----
+--
 #### **Módulos Criptomoneda**
 
 - XX. Permitir la compra de por ej Bitcoin u otra criptomoneda
@@ -55,13 +55,13 @@ pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
 - XXIII. Mostrar comisiones vigentes
 - XXIV. Consulta últimas operaciones
 
-----
+--
 ## **Equipo**
 
-- Belen OCHI
+- Belen OCHI - [Github](https://github.com/belenochi)
+- Marcos Emanuel FLORES - [Github](https://github.com/emaflores)
 - Enzo David VAZQUEZ ALTAMIRANO
 - Lautaro Joaquin BUSTOS RAIZ
 - Ivan BURCHER
 - Lisandro MICHLIG
-- Marcos Emanuel FLORES
 - Joel Santiago VIDAL
