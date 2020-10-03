@@ -60,7 +60,7 @@ pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
 
 - _Belen OCHI_ - [Github](https://github.com/belenochi)
 - _Marcos Emanuel FLORES_ - [Github](https://github.com/emaflores)
-- _Enzo David VAZQUEZ ALTAMIRANO_
+- _Enzo David VAZQUEZ ALTAMIRANO_ - [Github](https://github.com/enzoa96) 
 - _Lautaro Joaquin BUSTOS RAIZ_
 - _Ivan BURCHER_
 - _Lisandro MICHLIG_
