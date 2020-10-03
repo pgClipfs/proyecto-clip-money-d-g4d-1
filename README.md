@@ -1,7 +1,7 @@
 # **Sistema web para la creación de una billetera digital Clip-Money**
 
 ## **Product Backlog**
-----
+
 #### **Características generales**
 
 - Desarrollo de un sitio web que permite el registro creación de una cuenta virtual CVU, debe
