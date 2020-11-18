@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="billeteraClipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="idFactura" />
+    </Key>
+    <Property Name="idFactura" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Servicio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FondoComun">
+    <Key>
+      <PropertyRef Name="idFondoComun" />
+    </Key>
+    <Property Name="idFondoComun" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" />
+    <Property Name="monto" Type="varchar" MaxLength="45" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Moneda">
+    <Key>
+      <PropertyRef Name="idMoneda" />
+    </Key>
+    <Property Name="idMoneda" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" />
+    <Property Name="Cotizacion" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Movimiento">
+    <Key>
+      <PropertyRef Name="id_movimiento" />
+    </Key>
+    <Property Name="id_movimiento" Type="int" Nullable="false" />
+    <Property Name="fec_movimiento" Type="date" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="monto" Type="int" Nullable="false" />
+    <Property Name="num_comprobante" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id_pais" />
+    </Key>
+    <Property Name="id_pais" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlazoFijo">
+    <Key>
+      <PropertyRef Name="idOperacionPlazo" />
+    </Key>
+    <Property Name="idOperacionPlazo" Type="int" Nullable="false" />
+    <Property Name="tiempo" Type="varchar" MaxLength="45" />
+    <Property Name="monto" Type="varchar" MaxLength="45" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="id_provincia" />
+    </Key>
+    <Property Name="id_provincia" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Saldo">
+    <Key>
+      <PropertyRef Name="idSaldo" />
+    </Key>
+    <Property Name="idSaldo" Type="int" Nullable="false" />
+    <Property Name="Monto" Type="int" Nullable="false" />
+    <Property Name="Moneda" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="idServicio" />
+    </Key>
+    <Property Name="idServicio" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tipo_Mov">
+    <Key>
+      <PropertyRef Name="id_tipo" />
+    </Key>
+    <Property Name="id_tipo" Type="int" Nullable="false" />
+    <Property Name="tipo_movimiento" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Transferencia">
+    <Key>
+      <PropertyRef Name="idTranferencia" />
+    </Key>
+    <Property Name="idTranferencia" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Monto" Type="varchar" MaxLength="45" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+    <Property Name="Moneda" Type="int" Nullable="false" />
+    <Property Name="Destino" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="Dni" Type="varchar" MaxLength="45" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" />
+    <Property Name="Apellido" Type="varchar" MaxLength="45" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="45" />
+    <Property Name="Email" Type="varchar" MaxLength="45" />
+    <Property Name="Direccion" Type="varchar" MaxLength="45" />
+    <Property Name="Provincia" Type="int" />
+    <Property Name="Pais" Type="int" />
+  </EntityType>
+  <Association Name="FK__Factura__Servici__46E78A0C">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="idServicio" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="Servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FondoComu__Usuar__5165187F">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="FondoComun" Type="Self.FondoComun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="FondoComun">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Movimient__idCli__571DF1D5">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Movimiento" Type="Self.Movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Movimiento">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Movimiento__Tipo__5629CD9C">
+    <End Role="Tipo_Mov" Type="Self.Tipo_Mov" Multiplicity="1" />
+    <End Role="Movimiento" Type="Self.Movimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Mov">
+        <PropertyRef Name="id_tipo" />
+      </Principal>
+      <Dependent Role="Movimiento">
+        <PropertyRef Name="Tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PlazoFijo__Usuar__4E88ABD4">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="PlazoFijo" Type="Self.PlazoFijo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="PlazoFijo">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Saldo__Moneda__403A8C7D">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+    <End Role="Saldo" Type="Self.Saldo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="idMoneda" />
+      </Principal>
+      <Dependent Role="Saldo">
+        <PropertyRef Name="Moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Saldo__Usuario__412EB0B6">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Saldo" Type="Self.Saldo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Saldo">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Servicio__Usuari__440B1D61">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfere__Desti__4BAC3F29">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Transferencia" Type="Self.Transferencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Transferencia">
+        <PropertyRef Name="Destino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfere__Moned__4AB81AF0">
+    <End Role="Moneda" Type="Self.Moneda" Multiplicity="1" />
+    <End Role="Transferencia" Type="Self.Transferencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Moneda">
+        <PropertyRef Name="idMoneda" />
+      </Principal>
+      <Dependent Role="Transferencia">
+        <PropertyRef Name="Moneda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transfere__Usuar__49C3F6B7">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Transferencia" Type="Self.Transferencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Transferencia">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__Pais__3B75D760">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="id_pais" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="id_provincia" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Provincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="billeteraClipModelStoreContainer">
+    <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FondoComun" EntityType="Self.FondoComun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Moneda" EntityType="Self.Moneda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movimiento" EntityType="Self.Movimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlazoFijo" EntityType="Self.PlazoFijo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Saldo" EntityType="Self.Saldo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Mov" EntityType="Self.Tipo_Mov" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transferencia" EntityType="Self.Transferencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Factura__Servici__46E78A0C" Association="Self.FK__Factura__Servici__46E78A0C">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FondoComu__Usuar__5165187F" Association="Self.FK__FondoComu__Usuar__5165187F">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="FondoComun" EntitySet="FondoComun" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Movimient__idCli__571DF1D5" Association="Self.FK__Movimient__idCli__571DF1D5">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Movimiento" EntitySet="Movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Movimiento__Tipo__5629CD9C" Association="Self.FK__Movimiento__Tipo__5629CD9C">
+      <End Role="Tipo_Mov" EntitySet="Tipo_Mov" />
+      <End Role="Movimiento" EntitySet="Movimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PlazoFijo__Usuar__4E88ABD4" Association="Self.FK__PlazoFijo__Usuar__4E88ABD4">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="PlazoFijo" EntitySet="PlazoFijo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Saldo__Moneda__403A8C7D" Association="Self.FK__Saldo__Moneda__403A8C7D">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="Saldo" EntitySet="Saldo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Saldo__Usuario__412EB0B6" Association="Self.FK__Saldo__Usuario__412EB0B6">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Saldo" EntitySet="Saldo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Servicio__Usuari__440B1D61" Association="Self.FK__Servicio__Usuari__440B1D61">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfere__Desti__4BAC3F29" Association="Self.FK__Transfere__Desti__4BAC3F29">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Transferencia" EntitySet="Transferencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfere__Moned__4AB81AF0" Association="Self.FK__Transfere__Moned__4AB81AF0">
+      <End Role="Moneda" EntitySet="Moneda" />
+      <End Role="Transferencia" EntitySet="Transferencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transfere__Usuar__49C3F6B7" Association="Self.FK__Transfere__Usuar__49C3F6B7">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Transferencia" EntitySet="Transferencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__Pais__3B75D760" Association="Self.FK__Usuario__Pais__3B75D760">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Provincia" Association="Self.FK_Usuario_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
