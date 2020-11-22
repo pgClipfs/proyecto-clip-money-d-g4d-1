@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1700c87fa9784d649353b2615a5a1d47" Name="Diagram1">
+        <EntityTypeShape EntityType="DBbilleteraModel.Factura" Width="1.5" PointX="12" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.FondoComun" Width="1.5" PointX="9.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Moneda" Width="1.5" PointX="10.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Movimiento" Width="1.5" PointX="12.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.PlazoFijo" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Saldo" Width="1.5" PointX="12.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Servicio" Width="1.5" PointX="9.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.TipoMovimiento" Width="1.5" PointX="10.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Transferencia" Width="1.5" PointX="12.75" PointY="12.875" IsExpanded="true" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Factura_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Saldo_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Transferencia_Moneda" ManuallyRouted="false" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Movimiento_TipoMovimiento" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Localidad" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Pais" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Provincia" Width="1.5" PointX="3" PointY="11.625" />
+        <EntityTypeShape EntityType="DBbilleteraModel.Usuario" Width="1.5" PointX="7.5" PointY="10" />
+        <AssociationConnector Association="DBbilleteraModel.FK_FondoComun_1_Usuario" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Localidad_Provincia" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Usuario_Localidad" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Movimiento_Usuario" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Provincia_Pais" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Usuario_Pais" />
+        <AssociationConnector Association="DBbilleteraModel.FK_PlazoFijo_Usuario" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Usuario_Provincia" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Saldo_Usuario" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Servicio_Usuario" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Transferencia_Destino" />
+        <AssociationConnector Association="DBbilleteraModel.FK_Transferencia_Usuario" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

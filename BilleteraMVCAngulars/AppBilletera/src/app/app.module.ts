@@ -16,9 +16,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RegistroComponent } from './component/registro/registro.component';
+
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, RegistroComponent],
   imports: [
     BrowserModule,
     MatPaginatorModule,
