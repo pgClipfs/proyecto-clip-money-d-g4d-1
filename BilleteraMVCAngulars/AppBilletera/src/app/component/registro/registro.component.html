@@ -11,100 +11,101 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="arrow">
-            <a href="/index.html">
-                <img class="img-arr" src="../../img/arrow-1.png" alt="">
-            </a>
-        </div>
-        <div class="cont-title">
-            <span class="title">CLIP MONEY</span>
-            <span>Nosotros cuidamos tu dinero</span>
-        </div>
-    </div>
-    <div class="cont-reg">
-        <div class="direc-reg">
-            <div class="direc-flex">
-                <span>Nombre</span>
-                <input type="text" id="nameReg" placeholder='Ej: Rodrigo' required>
+    <div class="container">
+        <div class="header">
+            <div class="arrow">
+                <a href="/index.html">
+                    <img class="img-arr" src="../../img/arrow-1.png" alt="">
+                </a>
             </div>
-            <div class="direc-flex">
-                <span>Apellido</span>
-                <input type="text" id="lastnameReg" placeholder='Ej: Lopez' required>
+            <div class="cont-title">
+                <span class="title">CLIP MONEY</span>
+                <span>Nosotros cuidamos tu dinero</span>
             </div>
         </div>
-        <div class="direc-reg">
-            <div class="direc-flex">
-                <span>DNI</span>
-                <input type="number" id="dniReg" placeholder='Ej: 11.111.111' required>
-            </div>
-            <div class="direc-flex">
-                <span>Telefono</span>
-                <input type="number" id="telReg" placeholder='Ej: 155 55 5555' required>
-            </div>
-        </div>
-        <div class="inp-reg">
-            <span>E-mail</span>
-            <input type="email" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' required>
-        </div>
-        <div class="direc-reg">
-            <div class="direc-flex">
-                <span>Usuario</span>
-                <input type="text" id="userReg" placeholder='Ej: rlopez-2' required>
-            </div>
-            <div class="direc-flex">
-                <span>Contrasena</span>
-                <input type="password" id="passwordReg" placeholder='contrasena123' required>
-            </div>
-        </div>
-        <div class="inp-reg">
-            <span>Pais</span>
-            <select name="Pais" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
-        <option *ngFor="let pais of paises" value={{pais.idPais}}>
-          {{pais.nombre}}
+        <form [formGroup]="singUpForm" (ngSubmit)="onSubmit(singUpForm.value)">
+            <div class="cont-reg">
+                <div class="direc-reg">
+                    <div class="direc-flex">
+                        <span>Nombre</span>
+                        <input type="text" id="nameReg" placeholder='Ej: Rodrigo' formControlName="nombre">
+                    </div>
+                    <div class="direc-flex">
+                        <span>Apellido</span>
+                        <input type="text" id="lastnameReg" placeholder='Ej: Lopez' formControlName="apellido">
+                    </div>
+                </div>
+                <div class="direc-reg">
+                    <div class="direc-flex">
+                        <span>DNI</span>
+                        <input type="number" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">
+                    </div>
+                    <div class="direc-flex">
+                        <span>Telefono</span>
+                        <input type="number" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono">
+                    </div>
+                </div>
+                <div class="inp-reg">
+                    <span>E-mail</span>
+                    <input type="email" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
+                </div>
+                <div class="direc-reg">
+                    <div class="direc-flex">
+                        <span>Usuario</span>
+                        <input type="text" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario">
+                    </div>
+                    <div class="direc-flex">
+                        <span>Contrasena</span>
+                        <input type="password" id="passwordReg" placeholder='contrasena123' formControlName="password">
+                    </div>
+                </div>
+                <div class="inp-reg">
+                    <span>Pais</span>
+                    <select formControlName="idPais" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
+            <option *ngFor="let pais of paises" value={{pais.idPais}}>
+              {{pais.nombre}}
 
-        </option>
+            </option>
 
-      </select>
+          </select>
 
-        </div>
-        <div class="direc-reg">
-            <div class="direc-flex">
-                <span>Provincia</span>
-                <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)">
-          <option *ngFor="let provincia of provincias" value={{provincia.idProvincia}}>
-            {{provincia.nombre}}
+                </div>
+                <div class="direc-reg">
+                    <div class="direc-flex">
+                        <span>Provincia</span>
+                        <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)" formControlName="idProvincia">
+              <option *ngFor="let provincia of provincias" value={{provincia.idProvincia}}>
+                {{provincia.nombre}}
 
-          </option>
-        </select>
+              </option>
+            </select>
+                    </div>
+                    <div class="direc-flex">
+                        <span>Localidad</span>
+                        <select formControlName="idLocalidad">
+              <option *ngFor="let localidad of localidades" value={{localidad.idLocalidad}}>
+                {{localidad.nombre}}
+              </option>
+            </select>
+                    </div>
+                </div>
+                <div class="direc-reg">
+                    <div class="direc-flex">
+                        <span>calle</span>
+                        <input type="text" id="calleReg" placeholder='Ej: Independencia' formControlName="calle">
+                    </div>
+                    <div class="direc-flex">
+                        <span>Altura</span>
+                        <input type="number" id="altReg" placeholder='Ej: 1500' formControlName="altura">
+                    </div>
+                </div>
+
+                <div class="btn-reg">
+                    <button type="submit" class="btn">Aceptar</button>
+                    <button class="btn" routerLink="/login">Cancelar</button>
+                </div>
             </div>
-            <div class="direc-flex">
-                <span>Localidad</span>
-                <select>
-          <option *ngFor="let localidad of localidades" value={{localidad.idLocalidad}}>
-            {{localidad.nombre}}
-          </option>
-        </select>
-            </div>
-        </div>
-        <div class="direc-reg">
-            <div class="direc-flex">
-                <span>calle</span>
-                <input type="text" id="calleReg" placeholder='Ej: Independencia' required>
-            </div>
-            <div class="direc-flex">
-                <span>Altura</span>
-                <input type="number" id="altReg" placeholder='Ej: 1500' required>
-            </div>
-        </div>
-        <div>
-            <input type="radio" name="term-cond-reg" id="term-cond-reg" value="Presencial" required>
-            <span>Acepta terminos y condiciones</span>
-        </div>
-        <div class="btn-reg">
-            <button class="btn">Aceptar</button>
-            <button class="btn">Cancelar</button>
-        </div>
+        </form>
     </div>
 </body>
 

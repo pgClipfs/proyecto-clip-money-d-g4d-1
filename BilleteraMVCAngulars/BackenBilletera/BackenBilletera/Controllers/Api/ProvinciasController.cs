@@ -23,6 +23,7 @@ namespace BackenBilletera.Controllers.Api
         {
             return db.Provincia;
         }
+        // GET: api/Provincias/5
         [ResponseType(typeof(Provincia))]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IHttpActionResult GetProvincia(int id)

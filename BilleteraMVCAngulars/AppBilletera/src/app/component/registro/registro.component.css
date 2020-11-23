@@ -32,6 +32,7 @@ body {
 }
 
 .cont-title {
+    margin-left: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,6 +40,7 @@ body {
 }
 
 .cont-reg {
+    margin-left: 25%;
     background-color: #f9ba32;
     display: flex;
     flex-direction: column;

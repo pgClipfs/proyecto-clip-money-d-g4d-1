@@ -1,4 +1,4 @@
-export interface Pais {
+export interface IPais {
   idPais: number;
   nombre: string;
 }

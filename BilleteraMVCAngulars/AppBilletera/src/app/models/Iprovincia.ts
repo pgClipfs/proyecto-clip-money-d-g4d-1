@@ -1,4 +1,4 @@
-export interface Provincia {
+export interface IProvincia {
   idProvincia: number;
   nombre: string;
   idPais: number;
