@@ -7,6 +7,12 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.error {
+    color: red;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
 .arrow {
     display: flex;
     flex-direction: row;

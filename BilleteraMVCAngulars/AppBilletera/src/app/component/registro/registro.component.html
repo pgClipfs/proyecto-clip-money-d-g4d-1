@@ -29,34 +29,62 @@
                     <div class="direc-flex">
                         <span>Nombre</span>
                         <input type="text" id="nameReg" placeholder='Ej: Rodrigo' formControlName="nombre">
+                        <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">Campo obligatorio*
+                        </div>
+
                     </div>
                     <div class="direc-flex">
                         <span>Apellido</span>
                         <input type="text" id="lastnameReg" placeholder='Ej: Lopez' formControlName="apellido">
+                        <div class="error" *ngIf="singUpForm.get('apellido').hasError('required') &&
+                           singUpForm.get('apellido').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                 </div>
                 <div class="direc-reg">
                     <div class="direc-flex">
                         <span>DNI</span>
-                        <input type="number" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">
+                        <input type="text" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">
+                        <div class="error" *ngIf="singUpForm.get('dni').hasError('required') &&
+                           singUpForm.get('dni').touched">
+                            Campo obligatorio*
+                        </div>
+
                     </div>
                     <div class="direc-flex">
                         <span>Telefono</span>
-                        <input type="number" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono">
+                        <input type="text" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono">
+                        <div class="error" *ngIf="singUpForm.get('telefono').hasError('required') &&
+                           singUpForm.get('telefono').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                 </div>
                 <div class="inp-reg">
                     <span>E-mail</span>
                     <input type="email" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
+                    <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
+                           singUpForm.get('email').touched">
+                        Campo obligatorio*
+                    </div>
                 </div>
                 <div class="direc-reg">
                     <div class="direc-flex">
                         <span>Usuario</span>
                         <input type="text" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario">
+                        <div class="error" *ngIf="singUpForm.get('nomUsuario').hasError('required') &&
+                           singUpForm.get('nomUsuario').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                     <div class="direc-flex">
                         <span>Contrasena</span>
                         <input type="password" id="passwordReg" placeholder='contrasena123' formControlName="password">
+                        <div class="error" *ngIf="singUpForm.get('password').hasError('required') &&
+                           singUpForm.get('password').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                 </div>
                 <div class="inp-reg">
@@ -68,6 +96,10 @@
             </option>
 
           </select>
+                    <div class="error" *ngIf="singUpForm.get('idPais').hasError('required') &&
+                           singUpForm.get('idPais').touched">
+                        Campo obligatorio*
+                    </div>
 
                 </div>
                 <div class="direc-reg">
@@ -79,6 +111,10 @@
 
               </option>
             </select>
+                        <div class="error" *ngIf="singUpForm.get('idProvincia').hasError('required') &&
+                           singUpForm.get('idProvincia').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                     <div class="direc-flex">
                         <span>Localidad</span>
@@ -87,21 +123,33 @@
                 {{localidad.nombre}}
               </option>
             </select>
+                        <div class="error" *ngIf="singUpForm.get('idLocalidad').hasError('required') &&
+                           singUpForm.get('idLocalidad').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                 </div>
                 <div class="direc-reg">
                     <div class="direc-flex">
                         <span>calle</span>
                         <input type="text" id="calleReg" placeholder='Ej: Independencia' formControlName="calle">
+                        <div class="error" *ngIf="singUpForm.get('calle').hasError('required') &&
+                           singUpForm.get('calle').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                     <div class="direc-flex">
                         <span>Altura</span>
-                        <input type="number" id="altReg" placeholder='Ej: 1500' formControlName="altura">
+                        <input type="text" id="altReg" placeholder='Ej: 1500' formControlName="altura">
+                        <div class="error" *ngIf="singUpForm.get('altura').hasError('required') &&
+                           singUpForm.get('altura').touched">
+                            Campo obligatorio*
+                        </div>
                     </div>
                 </div>
 
                 <div class="btn-reg">
-                    <button type="submit" class="btn">Aceptar</button>
+                    <button [disabled]="singUpForm.invalid" type="submit" class="btn">Aceptar</button>
                     <button class="btn" routerLink="/login">Cancelar</button>
                 </div>
             </div>

@@ -14,6 +14,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { InewUser } from 'src/app/models/inew-user';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-registro',
@@ -40,11 +41,11 @@ export class RegistroComponent implements OnInit {
     private userService: UserService
   ) {
     this.singUpForm = this.builder.group({
-      dni: [Validators.required],
+      dni: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
 
-      telefono: [Validators.required],
+      telefono: ['', Validators.required],
       email: ['', Validators.compose([Validators.email, Validators.required])],
       nomUsuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -53,7 +54,7 @@ export class RegistroComponent implements OnInit {
       idPais: [Validators.required],
 
       calle: ['', Validators.required],
-      altura: [Validators.required],
+      altura: ['', Validators.required],
     });
   }
 
@@ -84,7 +85,7 @@ export class RegistroComponent implements OnInit {
       (error) => console.error(error)
     );
   }
-  onSubmit(value): void {
+  onSubmit(value: InewUser): void {
     this.userService.addNewUser(value).subscribe((user) => {
       this.router.navigate([this.returnUrl]);
     });

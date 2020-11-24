@@ -44,11 +44,12 @@
             <div class="cont-log">
                 <div class="inp-log">
                     <span>Nombre de usuario</span>
-                    <input type="text" id="userLog" placeholder='Ej: Rodrigo Lopez' [formControl]="usernameControl">
+                    <input type="text" id="userLog" placeholder='Ej: Rodrigo Lopez' required [formControl]="usernameControl">
+
                 </div>
                 <div class="inp-log">
                     <span>Contrasena</span>
-                    <input type="password" id="passwordLog" placeholder='Ej: contraseña' [formControl]="passwordControl">
+                    <input type="password" id="passwordLog" placeholder='Ej: contraseña' required [formControl]="passwordControl">
                 </div>
                 <div class="inp-log log-button">
                     <button type="submit" class="btn-acept">ACEPTAR</button>

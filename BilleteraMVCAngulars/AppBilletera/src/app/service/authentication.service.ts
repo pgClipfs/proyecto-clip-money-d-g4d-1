@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user';
-// ////import * as bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcryptjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,8 +25,8 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<any> {
-    // //const pass = bcrypt.hashSync(password);
-
+    const pass = bcrypt.hashSync(password);
+    console.log(pass);
     return this.http
       .post<any>(`${environment.apiUrl}/api/login/authenticate`, {
         username,

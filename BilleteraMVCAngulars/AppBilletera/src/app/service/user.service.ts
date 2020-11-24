@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserService {
   constructor(private http: HttpClient) {}
+
   addNewUser(user: InewUser): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/api/Usuarios`, user);
   }

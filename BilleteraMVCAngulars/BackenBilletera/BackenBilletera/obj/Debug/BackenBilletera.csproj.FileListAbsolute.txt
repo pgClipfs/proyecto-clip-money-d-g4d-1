@@ -212,3 +212,13 @@ D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBillet
 D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\obj\Debug\BackenBilletera.csproj.CopyComplete
 D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\obj\Debug\BackenBilletera.dll
 D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\obj\Debug\BackenBilletera.pdb
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\BCrypt.Net-Next.dll
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Buffers.dll
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Memory.dll
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Numerics.Vectors.dll
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\BCrypt.Net-Next.xml
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Buffers.xml
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Memory.xml
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Numerics.Vectors.xml
+D:\proyecto-clip-money-d-g4d-1\BilleteraMVCAngulars\BackenBilletera\BackenBilletera\bin\System.Runtime.CompilerServices.Unsafe.xml
