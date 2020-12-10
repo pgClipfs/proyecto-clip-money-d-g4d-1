@@ -1,16 +1,3 @@
-<!-- <form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="username">Nombre de usuario</label>
-    <input type="text" class="form-control" id="username" placeholder="Ingresá tu nombre de usuario"
-      [formControl]="usernameControl">
-  </div>
-  <div class="form-group">
-    <label for="password">Contraseña</label>
-    <input type="password" class="form-control" id="password" placeholder="Contraseña" [formControl]="passwordControl">
-  </div>
-  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,43 +13,77 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
 
-        <div class="col-12">
-            <div class="header">
-                <span class="title">CLIP MONEY</span>
-                <span>Nosotros cuidamos tu dinero</span>
+
+        <div class="row">
+            <div class=" cover d-flex justify-content-center align-items-center flex-column  col-12 col-md-6" style="padding: 0%;">
+
+
+
             </div>
+            <div class=" fondoLogin col-12 col-md-6 " style="padding: 0%;">
+                <div class="alto ">
+                    <div class="header" style="padding: 0%;">
+                        <span class="title">CLIP MONEY</span>
+                        <span>Nosotros cuidamos tu dinero</span>
+                    </div>
+                    <form (ngSubmit)="onSubmit()" style="padding: 0%; margin: 0%;">
+                        <div class="cont-log">
+                            <label for="inp" class="inp">
+
+                <input type="text" id="inp" placeholder="&nbsp;" [formControl]="usernameControl">
+                <span class="label">Usuario</span>
+                <span class="focus-bg"></span>
+              </label>
+                            <br>
+                            <label for="inp" class="inp">
+                <input type="password" id="inp" placeholder="&nbsp;" [formControl]="passwordControl">
+                <span class="label">Password</span>
+                <span class="focus-bg"></span>
+              </label>
+                            <br>
+                            <!-- <div class="form__group field">
+                                <input type="text" class="form__field" placeholder="Name" name="name" id='name' required />
+                                <label for="name" class="form__label">Usuario</label>
+                            </div>
+                            <div class="form__group field">
+                                <input type="password" class="form__field" placeholder="Password" name="password" id='password' required />
+                                <label for="password" class="form__label">Password</label>
+                            </div> -->
+                            <!-- <div class="inp-log">
+                                <span class="spanLogin">Usuario</span>
+                                <input type="text" id="userLog" placeholder='Ej: Rodrigo Lopez' required [formControl]="usernameControl">
+
+                            </div>
+                            <div class="inp-log">
+                                <span class="spanLogin">Contrasena</span>
+                                <input type="password" id="passwordLog" placeholder='Ej: contraseña' required [formControl]="passwordControl">
+                            </div> -->
+                            <div class="inp-log log-button">
+                                <button type="submit" class="btn-acept">ACEPTAR</button>
+                            </div>
+                            <div class="inp-log registro">
+                                <span>No estas registrado?</span>
+                                <a class="href-reg" routerLink="/registro">
+                                    <span class="href-reg">HACE CLICK ACA</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
 
         </div>
-
-
-
-
-
-        <form (ngSubmit)="onSubmit()">
-            <div class="cont-log">
-                <div class="inp-log">
-                    <span>Nombre de usuario</span>
-                    <input type="text" id="userLog" placeholder='Ej: Rodrigo Lopez' required [formControl]="usernameControl">
-
-                </div>
-                <div class="inp-log">
-                    <span>Contrasena</span>
-                    <input type="password" id="passwordLog" placeholder='Ej: contraseña' required [formControl]="passwordControl">
-                </div>
-                <div class="inp-log log-button">
-                    <button type="submit" class="btn-acept">ACEPTAR</button>
-                </div>
-                <div class="inp-log registro">
-                    <span>No estas registrado?</span>
-                    <a class="href-reg" routerLink="/registro">
-                        <span class="href-reg">HACE CLICK ACA</span>
-                    </a>
-
-                </div>
-            </div>
-        </form>
 
     </div>
 

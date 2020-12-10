@@ -17,6 +17,7 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './component/registro/registro.component';
+import { PrincipalComponent } from './component/principal/principal.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RegistroComponent } from './component/registro/registro.component';
     HomeComponent,
     LoginComponent,
     RegistroComponent,
+    PrincipalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,47 +1,74 @@
 body {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    background-color: #1E1F26;
     font-family: 'Quicksand', sans-serif;
+}
+
+.fondoLogin {
+    background-image: url(../../img/SoundCloud.jpg);
 }
 
 .title {
     font-family: 'Big Shoulders Stencil Display', cursive;
-    font-size: 2.5em;
+    font-size: 4.5em;
+}
+
+.cont-log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 10%;
 }
 
 .header {
-    color: #f9ba32;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 3%;
-}
-
-.cont-log {
-    margin-left: 25%;
-    background-color: #f9ba32;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
+    margin-bottom: 75px;
 }
 
 .inp-log {
-    display: flex;
-    /*justify-content: flex-start;*/
-    align-items: center;
-    flex-direction: column;
     color: #1E1F26;
     padding: 3%;
     width: 30%;
 }
 
-.inp-log span {
-    padding: 3%;
+#userLog {
+    border: none;
+    width: 100%;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: black;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+#passwordLog {
+    border: none;
+    width: 100%;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+    font-size: 1.3rem;
+    color: black;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.spanLogin {
+    padding-bottom: 10px !important;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .log-button {
@@ -77,4 +104,120 @@ body {
     text-align: end;
     color: #3a3df5;
     width: 40%;
+}
+
+.imgLogin {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.alto {
+    padding-top: 190px;
+    padding-bottom: 195px;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+form {
+    width: 100%;
+}
+
+.cover {
+    background-image: url(../../img/joung-hyunjin-JeiqC2-y-1Q-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.inp .label {
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    pointer-events: none;
+}
+
+.inp .focus-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: -1;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+
+.inp input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 16px 12px 0 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    color: #000;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+.inp input:hover {
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.inp input:not(:placeholder-shown)+.label {
+    color: rgba(0, 0, 0, 0.5);
+    -webkit-transform: translate3d(0, -12px, 0) scale(0.75);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+}
+
+.inp input:focus {
+    background: rgba(0, 0, 0, 0.05);
+    outline: none;
+    box-shadow: inset 0 -2px 0 black;
+}
+
+.inp input:focus+.label {
+    color: black;
+    -webkit-transform: translate3d(0, -12px, 0) scale(0.75);
+    transform: translate3d(0, -12px, 0) scale(0.75);
+}
+
+.inp input:focus+.label+.focus-bg {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
 }
