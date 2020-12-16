@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { User } from './models/user';
+
 import { AuthenticationService } from './service/authentication.service';
 
 @Component({
@@ -18,9 +20,11 @@ export class AppComponent {
       (x) => (this.currentUser = x)
     );
   }
-
   logout(): void {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+  editar(): void {
+    this.router.navigate(['/editar']);
   }
 }

@@ -35,7 +35,8 @@ body {
     width: 30%;
 }
 
-#userLog {
+
+/* #userLog {
     border: none;
     width: 100%;
     width: 100%;
@@ -61,7 +62,7 @@ body {
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
-}
+} */
 
 .spanLogin {
     padding-bottom: 10px !important;
@@ -119,8 +120,8 @@ body {
 }
 
 .alto {
-    padding-top: 190px;
-    padding-bottom: 195px;
+    padding-top: 180px;
+    padding-bottom: 190px;
     height: 100% !important;
     width: 100% !important;
 }

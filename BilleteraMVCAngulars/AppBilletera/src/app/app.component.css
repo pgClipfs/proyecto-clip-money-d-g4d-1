@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.title {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+    padding: 0px;
+}
+
+.wrapper .sidebar {
+    width: 16%;
+    height: 100%;
+    background: #E67E22;
+    padding: 0px;
+    position: fixed;
+}
+
+.wrapper .sidebar h2 {
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper .sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wrapper .sidebar ul li a {
+    color: black;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fas {
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover {
+    background-color: #f0ab6b;
+}
+
+.wrapper .sidebar ul li:hover a {
+    color: #fff;
+}
+
+.wrapper .sidebar .social_media {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.wrapper .sidebar .social_media a {
+    display: block;
+    width: 40px;
+    background: #f0ab6b;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 5px;
+    color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.img-user-perfil {
+    display: block;
+    background-image: url(./img/1200px-User_icon_2.svg.png);
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    padding-left: 50px;
+    background-position: right;
+    background-size: cover;
+    margin-left: 70px;
+}

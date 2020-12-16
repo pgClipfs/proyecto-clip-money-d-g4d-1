@@ -18,6 +18,8 @@ import { LoginComponent } from './component/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './component/registro/registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditarComponent } from './component/editar/editar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { PrincipalComponent } from './component/principal/principal.component';
     LoginComponent,
     RegistroComponent,
     PrincipalComponent,
+    EditarComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { PrincipalComponent } from './component/principal/principal.component';
     MatTableModule,
     NgbModule,
     AppRoutingModule,
+    [FontAwesomeModule],
 
     FormsModule,
     ReactiveFormsModule,
