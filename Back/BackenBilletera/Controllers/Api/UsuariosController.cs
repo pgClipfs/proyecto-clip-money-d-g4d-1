@@ -28,9 +28,9 @@ namespace BackenBilletera.Controllers.Api
         // GET: api/Usuarios/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult GetUsuario(int id)
+        public IHttpActionResult GetUsuario(string nomUsuario)
         {
-            Usuario usuario = db.Usuario.Find(id);
+            Usuario usuario = db.Usuario.Find(nomUsuario);
             if (usuario == null)
             {
                 return NotFound();
@@ -39,17 +39,19 @@ namespace BackenBilletera.Controllers.Api
             return Ok(usuario);
         }
 
+
+
         // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IHttpActionResult PutUsuario(int id, Usuario usuario)
+        public IHttpActionResult PutUsuario(string nomUsuario, Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != usuario.idUsuario)
+            if (nomUsuario != usuario.nomUsuario)
             {
                 return BadRequest();
             }
@@ -62,14 +64,7 @@ namespace BackenBilletera.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsuarioExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                
             }
 
             return StatusCode(HttpStatusCode.NoContent);

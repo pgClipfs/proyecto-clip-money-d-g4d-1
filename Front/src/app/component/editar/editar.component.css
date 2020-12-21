@@ -129,7 +129,7 @@
     }
     
     .img-user {
-        background-image: url(../../img/images.jpg);
+        background-image: url(../../../assets/img/images.jpg);
         height: 100px;
         width: 100px;
         background-position: center;

@@ -29,12 +29,12 @@
                   seguridad</span>
                             </div>
                         </div>
-                        <form [formGroup]="singUpForm" (ngSubmit)="onSubmit(singUpForm.value) ">
+                        <form [formGroup]="singUpForm" (ngSubmit)="onSubmit(user.nomUsuario, singUpForm.value ) ">
                             <div class="cont-reg">
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Nombre</span>
-                                        <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' formControlName="nombre" value={{user.firstName}}>
+                                        <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' disabled formControlName="nombre" [(ngModel)]="this.user.nombre">
                                         <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">
                                             Campo obligatorio*
                                         </div>
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="direc-flex">
                                         <span>Apellido</span>
-                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez' formControlName="apellido" value={{user.lastName}}>
+                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez' disabled formControlName="apellido" [(ngModel)]="this.user.apellido">
                                         <div class="error" *ngIf="singUpForm.get('apellido').hasError('required') &&
                            singUpForm.get('apellido').touched">
                                             Campo obligatorio*
@@ -52,7 +52,7 @@
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>DNI</span>
-                                        <input type="text" class="form-control" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">
+                                        <input type="text" class="form-control" id="dniReg" placeholder='Ej: 11.111.111' disabled formControlName="dni" [(ngModel)]="this.user.dni">
                                         <div class="error" *ngIf="singUpForm.get('dni').hasError('required') &&
                            singUpForm.get('dni').touched">
                                             Campo obligatorio*
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="direc-flex">
                                         <span>Telefono</span>
-                                        <input type="text" class="form-control" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono">
+                                        <input type="text" class="form-control" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono" [(ngModel)]="this.user.telefono">
                                         <div class="error" *ngIf="singUpForm.get('telefono').hasError('required') &&
                            singUpForm.get('telefono').touched">
                                             Campo obligatorio*
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="inp-reg">
                                     <span>E-mail</span>
-                                    <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
+                                    <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email" [(ngModel)]="this.user.email">
                                     <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
                            singUpForm.get('email').touched">
                                         Campo obligatorio*
@@ -79,7 +79,7 @@
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Usuario</span>
-                                        <input type="text" class="form-control" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario">
+                                        <input type="text" class="form-control" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario" [(ngModel)]="this.user.nomUsuario">
                                         <div class="error" *ngIf="singUpForm.get('nomUsuario').hasError('required') &&
                            singUpForm.get('nomUsuario').touched">
                                             Campo obligatorio*
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="direc-flex">
                                         <span>Contrasena</span>
-                                        <input type="password" class="form-control" id="passwordReg" placeholder='contrasena123' formControlName="password">
+                                        <input type="password" class="form-control" id="passwordReg" placeholder='contrasena123' formControlName="password" [(ngModel)]="this.user.password">
                                         <div class="error" *ngIf="singUpForm.get('password').hasError('required') &&
                            singUpForm.get('password').touched">
                                             Campo obligatorio*
@@ -139,7 +139,7 @@
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>calle</span>
-                                        <input type="text" class="form-control" id="calleReg" placeholder='Ej: Independencia' formControlName="calle">
+                                        <input type="text" class="form-control" id="calleReg" placeholder='Ej: Independencia' formControlName="calle" [(ngModel)]="this.user.calle">
                                         <div class="error" *ngIf="singUpForm.get('calle').hasError('required') &&
                            singUpForm.get('calle').touched">
                                             Campo obligatorio*
@@ -147,14 +147,14 @@
                                     </div>
                                     <div class="direc-flex">
                                         <span>Altura</span>
-                                        <input type="text" class="form-control" id="altReg" placeholder='Ej: 1500' formControlName="altura">
+                                        <input type="text" class="form-control" id="altReg" placeholder='Ej: 1500' formControlName="altura" [(ngModel)]="this.user.altura">
                                         <div class="error" *ngIf="singUpForm.get('altura').hasError('required') &&
                            singUpForm.get('altura').touched">
                                             Campo obligatorio*
                                         </div>
                                     </div>
                                 </div>
-                                <form action="#" method="POST" enctype="multipart/form-data">
+                                <!-- <form action="#" method="POST" enctype="multipart/form-data">
                                     <br>
                                     <div class="direc-reg">
                                         <div class="direc-flex ">
@@ -174,7 +174,7 @@
 
                                     </div>
 
-                                </form>
+                                </form> -->
 
 
                                 <div class="btn-reg">

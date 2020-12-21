@@ -6,6 +6,7 @@ import { LocalidadService } from '../../service/localidad.service';
 import { PaisService } from '../../service/pais.service';
 import { ProvinciaService } from '../../service/provincia.service';
 import { GetUserService } from '../../service/get-user.service';
+
 import {
   FormControl,
   Validators,
@@ -13,10 +14,10 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../service/user.service';
+
 import { InewUser } from 'src/app/models/inew-user';
 import { IgetUser } from 'src/app/models/userget';
-
+import getUser from '../../helpers/get.id';
 import * as bcrypt from 'bcryptjs';
 
 @Component({
@@ -31,21 +32,7 @@ export class EditarComponent implements OnInit {
   paises: IPais[];
   provincias: IProvincia[];
   returnUrl: string;
-  user: IgetUser = {
-    id: 1,
-    firstName: 'string',
-    lastName: 'string',
-    dni: 1,
-    telefono: 1,
-    email: 'string',
-    userName: 'string',
-    password: 'string',
-    pais: 1,
-    provincia: 1,
-    localidad: 1,
-    calle: 'h',
-    altura: 1,
-  };
+  user: IgetUser;
 
   singUpForm: FormGroup;
 
@@ -56,7 +43,7 @@ export class EditarComponent implements OnInit {
     private localidadService: LocalidadService,
     private paisService: PaisService,
     private provinciaService: ProvinciaService,
-    private userService: UserService,
+
     private getUserService: GetUserService
   ) {
     this.singUpForm = this.builder.group({
@@ -78,6 +65,7 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const user = getUser();
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
@@ -86,9 +74,14 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
 
-    this.getUserService.getUser(2007).subscribe(
-      (userFromApi: IgetUser) => {
-        this.user = userFromApi;
+    this.getUserService.getUser(user).subscribe(
+      (userFromApi: IgetUser[]) => {
+        for (let index = 0; index < userFromApi.length; index++) {
+          if (userFromApi[index].nomUsuario === user) {
+            this.user = userFromApi[index];
+          }
+        }
+
         console.log(this.user);
       },
       (error) => console.error(error)
@@ -112,9 +105,30 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
   }
-  onSubmit(value: InewUser): void {
-    this.userService.addNewUser(value).subscribe((user) => {
-      this.router.navigate([this.returnUrl]);
-    });
+
+  onSubmit(userName: string, value: InewUser): void {
+    console.log('jkdkdskdsfk', value);
+
+    this.getUserService
+      .updateUser(
+        userName,
+        (value = {
+          firstName: value.firstName,
+          lastName: value.lastName,
+          dni: value.dni,
+          telefono: value.telefono,
+          email: value.email,
+          userName: value.userName,
+          password: value.password,
+          pais: value.pais,
+          provincia: value.provincia,
+          localidad: value.localidad,
+          calle: value.calle,
+          altura: value.altura,
+        })
+      )
+      .subscribe((user) => {
+        console.log('hecho');
+      });
   }
 }

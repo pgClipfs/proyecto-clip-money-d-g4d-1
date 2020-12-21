@@ -35,6 +35,8 @@ namespace BackenBilletera.Controllers
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IHttpActionResult Authenticate(LoginRequest login)
         {
+
+            
             if (login == null)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
@@ -43,7 +45,8 @@ namespace BackenBilletera.Controllers
             if (isCredentialValid)
             {
                 var token = TokenGenerator.GenerateTokenJwt(login.Username);
-                return Ok(token);
+
+                return Ok(new User(login.Username, token));
             }
             else
             {

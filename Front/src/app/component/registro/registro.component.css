@@ -112,13 +112,13 @@
     }
     
     .cover {
-        background-image: url(../../img/joung-hyunjin-JeiqC2-y-1Q-unsplash.jpg);
+        background-image: url(../../../assets/img/joung-hyunjin-JeiqC2-y-1Q-unsplash.jpg);
         background-position: center;
         background-size: cover;
     }
     
     .fondoLogin {
-        background-image: url(../../img/SoundCloud.jpg);
+        background-image: url(../../../assets/img/SoundCloud.jpg);
         padding: 0;
     }
     
@@ -135,7 +135,7 @@
     }
     
     .img-user {
-        background-image: url(../../img/images.jpg);
+        background-image: url(../../../assets/img/images.jpg);
         height: 100px;
         width: 100px;
         background-position: center;

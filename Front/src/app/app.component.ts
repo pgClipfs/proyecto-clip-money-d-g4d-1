@@ -22,7 +22,7 @@ export class AppComponent {
   }
   logout(): void {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
   editar(): void {
     this.router.navigate(['/editar']);
