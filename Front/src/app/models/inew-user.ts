@@ -1,14 +1,14 @@
 export interface InewUser {
-  firstName: string;
-  lastName: string;
+  nombre: string;
+  apellido: string;
   dni: number;
   telefono: number;
   email: string;
-  userName: string;
+  nomUsuario: string;
   password: string;
-  pais: number;
-  provincia: number;
-  localidad: number;
+  idPais: number;
+  idProvincia: number;
+  idLocalidad: number;
   calle: string;
   altura: number;
 }

@@ -113,16 +113,16 @@ export class EditarComponent implements OnInit {
       .updateUser(
         userName,
         (value = {
-          firstName: value.firstName,
-          lastName: value.lastName,
+          nombre: value.nombre,
+          apellido: value.apellido,
           dni: value.dni,
           telefono: value.telefono,
           email: value.email,
-          userName: value.userName,
+          nomUsuario: value.nomUsuario,
           password: value.password,
-          pais: value.pais,
-          provincia: value.provincia,
-          localidad: value.localidad,
+          idPais: value.idPais,
+          idProvincia: value.idProvincia,
+          idLocalidad: value.idLocalidad,
           calle: value.calle,
           altura: value.altura,
         })

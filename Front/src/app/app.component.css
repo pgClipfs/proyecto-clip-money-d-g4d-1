@@ -8,7 +8,7 @@
 }
 
 .title {
-    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .header {
@@ -29,13 +29,15 @@
 .wrapper .sidebar {
     width: 16%;
     height: 100%;
-    background: #E67E22;
+    background-image: url(../assets/img/Meridian.jpg);
     padding: 0px;
+    background-position: center;
+    background-size: cover;
     position: fixed;
 }
 
 .wrapper .sidebar h2 {
-    color: black;
+    color: white;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 30px;
@@ -54,7 +56,7 @@
 }
 
 .wrapper .sidebar ul li a {
-    color: black;
+    color: white;
     display: block;
 }
 
@@ -63,11 +65,11 @@
 }
 
 .wrapper .sidebar ul li:hover {
-    background-color: #f0ab6b;
+    background-color: teal;
 }
 
 .wrapper .sidebar ul li:hover a {
-    color: #fff;
+    color: white;
 }
 
 .wrapper .sidebar .social_media {
@@ -81,7 +83,7 @@
 .wrapper .sidebar .social_media a {
     display: block;
     width: 40px;
-    background: #f0ab6b;
+    background: teal;
     height: 40px;
     line-height: 45px;
     text-align: center;
@@ -91,14 +93,15 @@
     border-top-right-radius: 5px;
 }
 
-.img-user-perfil {
-    display: block;
-    background-image: url(../assets/img/1200px-User_icon_2.svg.png);
+.img-user-perfil img {
     height: 150px;
     width: 150px;
-    text-align: center;
-    padding-left: 50px;
-    background-position: right;
-    background-size: cover;
-    margin-left: 70px;
+    align-items: center;
+}
+
+.cover img {
+    position: fixed;
+    padding-bottom: 20px;
+    max-width: 306px;
+    height: 300px;
 }

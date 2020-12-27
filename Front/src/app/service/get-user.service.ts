@@ -19,16 +19,16 @@ export class GetUserService {
     return this.http.put<any>(
       `${environment.apiUrl}/api/Usuarios/${userName}`,
       (user = {
-        firstName: user.firstName,
-        lastName: user.lastName,
+        nombre: user.nombre,
+        apellido: user.apellido,
         dni: user.dni,
         telefono: user.telefono,
         email: user.email,
-        userName: user.userName,
+        nomUsuario: user.nomUsuario,
         password: user.password,
-        pais: user.pais,
-        provincia: user.provincia,
-        localidad: user.localidad,
+        idPais: user.idPais,
+        idProvincia: user.idProvincia,
+        idLocalidad: user.idLocalidad,
         calle: user.calle,
         altura: user.altura,
       })

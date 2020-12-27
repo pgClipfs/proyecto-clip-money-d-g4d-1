@@ -64,7 +64,7 @@ namespace BackenBilletera.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                
+
             }
 
             return StatusCode(HttpStatusCode.NoContent);

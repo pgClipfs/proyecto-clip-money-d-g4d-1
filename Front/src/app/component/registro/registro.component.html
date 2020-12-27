@@ -12,14 +12,18 @@
 
 <body>
     <div class="container-fluid">
+
         <div class="row">
+
             <div class="cover d-flex justify-content-center align-items-center flex-column col-12 col-md-6" style="padding: 0%;"></div>
             <div class=" fondoLogin col-12 col-md-6 " style="padding: 0%;">
+
                 <div class="alto ">
+
                     <div class="header" style="padding: 0%;">
                         <div class="arrow">
                             <a href="/index.html">
-                                <img class="img-arr" src="../../img/arrow-1.png" alt="">
+
                             </a>
                         </div>
                         <div class="cont-title">
@@ -65,15 +69,9 @@
                                         Campo obligatorio*
                                     </div>
                                 </div>
+
                             </div>
-                            <div class="inp-reg">
-                                <span>E-mail</span>
-                                <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
-                                <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
-                           singUpForm.get('email').touched">
-                                    Campo obligatorio*
-                                </div>
-                            </div>
+
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>Usuario</span>
@@ -92,21 +90,32 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="inp-reg">
-                                <span>Pais</span>
-                                <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
-                  <option *ngFor="let pais of paises" value={{pais.idPais}}>
-                    {{pais.nombre}}
-
-                  </option>
-
-                </select>
-                                <div class="error" *ngIf="singUpForm.get('idPais').hasError('required') &&
-                           singUpForm.get('idPais').touched">
-                                    Campo obligatorio*
+                            <div class="direc-reg">
+                                <div class="direc-flex">
+                                    <span>E-mail</span>
+                                    <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
+                                    <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
+                           singUpForm.get('email').touched">
+                                        Campo obligatorio*
+                                    </div>
                                 </div>
+                                <div class="direc-flex">
+                                    <span>Pais</span>
+                                    <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
+                    <option *ngFor="let pais of paises" value={{pais.idPais}}>
+                      {{pais.nombre}}
 
+                    </option>
+
+                  </select>
+                                    <div class="error" *ngIf="singUpForm.get('idPais').hasError('required') &&
+                           singUpForm.get('idPais').touched">
+                                        Campo obligatorio*
+                                    </div>
+
+                                </div>
                             </div>
+
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>Provincia</span>
