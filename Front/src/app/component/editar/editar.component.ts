@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { InewUser } from 'src/app/models/inew-user';
 import { IgetUser } from 'src/app/models/userget';
-import getUser from '../../helpers/get.id';
+import { userLogin } from '../../helpers/get.id';
 import * as bcrypt from 'bcryptjs';
 
 @Component({
@@ -65,7 +65,7 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const user = getUser();
+    const user = userLogin;
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
@@ -74,7 +74,7 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
 
-    this.getUserService.getUser(user).subscribe(
+    this.getUserService.getUser('laubus').subscribe(
       (userFromApi: IgetUser[]) => {
         for (let index = 0; index < userFromApi.length; index++) {
           if (userFromApi[index].nomUsuario === user) {

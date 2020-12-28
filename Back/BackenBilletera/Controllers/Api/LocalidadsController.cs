@@ -18,6 +18,7 @@ namespace BackenBilletera.Controllers.Api
         private DBbilleteraEntities db = new DBbilleteraEntities();
 
         // GET: api/Localidads
+
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Localidad> GetLocalidad()
         {

@@ -42,16 +42,20 @@ namespace BackenBilletera.Controllers.Api
 
 
         // PUT: api/Usuarios/5
-        [ResponseType(typeof(void))]
+        
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IHttpActionResult PutUsuario(string nomUsuario, Usuario usuario)
+
+        [ResponseType(typeof(void))]
+        [HttpPut]
+        
+        public IHttpActionResult PutUsuario(string id, Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (nomUsuario != usuario.nomUsuario)
+            if (id != usuario.nomUsuario)
             {
                 return BadRequest();
             }
@@ -73,6 +77,7 @@ namespace BackenBilletera.Controllers.Api
         // POST: api/Usuarios
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Usuario))]
+
         public IHttpActionResult PostUsuario(Usuario usuario)
         {
             if (!ModelState.IsValid)

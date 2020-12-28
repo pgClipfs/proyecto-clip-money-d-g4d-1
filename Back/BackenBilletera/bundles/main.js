@@ -176,17 +176,30 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
 /*!***********************************!*\
   !*** ./src/app/helpers/get.id.ts ***!
   \***********************************/
-/*! exports provided: default */
+/*! exports provided: userLogin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return getUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userLogin", function() { return userLogin; });
+/* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jwt-decode */ "EjJx");
+
 function getUser() {
     const user = JSON.parse(localStorage.getItem('currentUser' || false));
-    console.log(user.username);
-    return user.username;
+    const tokenjwt = user.token;
+    return tokenjwt;
 }
+function getDecodedAccessToken(token) {
+    try {
+        return Object(jwt_decode__WEBPACK_IMPORTED_MODULE_0__["default"])(token);
+    }
+    catch (Error) {
+        return null;
+    }
+}
+const tokenInfo = getDecodedAccessToken(getUser()); // decode token
+const userLogin = tokenInfo.unique_name; // get token expiration dateTime
+console.log(userLogin); // show decoded token object in console
 
 
 /***/ }),
@@ -708,12 +721,12 @@ class EditarComponent {
         });
     }
     ngOnInit() {
-        const user = Object(_helpers_get_id__WEBPACK_IMPORTED_MODULE_2__["default"])();
+        const user = _helpers_get_id__WEBPACK_IMPORTED_MODULE_2__["userLogin"];
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
         this.paisService.getAll().subscribe((paisesFromApi) => {
             this.paises = paisesFromApi;
         }, (error) => console.error(error));
-        this.getUserService.getUser(user).subscribe((userFromApi) => {
+        this.getUserService.getUser('laubus').subscribe((userFromApi) => {
             for (let index = 0; index < userFromApi.length; index++) {
                 if (userFromApi[index].nomUsuario === user) {
                     this.user = userFromApi[index];
