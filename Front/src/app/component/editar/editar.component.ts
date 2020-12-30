@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { InewUser } from 'src/app/models/inew-user';
 import { IgetUser } from 'src/app/models/userget';
-import { userLogin } from '../../helpers/get.id';
+import tokenGet from '../../helpers/get.id';
 import * as bcrypt from 'bcryptjs';
 
 @Component({
@@ -65,7 +65,7 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const user = userLogin;
+    const user = tokenGet();
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {

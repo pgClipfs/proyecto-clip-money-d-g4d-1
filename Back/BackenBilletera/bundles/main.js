@@ -51,6 +51,7 @@ class GetUserService {
             calle: user.calle,
             altura: user.altura,
         }));
+        console.log('fnmsdsd');
     }
 }
 GetUserService.ɵfac = function GetUserService_Factory(t) { return new (t || GetUserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
@@ -176,30 +177,32 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
 /*!***********************************!*\
   !*** ./src/app/helpers/get.id.ts ***!
   \***********************************/
-/*! exports provided: userLogin */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "userLogin", function() { return userLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return tokenGet; });
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jwt-decode */ "EjJx");
 
-function getUser() {
-    const user = JSON.parse(localStorage.getItem('currentUser' || false));
-    const tokenjwt = user.token;
-    return tokenjwt;
-}
-function getDecodedAccessToken(token) {
-    try {
-        return Object(jwt_decode__WEBPACK_IMPORTED_MODULE_0__["default"])(token);
+function tokenGet() {
+    function getUser() {
+        const user = JSON.parse(localStorage.getItem('currentUser' || false));
+        const tokenjwt = user.token;
+        return tokenjwt;
     }
-    catch (Error) {
-        return null;
+    function getDecodedAccessToken(token) {
+        try {
+            return Object(jwt_decode__WEBPACK_IMPORTED_MODULE_0__["default"])(token);
+        }
+        catch (Error) {
+            return null;
+        }
     }
+    const tokenInfo = getDecodedAccessToken(getUser()); // decode token
+    return tokenInfo.unique_name; // get token expiration dateTime
+    console.log(tokenInfo.unique_name); // show decoded token object in console
 }
-const tokenInfo = getDecodedAccessToken(getUser()); // decode token
-const userLogin = tokenInfo.unique_name; // get token expiration dateTime
-console.log(userLogin); // show decoded token object in console
 
 
 /***/ }),
@@ -721,7 +724,7 @@ class EditarComponent {
         });
     }
     ngOnInit() {
-        const user = _helpers_get_id__WEBPACK_IMPORTED_MODULE_2__["userLogin"];
+        const user = Object(_helpers_get_id__WEBPACK_IMPORTED_MODULE_2__["default"])();
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
         this.paisService.getAll().subscribe((paisesFromApi) => {
             this.paises = paisesFromApi;

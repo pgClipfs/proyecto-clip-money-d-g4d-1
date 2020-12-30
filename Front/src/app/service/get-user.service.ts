@@ -33,5 +33,6 @@ export class GetUserService {
         altura: user.altura,
       })
     );
+    console.log('fnmsdsd');
   }
 }
