@@ -1,5 +1,13 @@
 # **Sistema web para la creación de una billetera digital Clip-Money**
 
+## **TAREAS SEGUNDO SPRINT**
+- _Belen OCHI - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
+- _Ivan Burcher - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
+- _Marcos Emanuel FLORES - Tarea: Desarrolo en el backend y correcciones
+- _Lautaro Joaquin BUSTOS RAIZ - Tarea: Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
+- _Lisandro MICHLIG - Tarea: Desarrolo en el backend y correcciones
+- _Enzo David VAZQUEZ ALTAMIRANO -Tarea: Hacer la vista principal y modificar vista login
+
 ## **Product Backlog**
 
 #### **Características generales**
@@ -57,9 +65,10 @@ pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
 
 ----
 ## **Equipo**
-
-- _Belen OCHI_ - [Github](https://github.com/belenochi)
-- _Marcos Emanuel FLORES_ - [Github](https://github.com/emaflores)
-- _Lautaro Joaquin BUSTOS RAIZ_ - [Github](https://github.com/laubus96)
-- _Lisandro MICHLIG_ - [Github](https://github.com/lichimichlig)
-- _Enzo David VAZQUEZ ALTAMIRANO_ - [Github](https://github.com/enzoa96)
+ 
+- _Belen OCHI_ - [Github](https://github.com/belenochi)  Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
+- _Ivan Burcher - [Github](https://github.com/) Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
+- _Marcos Emanuel FLORES_ - [Github](https://github.com/emaflores) Tarea: Desarrolo en el backend y correcciones
+- _Lautaro Joaquin BUSTOS RAIZ_ - [Github](https://github.com/laubus96) Tarea: Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
+- _Lisandro MICHLIG_ - [Github](https://github.com/lichimichlig) Tarea: Desarrolo en el backend y correcciones
+- _Enzo David VAZQUEZ ALTAMIRANO_ - [Github](https://github.com/enzoa96)Tarea: Hacer la vista principal y modificar vista login
