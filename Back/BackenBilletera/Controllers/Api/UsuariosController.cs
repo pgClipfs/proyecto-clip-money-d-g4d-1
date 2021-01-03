@@ -48,23 +48,36 @@ namespace BackenBilletera.Controllers.Api
         [ResponseType(typeof(void))]
         [HttpPut]
         
-        public IHttpActionResult PutUsuario(string id, Usuario usuario)
+        public IHttpActionResult PutUsuario(int id, Usuario usuario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != usuario.nomUsuario)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(usuario).State = EntityState.Modified;
+            // Buscar usuario por id
+            var current = db.Usuario.Find(id);
 
             try
             {
+                current.nombre = usuario.nombre;
+                current.apellido = usuario.apellido;
+                current.dni = usuario.dni;
+                current.telefono = usuario.telefono;
+                current.email = usuario.email;
+                current.nomUsuario = usuario.nomUsuario;
+                current.password = usuario.password;
+                current.idPais = usuario.idPais;
+                current.idProvincia = usuario.idProvincia;
+                current.idLocalidad = usuario.idLocalidad;
+                current.calle = usuario.calle;
+                current.altura = usuario.altura;
+
+
+                db.Usuario.Attach(current);
+                db.Entry(current).State = EntityState.Modified;
                 db.SaveChanges();
+                return StatusCode(HttpStatusCode.OK);
             }
             catch (DbUpdateConcurrencyException)
             {
