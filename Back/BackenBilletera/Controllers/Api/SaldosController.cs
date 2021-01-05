@@ -13,6 +13,7 @@ using BackenBilletera.Models;
 
 namespace BackenBilletera.Controllers.Api
 {
+  
     public class SaldosController : ApiController
     {
         private DBbilleteraEntities db = new DBbilleteraEntities();
@@ -41,34 +42,37 @@ namespace BackenBilletera.Controllers.Api
         // PUT: api/Saldos/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSaldo(int id, Saldo saldo)
+        public IHttpActionResult PutSaldo(int id, SaldoMonto saldo)
         {
+
+            //var usuarios = db.Usuario.Find(id);
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != saldo.idSaldo)
-            {
-                return BadRequest();
-            }
+            
 
-            db.Entry(saldo).State = EntityState.Modified;
+
+            // Buscar usuario por id
+            var current = db.Saldo.Find(id);
 
             try
             {
+                current.monto = saldo.monto;
+                
+                                
+
+
+                db.Saldo.Attach(current);
+                db.Entry(current).State = EntityState.Modified;
                 db.SaveChanges();
+                return StatusCode(HttpStatusCode.OK);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SaldoExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                
             }
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -77,14 +81,21 @@ namespace BackenBilletera.Controllers.Api
         // POST: api/Saldos
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Saldo))]
-        public IHttpActionResult PostSaldo(Saldo saldo)
+        public IHttpActionResult PostSaldo(int id, Saldo saldo)
         {
+
+            //var usuarios = db.Usuario.Find(id);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            var oSaldo = new Saldo();
+            oSaldo.idUsuario = id;
+            oSaldo.idMoneda = 1;
+            oSaldo.monto = saldo.monto;
 
-            db.Saldo.Add(saldo);
+
+            db.Saldo.Add(oSaldo);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = saldo.idSaldo }, saldo);

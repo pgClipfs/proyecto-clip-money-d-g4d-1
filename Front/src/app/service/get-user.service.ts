@@ -11,13 +11,13 @@ import { environment } from 'src/environments/environment';
 export class GetUserService {
   constructor(private http: HttpClient) {}
 
-  getUser(userg: string): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/api/Usuarios/${userg}`);
+  getUser(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/Usuarios/${id}`);
   }
 
-  updateUser(userName: string, user: InewUser): Observable<any> {
+  updateUser(id: number, user: InewUser): Observable<any> {
     return this.http.put<any>(
-      `${environment.apiUrl}/api/Usuarios/${userName}`,
+      `${environment.apiUrl}/api/Usuarios/${id}`,
       (user = {
         nombre: user.nombre,
         apellido: user.apellido,
@@ -34,5 +34,9 @@ export class GetUserService {
       })
     );
     console.log('fnmsdsd');
+  }
+
+  getIdUser(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/Usuarios`);
   }
 }

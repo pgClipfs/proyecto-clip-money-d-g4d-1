@@ -28,9 +28,9 @@ namespace BackenBilletera.Controllers.Api
         // GET: api/Usuarios/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult GetUsuario(string nomUsuario)
+        public IHttpActionResult GetUsuario(int id)
         {
-            Usuario usuario = db.Usuario.Find(nomUsuario);
+            Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
             {
                 return NotFound();

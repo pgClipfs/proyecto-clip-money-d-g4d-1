@@ -65,7 +65,7 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const user = tokenGet();
+    const userId = Number(tokenGet());
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
@@ -74,13 +74,9 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
 
-    this.getUserService.getUser('laubus').subscribe(
-      (userFromApi: IgetUser[]) => {
-        for (let index = 0; index < userFromApi.length; index++) {
-          if (userFromApi[index].nomUsuario === user) {
-            this.user = userFromApi[index];
-          }
-        }
+    this.getUserService.getUser(userId).subscribe(
+      (userFromApi: IgetUser) => {
+        this.user = userFromApi;
 
         console.log(this.user);
       },
@@ -106,12 +102,13 @@ export class EditarComponent implements OnInit {
     );
   }
 
-  onSubmit(userName: string, value: InewUser): void {
+  onSubmit(value: InewUser): void {
+    const userId = Number(tokenGet());
     console.log('jkdkdskdsfk', value);
 
     this.getUserService
       .updateUser(
-        userName,
+        userId,
         (value = {
           nombre: value.nombre,
           apellido: value.apellido,

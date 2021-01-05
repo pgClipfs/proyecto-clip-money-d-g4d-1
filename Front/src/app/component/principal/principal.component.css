@@ -144,3 +144,12 @@
     width: 100%;
     height: 500px;
 }
+
+.imgFooter {
+    width: 100px;
+}
+
+.pieFooter {
+    color: black;
+    font-size: 15px;
+}

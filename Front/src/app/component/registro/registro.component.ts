@@ -5,6 +5,7 @@ import { IProvincia } from '../../models/Iprovincia';
 import { LocalidadService } from '../../service/localidad.service';
 import { PaisService } from '../../service/pais.service';
 import { ProvinciaService } from '../../service/provincia.service';
+import { SaldoService } from '../../service/saldo.service';
 import {
   FormControl,
   Validators,
@@ -13,7 +14,10 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../service/user.service';
+import { GetUserService } from '../../service/get-user.service';
 import { InewUser } from 'src/app/models/inew-user';
+import { IgetUser } from '../../models/userget';
+import tokenGet from '../../helpers/get.id';
 import * as bcrypt from 'bcryptjs';
 
 @Component({
@@ -28,6 +32,7 @@ export class RegistroComponent implements OnInit {
   paises: IPais[];
   provincias: IProvincia[];
   returnUrl: string;
+  userId: number;
 
   singUpForm: FormGroup;
 
@@ -38,7 +43,9 @@ export class RegistroComponent implements OnInit {
     private localidadService: LocalidadService,
     private paisService: PaisService,
     private provinciaService: ProvinciaService,
-    private userService: UserService
+    private userService: UserService,
+    private getUserService: GetUserService,
+    private saldoService: SaldoService
   ) {
     this.singUpForm = this.builder.group({
       dni: ['', Validators.required],
@@ -85,7 +92,9 @@ export class RegistroComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+
   onSubmit(value: InewUser): void {
+    this.userId = tokenGet();
     this.userService.addNewUser(value).subscribe((user) => {
       this.router.navigate([this.returnUrl]);
     });

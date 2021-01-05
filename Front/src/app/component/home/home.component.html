@@ -1,22 +1,30 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-<h1>Hola!</h1>
 
-<h2>Este es tu saldo</h2>
 
-<br>
-<br>
-<br>
-<br>
-<h1 class="display-1 text-center">$ 100</h1>
-<br>
-<br>
-<br>
-<br>
+
 
 <div class="container">
-    <div class="row">
-        <button class="btn-primary col align-self-center">Ingresar Dinero</button>
-        <button class="btn-primary col align-self-center">Retirar Dinero</button>
-        <button class="btn-primary col align-self-center">Ver mis operaciones</button>
+    <div class="row mb-4">
+        <h2 class="display-1 text-center">Este es tu saldo</h2>
+        <h4 class="display-1 text-center">$100</h4>
+
     </div>
+    <div class="row mt-5">
+        <form [formGroup]="upSaldoForm" (ngSubmit)="onSubmit(upSaldoForm.value)" class="text-center">
+            <input type="text" name="saldo" id="saldo" placeholder='Ej: 100' formControlName="monto">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Ingresar Dinero</button>
+
+        </form>
+
+    </div>
+
+
+
+
+
+
+    <br>
+
 </div>

@@ -2,7 +2,7 @@ import { User } from '../models/userToke';
 import jwt_decode from 'jwt-decode';
 import { ActivatedRoute, Router } from '@angular/router';
 
-export default function tokenGet(): string {
+export default function tokenGet(): number {
   function getUser(): string {
     const user: User = JSON.parse(localStorage.getItem('currentUser' || '{}'));
 
