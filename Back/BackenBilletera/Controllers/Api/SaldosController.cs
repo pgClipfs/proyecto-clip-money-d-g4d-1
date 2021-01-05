@@ -60,7 +60,8 @@ namespace BackenBilletera.Controllers.Api
 
             try
             {
-                current.monto = saldo.monto;
+                
+                current.monto = current.monto + saldo.monto;
                 
                                 
 

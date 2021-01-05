@@ -87,7 +87,7 @@ namespace BackenBilletera.Controllers.Api
             oMovimiento.idTipoMov = 1;
             oMovimiento.idUsuario = id;
             oMovimiento.monto = movimiento.monto;
-            oMovimiento.fecha = movimiento.fecha;
+            oMovimiento.fecha = DateTime.Now;
             oMovimiento.numComprobante = 112541;
 
             db.Movimiento.Add(oMovimiento);
