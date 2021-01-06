@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SaldoService } from '../../service/saldo.service';
+import { MovimientosService } from '../../service/movimientos.service';
 import { ISaldo, Imonto } from '../../models/saldo';
+import { IMovi } from '../../models/moviminetos';
+import { ImovMostrar } from '../../models/movMostrar';
 import tokenGet from '../../helpers/get.id';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -17,15 +20,19 @@ import {
 })
 export class HomeComponent implements OnInit {
   saldosList: ISaldo[];
+  movimientosList: IMovi[];
+  movMostrarList: ImovMostrar[];
   user: number;
   upSaldoForm: FormGroup;
   saldoActual: number;
   returnUrl: string;
+  num: number;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private saldoService: SaldoService,
+    private movimientoService: MovimientosService,
     private builder: FormBuilder
   ) {
     this.upSaldoForm = this.builder.group({
@@ -48,16 +55,38 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.buscarSaldo();
   }
+
+  armarArrayMov(): void {}
+
+  verMovimientos(): void {
+    this.num = 1;
+    this.movimientoService
+      .getMoviminetos()
+      .subscribe((movimFormApi: IMovi[]) => {
+        this.movimientosList = movimFormApi;
+      });
+  }
+
   onSubmit(value: Imonto): void {
     this.user = Number(tokenGet());
     if (this.saldosList.length > 0) {
       this.saldoService.updateSaldo(14, value).subscribe((saldo) => {
-        this.buscarSaldo();
+        console.log();
       });
+      this.movimientoService
+        .newMovimiento(this.user, value)
+        .subscribe((movimiento) => {
+          this.buscarSaldo();
+        });
     } else {
       this.saldoService
         .newSaldo(this.user, value)
-        .subscribe((saldo) => this.buscarSaldo());
+        .subscribe((saldo) => console.log());
+      this.movimientoService
+        .newMovimiento(this.user, value)
+        .subscribe((movimiento) => {
+          this.buscarSaldo();
+        });
     }
   }
 }

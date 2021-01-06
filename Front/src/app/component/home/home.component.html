@@ -19,6 +19,35 @@
         </form>
 
     </div>
+    <button type="button" class="btn btn-primary mt-5" (click)="verMovimientos()">Ver movimientos</button>
+    <div class="row mt-5">
+
+
+        <table>
+
+            <tr>
+
+                <th>TipoMov</th>
+                <th>Cliente</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+            </tr>
+
+            <tr *ngFor=" let mov of this.movimientosList">
+                <th scope="row"></th>
+                <td>Ingreso</td>
+                <td>Bustos</td>
+                <td>{{mov.monto}}</td>
+
+                <td>{{mov.fecha}}</td>
+                <td></td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
 
 
 
