@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   saldoActual: number;
   returnUrl: string;
   num: number;
+  numId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class HomeComponent implements OnInit {
         console.log(this.saldosList);
         for (let i = 0; i < this.saldosList.length; i++) {
           this.saldoActual = this.saldosList[i].monto;
+          this.numId = this.saldosList[i].idSaldo;
         }
       },
       (error) => console.error(error)
@@ -70,7 +72,7 @@ export class HomeComponent implements OnInit {
   onSubmit(value: Imonto): void {
     this.user = Number(tokenGet());
     if (this.saldosList.length > 0) {
-      this.saldoService.updateSaldo(14, value).subscribe((saldo) => {
+      this.saldoService.updateSaldo(this.numId, value).subscribe((saldo) => {
         console.log();
       });
       this.movimientoService
@@ -79,14 +81,7 @@ export class HomeComponent implements OnInit {
           this.buscarSaldo();
         });
     } else {
-      this.saldoService
-        .newSaldo(this.user, value)
-        .subscribe((saldo) => console.log());
-      this.movimientoService
-        .newMovimiento(this.user, value)
-        .subscribe((movimiento) => {
-          this.buscarSaldo();
-        });
+      console.log('yata');
     }
   }
 }

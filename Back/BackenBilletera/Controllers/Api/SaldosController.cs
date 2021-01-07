@@ -82,8 +82,12 @@ namespace BackenBilletera.Controllers.Api
         // POST: api/Saldos
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Saldo))]
-        public IHttpActionResult PostSaldo(int id, Saldo saldo)
+        public IHttpActionResult PostSaldo(string id, Saldo saldo)
         {
+            
+
+            GetIdUsuario gGetId = new GetIdUsuario();
+            var idUser = gGetId.obtenerId(id);
 
             //var usuarios = db.Usuario.Find(id);
             if (!ModelState.IsValid)
@@ -91,7 +95,7 @@ namespace BackenBilletera.Controllers.Api
                 return BadRequest(ModelState);
             }
             var oSaldo = new Saldo();
-            oSaldo.idUsuario = id;
+            oSaldo.idUsuario = idUser;
             oSaldo.idMoneda = 1;
             oSaldo.monto = saldo.monto;
 

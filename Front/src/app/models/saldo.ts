@@ -1,5 +1,5 @@
 export interface ISaldo {
-  id: number;
+  idSaldo: number;
   idUsuario: number;
   idMoneda: number;
   monto: number;

@@ -19,6 +19,7 @@ import { InewUser } from 'src/app/models/inew-user';
 import { IgetUser } from '../../models/userget';
 import tokenGet from '../../helpers/get.id';
 import * as bcrypt from 'bcryptjs';
+import { Imonto } from 'src/app/models/saldo';
 
 @Component({
   selector: 'app-registro',
@@ -32,7 +33,8 @@ export class RegistroComponent implements OnInit {
   paises: IPais[];
   provincias: IProvincia[];
   returnUrl: string;
-  userId: number;
+  tiempo: number;
+  monto: Imonto;
 
   singUpForm: FormGroup;
 
@@ -94,9 +96,18 @@ export class RegistroComponent implements OnInit {
   }
 
   onSubmit(value: InewUser): void {
-    this.userId = tokenGet();
+    this.monto = {
+      monto: 100,
+    };
+    this.tiempo = 5000;
+
     this.userService.addNewUser(value).subscribe((user) => {
       this.router.navigate([this.returnUrl]);
     });
+    setTimeout(() => {
+      this.saldoService
+        .newSaldo(value.nomUsuario, this.monto)
+        .subscribe((saldo) => console.log());
+    }, this.tiempo);
   }
 }

@@ -15,9 +15,10 @@ export class SaldoService {
     return this.http.get<any>(`${environment.apiUrl}/api/Saldos`);
   }
 
-  newSaldo(id: number, saldo: Imonto): Observable<any> {
+  newSaldo(id: string, saldo: Imonto): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/api/Saldos/${id}`, saldo);
   }
+
   updateSaldo(id: number, saldo: Imonto): Observable<any> {
     return this.http.put<any>(`${environment.apiUrl}/api/Saldos/${id}`, saldo);
   }

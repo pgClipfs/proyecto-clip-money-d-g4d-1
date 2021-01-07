@@ -15,7 +15,7 @@ namespace BackenBilletera.Controllers
 {
     public class TokenGenerator
     {
-        public static string GenerateTokenJwt(string username)
+        public static string GenerateTokenJwt(string username, string id)
         {
             var secretKey = ConfigurationManager.AppSettings["JWT_SECRET_KEY"];
             var audienceToken = ConfigurationManager.AppSettings["JWT_AUDIENCE_TOKEN"];
@@ -26,7 +26,7 @@ namespace BackenBilletera.Controllers
             var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
             // create a claimsIdentity
-            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, "2007") });
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, id) });
             ClaimsIdentity claimsId = new ClaimsIdentity(new[] { new Claim(ClaimTypes.NameIdentifier, "2007") });
             // create token to the user
             var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();

@@ -41,10 +41,13 @@ namespace BackenBilletera.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             GestorLogin gLogin = new GestorLogin();
+            GetIdUsuario gUserId = new GetIdUsuario();
             bool isCredentialValid = gLogin.validarLogin(login);
+            int getUserId = gUserId.obtenerId(login.Username);
             if (isCredentialValid)
             {
-                var token = TokenGenerator.GenerateTokenJwt(login.Username);
+                var idString = getUserId.ToString();
+                var token = TokenGenerator.GenerateTokenJwt(login.Username, idString);
 
                 return Ok(new User(login.Username, token));
             }
