@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SaldoService } from '../../service/saldo.service';
 import { MovimientosService } from '../../service/movimientos.service';
+import { GetUserService } from '../../service/get-user.service';
 import { ISaldo, Imonto } from '../../models/saldo';
+import { IgetUser } from '../../models/userget';
 import { IMovi } from '../../models/moviminetos';
 import { ImovMostrar } from '../../models/movMostrar';
 import tokenGet from '../../helpers/get.id';
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
   upSaldoForm: FormGroup;
   saldoActual: number;
   returnUrl: string;
-  num: number;
+  apellido: string;
   numId: number;
 
   constructor(
@@ -34,6 +36,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private saldoService: SaldoService,
     private movimientoService: MovimientosService,
+    private getUserService: GetUserService,
     private builder: FormBuilder
   ) {
     this.upSaldoForm = this.builder.group({
@@ -61,9 +64,15 @@ export class HomeComponent implements OnInit {
   armarArrayMov(): void {}
 
   verMovimientos(): void {
-    this.num = 1;
+    this.user = Number(tokenGet());
+    this.getUserService
+      .getUser(this.user)
+      .subscribe((userFromApi: IgetUser) => {
+        this.apellido = userFromApi.apellido;
+        console.log(this.apellido);
+      });
     this.movimientoService
-      .getMoviminetos()
+      .getMoviminetos(this.user)
       .subscribe((movimFormApi: IMovi[]) => {
         this.movimientosList = movimFormApi;
       });

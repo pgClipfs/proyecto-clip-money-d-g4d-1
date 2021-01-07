@@ -17,7 +17,7 @@ export class MovimientosService {
     );
   }
 
-  getMoviminetos(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/api/Movimientoes`);
+  getMoviminetos(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/Movimientoes/${id}`);
   }
 }

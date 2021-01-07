@@ -17,15 +17,16 @@ namespace BackenBilletera.Controllers.Api
     {
         private DBbilleteraEntities db = new DBbilleteraEntities();
 
-        // GET: api/Movimientoes
+        // GET: api/Movimientoes/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IQueryable<Movimiento> GetMovimiento()
+        public IQueryable<Movimiento> GetMovimiento( int id)
         {
-            return db.Movimiento;
+            var lstMoviminetos = db.Movimiento.Where(x => x.idUsuario == id);
+            return lstMoviminetos;
         }
 
         // GET: api/Movimientoes/5
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        /*[EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Movimiento))]
         public IHttpActionResult GetMovimiento(int id)
         {
@@ -36,7 +37,7 @@ namespace BackenBilletera.Controllers.Api
             }
 
             return Ok(movimiento);
-        }
+        }*/
 
         // PUT: api/Movimientoes/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
