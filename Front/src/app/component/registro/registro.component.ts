@@ -53,7 +53,7 @@ export class RegistroComponent implements OnInit {
       dni: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-
+      alias: ['', Validators.required],
       telefono: ['', Validators.required],
       email: ['', Validators.compose([Validators.email, Validators.required])],
       nomUsuario: ['', Validators.required],

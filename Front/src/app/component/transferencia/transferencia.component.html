@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Transferencias</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="dat-deb">
+                    <span class="header">Datos de debito</span>
+                    <div class="input">
+                        <span>Monto a transferir</span>
+                        <input type="text" placeholder="Monto a transferir" required>
+                    </div>
+                </div>
+                <div class="dat-deb">
+                    <span class="header">Datos de credito</span>
+                    <div class="input">
+                        <span>Cuenta de destino</span>
+                        <input type="text" required>
+                    </div>
+                    <div class="input">
+                        <span>Cuenta de destino</span>
+                        <select name="Accion" id="Accion" required>
+              <option value="" disabled selected>Seleccione una opcion</option>
+              <option value="Transferir">Transferir</option>
+              <option value="Consultar movimientos">Consultar movimientos</option>
+              <option value="Depositar">Depositar</option>
+              <option value="Extraer">Extraer</option>
+              <option value="Giro al descubierto">Giro al descubierto</option>
+            </select>
+                    </div>
+                    <div class="input">
+                        <span>Referencia de destino</span>
+                        <input type="text">
+                    </div>
+                    <div class="input">
+                        <span>E-mail de notificacion</span>
+                        <input type="text" required>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="div-button">
+                    <button class="button">Enviar</button>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <div class="div-button">
+                    <button class="button" routerLink="/home">Volver</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>

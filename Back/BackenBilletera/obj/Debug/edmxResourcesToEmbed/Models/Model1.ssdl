@@ -119,6 +119,7 @@
       <PropertyRef Name="idUsuario" />
     </Key>
     <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="alias" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dni" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />

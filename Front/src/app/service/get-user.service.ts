@@ -21,6 +21,8 @@ export class GetUserService {
       (user = {
         nombre: user.nombre,
         apellido: user.apellido,
+
+        alias: user.alias,
         dni: user.dni,
         telefono: user.telefono,
         email: user.email,

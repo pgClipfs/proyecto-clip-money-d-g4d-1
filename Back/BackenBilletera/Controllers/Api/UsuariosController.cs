@@ -61,6 +61,8 @@ namespace BackenBilletera.Controllers.Api
             try
             {
                 current.nombre = usuario.nombre;
+                current.alias = usuario.alias;
+                
                 current.apellido = usuario.apellido;
                 current.dni = usuario.dni;
                 current.telefono = usuario.telefono;
@@ -99,9 +101,12 @@ namespace BackenBilletera.Controllers.Api
             }
             try
             {
+                
                 //var pass = BCrypt.Net.BCrypt.HashPassword(usuario.password);
                 var oUsuario = new Usuario();
                 oUsuario.nombre = usuario.nombre;
+                oUsuario.alias = usuario.alias;
+                
                 oUsuario.apellido = usuario.apellido;
                 oUsuario.dni = usuario.dni;
                 oUsuario.telefono = usuario.telefono;

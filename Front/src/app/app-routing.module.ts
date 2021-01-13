@@ -6,6 +6,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { RegistroComponent } from './component/registro/registro.component';
 import { EditarComponent } from './component/editar/editar.component';
 import { PrincipalComponent } from './component/principal/principal.component';
+import { TransferenciaComponent } from './component/transferencia/transferencia.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'editar', component: EditarComponent },
   // { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'transferir', component: TransferenciaComponent },
 
   { path: '**', redirectTo: '' },
 ];

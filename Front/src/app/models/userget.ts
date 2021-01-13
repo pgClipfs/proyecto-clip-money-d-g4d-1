@@ -2,6 +2,8 @@ export interface IgetUser {
   id: number;
   nombre: string;
   apellido: string;
+
+  alias: string;
   dni: number;
   telefono: number;
   email: string;

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { MatPaginatorModule } from '@angular/material/Paginator';
 import { MatProgressBarModule } from '@angular/material/Progress-bar';
 import { MatSnackBarModule } from '@angular/material/Snack-Bar';
@@ -20,6 +21,7 @@ import { RegistroComponent } from './component/registro/registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditarComponent } from './component/editar/editar.component';
+import { TransferenciaComponent } from './component/transferencia/transferencia.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { EditarComponent } from './component/editar/editar.component';
     RegistroComponent,
     PrincipalComponent,
     EditarComponent,
+    TransferenciaComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import { EditarComponent } from './component/editar/editar.component';
     MatSnackBarModule,
     MatSortModule,
     MatTableModule,
-    NgbModule,
+    [NgbModule],
     AppRoutingModule,
     [FontAwesomeModule],
 

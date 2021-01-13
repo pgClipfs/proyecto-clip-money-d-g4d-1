@@ -50,7 +50,8 @@ export class EditarComponent implements OnInit {
       dni: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-
+      cvu: ['', Validators.required],
+      alias: ['', Validators.required],
       telefono: ['', Validators.required],
       email: ['', Validators.compose([Validators.email, Validators.required])],
       nomUsuario: ['', Validators.required],
@@ -112,6 +113,8 @@ export class EditarComponent implements OnInit {
         (value = {
           nombre: value.nombre,
           apellido: value.apellido,
+
+          alias: value.alias,
           dni: value.dni,
           telefono: value.telefono,
           email: value.email,

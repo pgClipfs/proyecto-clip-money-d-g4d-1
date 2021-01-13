@@ -52,6 +52,19 @@
                                 </div>
                             </div>
                             <div class="direc-reg">
+
+
+
+                                <div class="direc-flex">
+                                    <span>Alias</span>
+                                    <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias">
+                                    <div class="error" *ngIf="singUpForm.get('alias').hasError('required') &&
+                           singUpForm.get('apellido').touched">
+                                        Campo obligatorio*
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>DNI</span>
                                     <input type="text" class="form-control" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">

@@ -27,6 +27,7 @@ namespace BackenBilletera.Models
         }
     
         public int idUsuario { get; set; }
+        public string alias { get; set; }
         public int dni { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }

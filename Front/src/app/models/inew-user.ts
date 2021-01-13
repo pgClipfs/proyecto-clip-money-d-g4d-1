@@ -1,6 +1,8 @@
 export interface InewUser {
   nombre: string;
   apellido: string;
+
+  alias: string;
   dni: number;
   telefono: number;
   email: string;

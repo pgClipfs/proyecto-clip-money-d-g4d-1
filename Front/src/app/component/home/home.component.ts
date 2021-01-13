@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SaldoService } from '../../service/saldo.service';
 import { MovimientosService } from '../../service/movimientos.service';
 import { GetUserService } from '../../service/get-user.service';
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
   returnUrl: string;
   apellido: string;
   numId: number;
+  movimientos = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +39,8 @@ export class HomeComponent implements OnInit {
     private saldoService: SaldoService,
     private movimientoService: MovimientosService,
     private getUserService: GetUserService,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    public modal: NgbModal
   ) {
     this.upSaldoForm = this.builder.group({
       monto: ['', Validators.required],
@@ -76,6 +79,7 @@ export class HomeComponent implements OnInit {
       .subscribe((movimFormApi: IMovi[]) => {
         this.movimientosList = movimFormApi;
       });
+    this.movimientos = true;
   }
 
   onSubmit(value: Imonto): void {

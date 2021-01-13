@@ -33,6 +33,27 @@
                             <div class="cont-reg">
                                 <div class="direc-reg">
                                     <div class="direc-flex">
+                                        <span>cvu</span>
+                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: 123654122' formControlName="cvu" [(ngModel)]="this.user.id">
+                                        <div class="error" *ngIf="singUpForm.get('cvu').hasError('required') &&
+                           singUpForm.get('cvu').touched">
+                                            Campo obligatorio*
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="direc-flex">
+                                        <span>Alias</span>
+                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias" [(ngModel)]="this.user.alias">
+                                        <div class="error" *ngIf="singUpForm.get('alias').hasError('required') &&
+                           singUpForm.get('alias').touched">
+                                            Campo obligatorio*
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="direc-reg">
+                                    <div class="direc-flex">
                                         <span>Nombre</span>
                                         <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' disabled formControlName="nombre" [(ngModel)]="this.user.nombre">
                                         <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">
@@ -49,6 +70,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>DNI</span>
