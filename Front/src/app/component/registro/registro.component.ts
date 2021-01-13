@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ILocalidad } from '../../models/Ilocalidad';
 import { IPais } from '../../models/Ipais';
 import { IProvincia } from '../../models/Iprovincia';
@@ -25,6 +25,7 @@ import { Imonto } from 'src/app/models/saldo';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RegistroComponent implements OnInit {
   selectedPais: IPais = { idPais: 0, nombre: '' };
