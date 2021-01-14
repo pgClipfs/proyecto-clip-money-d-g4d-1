@@ -12,6 +12,13 @@ body {
     width: 60%;
 }
 
+.title {
+    margin: 2%;
+    padding: 1%;
+    color: white;
+    background-image: linear-gradient(#24803C, #5EAB97);
+}
+
 .dat-deb {
     display: flex;
     flex-direction: column;

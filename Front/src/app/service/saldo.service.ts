@@ -22,4 +22,7 @@ export class SaldoService {
   updateSaldo(id: number, saldo: Imonto): Observable<any> {
     return this.http.put<any>(`${environment.apiUrl}/api/Saldos/${id}`, saldo);
   }
+  updateSaldoNumber(id: number, saldo: number): Observable<any> {
+    return this.http.put<any>(`${environment.apiUrl}/api/Saldos/${id}`, saldo);
+  }
 }

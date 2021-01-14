@@ -85,7 +85,7 @@ namespace BackenBilletera.Controllers.Api
                 return BadRequest(ModelState);
             }
             var oMovimiento = new Movimiento();
-            oMovimiento.idTipoMov = 1;
+            oMovimiento.idTipoMov = movimiento.idTipoMov;
             oMovimiento.idUsuario = id;
             oMovimiento.monto = movimiento.monto;
             oMovimiento.fecha = DateTime.Now;

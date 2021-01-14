@@ -11,41 +11,40 @@
 
 <body>
     <div class="container">
+        <div>
+            <div class="col-12">
+                <div class="title text-center">
+                    <span>Tranferencia</span>
+                </div>
+
+            </div>
+        </div>
         <div class="row">
             <div class="col-12">
-                <div class="dat-deb">
-                    <span class="header">Datos de debito</span>
-                    <div class="input">
-                        <span>Monto a transferir</span>
-                        <input type="text" placeholder="Monto a transferir" required>
+                <form [formGroup]="upTransferencia" (ngSubmit)="onSubmit(upTransferencia.value)">
+                    <div class="dat-deb">
+                        <span class="header">Datos de debito</span>
+                        <div class="input">
+                            <span>Monto a transferir</span>
+                            <input type="text" placeholder="Monto a transferir" name="monto" id="monto" formControlName="monto">
+                        </div>
                     </div>
-                </div>
-                <div class="dat-deb">
-                    <span class="header">Datos de credito</span>
-                    <div class="input">
-                        <span>Cuenta de destino</span>
-                        <input type="text" required>
+                    <div class="dat-deb">
+                        <span class="header">Datos de credito</span>
+                        <div class="input">
+                            <span>Cuenta de destino</span>
+                            <input type="text" placeholder="Alias: abu.menta.jota" name="alias" id="alias" formControlName="alias">
+                        </div>
+
+
+                        <div class="input">
+                            <span>E-mail de notificacion</span>
+                            <input type="text" required>
+                        </div>
                     </div>
-                    <div class="input">
-                        <span>Cuenta de destino</span>
-                        <select name="Accion" id="Accion" required>
-              <option value="" disabled selected>Seleccione una opcion</option>
-              <option value="Transferir">Transferir</option>
-              <option value="Consultar movimientos">Consultar movimientos</option>
-              <option value="Depositar">Depositar</option>
-              <option value="Extraer">Extraer</option>
-              <option value="Giro al descubierto">Giro al descubierto</option>
-            </select>
-                    </div>
-                    <div class="input">
-                        <span>Referencia de destino</span>
-                        <input type="text">
-                    </div>
-                    <div class="input">
-                        <span>E-mail de notificacion</span>
-                        <input type="text" required>
-                    </div>
-                </div>
+
+                </form>
+
             </div>
 
         </div>

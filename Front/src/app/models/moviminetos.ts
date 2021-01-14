@@ -5,3 +5,8 @@ export interface IMovi {
   fecha: Date;
   numComprobante: number;
 }
+export interface InewMov {
+  idTipoMov: number;
+
+  monto: number;
+}

@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
   apellido: string;
   numId: number;
   movimientos = false;
+  idTipoMov: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -83,13 +84,14 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(value: Imonto): void {
+    this.idTipoMov = 1;
     this.user = Number(tokenGet());
     if (this.saldosList.length > 0) {
       this.saldoService.updateSaldo(this.numId, value).subscribe((saldo) => {
         console.log();
       });
       this.movimientoService
-        .newMovimiento(this.user, value)
+        .newMovimiento(this.user, value, this.idTipoMov)
         .subscribe((movimiento) => {
           this.buscarSaldo();
         });
