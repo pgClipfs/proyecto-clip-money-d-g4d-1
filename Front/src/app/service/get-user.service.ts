@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { InewUser } from '../models/inew-user';
+import { InewUser, InewDestino } from '../models/inew-user';
 
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -40,5 +40,21 @@ export class GetUserService {
 
   getIdUser(): Observable<any> {
     return this.http.get<any>(`${environment.apiUrl}/api/Usuarios`);
+  }
+
+  getidDestino(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/Destino`);
+  }
+  newDestino(value: InewDestino, idUser: number): Observable<any> {
+    return this.http.post<any>(
+      `${environment.apiUrl}/api/Destino`,
+      (value = {
+        idUsuario: idUser,
+        alias: value.alias,
+        nombre: value.nombre,
+        apellido: value.apellido,
+        email: value.email,
+      })
+    );
   }
 }

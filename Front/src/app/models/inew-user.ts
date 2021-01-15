@@ -14,3 +14,21 @@ export interface InewUser {
   calle: string;
   altura: number;
 }
+
+export interface InewDestino {
+  idUsuario: number;
+  alias: string;
+  nombre: string;
+  apellido: string;
+  email: string;
+}
+
+export interface IgetDestinos {
+  idUsuario: number;
+  alias: string;
+  nombre: string;
+  apellido: string;
+  email: string;
+  idDestino: number;
+  id: number;
+}

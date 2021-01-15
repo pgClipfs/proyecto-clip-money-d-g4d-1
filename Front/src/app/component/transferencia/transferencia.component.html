@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <div>
+        <div class="row">
             <div class="col-12">
                 <div class="title text-center">
                     <span>Tranferencia</span>
@@ -33,34 +33,82 @@
                         <span class="header">Datos de credito</span>
                         <div class="input">
                             <span>Cuenta de destino</span>
-                            <input type="text" placeholder="Alias: abu.menta.jota" name="alias" id="alias" formControlName="alias">
+
+                            <select formControlName="alias" [(ngModel)]="selectedDestino.id" class="form-control" id="alias" required (change)="onSelectAlias($event.target.value)">
+                <option *ngFor=" let destino of this.listDestino " value={{destino.idDestino}}>
+                  {{destino.alias}}
+
+                </option>
+
+              </select>
+                            <div class="div-button ">
+                                <button class="btn btn-primary " (click)="modal.open(content) ">Agregar Destino</button>
+                            </div>
                         </div>
 
 
-                        <div class="input">
+                        <div class="input ">
                             <span>E-mail de notificacion</span>
-                            <input type="text" required>
+                            <input type="text " required>
                         </div>
                     </div>
 
                 </form>
 
+
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-6">
-                <div class="div-button">
-                    <button class="button">Enviar</button>
+        <div class="row ">
+            <div class="col-4 ">
+
+                <div class="div-button ">
+                    <button class="button ">Enviar</button>
                 </div>
 
             </div>
-            <div class="col-6">
-                <div class="div-button">
-                    <button class="button" routerLink="/home">Volver</button>
+            <div class="col-4 ">
+
+            </div>
+            <div class="col-4 ">
+                <div class="div-button ">
+                    <button class="button " routerLink="/home ">Volver</button>
                 </div>
             </div>
         </div>
+        <ng-template #content let-modal>
+            <div class="modal-header ">
+                <h4 class="modal-title text-center ">Agregar cuenta de destino</h4>
+            </div>
+
+            <div class="modal-body ">
+                <form [formGroup]="upDestino " (ngSubmit)="onDestino(upDestino.value) ">
+                    <span>Alias del destino</span>
+                    <input class="input " type="text " name="alias " id="alias " placeholder="Alias " formControlName="alias ">
+                    <br>
+                    <span>Nombre del destino</span>
+                    <input class="input " type="text " name="nombre " id="nombre " placeholder="Nombre " formControlName="nombre ">
+                    <br>
+                    <span>Apellido del destino</span>
+                    <input class="input " type="text " name="apellido " id="apellido " placeholder="Apellido " formControlName="apellido ">
+                    <br>
+                    <span>Email del destino</span>
+                    <input class="input " type="text " name="email " id="email " placeholder="Email " formControlName="email ">
+                    <br>
+                    <button type="submit " class="btn btn-primary ">Agregar Destino</button>
+
+                </form>
+            </div>
+            <div class="modal-footer ">
+                <button class="btn btn-success " type="button " (click)="modal.close() ">Salir</button>
+            </div>
+
+        </ng-template>
+
+
+
+
+
 
 
 
