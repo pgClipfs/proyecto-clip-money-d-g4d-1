@@ -161,11 +161,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\DestinosController.cs" />
     <Compile Include="Controllers\Api\LocalidadsController.cs" />
     <Compile Include="Controllers\Api\MovimientoesController.cs" />
     <Compile Include="Controllers\Api\PaisController.cs" />
     <Compile Include="Controllers\Api\ProvinciasController.cs" />
     <Compile Include="Controllers\Api\SaldosController.cs" />
+    <Compile Include="Controllers\Api\TransferenciasController.cs" />
     <Compile Include="Controllers\Api\UsuariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -174,6 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Destinos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Factura.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -181,6 +186,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GestorLogin.cs" />
+    <Compile Include="Models\GetIdDestino.cs" />
     <Compile Include="Models\GetIdUsuario.cs" />
     <Compile Include="Models\Localidad.cs">
       <DependentUpon>Model1.tt</DependentUpon>

@@ -25,12 +25,13 @@ namespace BackenBilletera.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Pais> Pais { get; set; }
+        public virtual DbSet<Destinos> Destinos { get; set; }
         public virtual DbSet<Factura> Factura { get; set; }
         public virtual DbSet<FondoComun> FondoComun { get; set; }
         public virtual DbSet<Localidad> Localidad { get; set; }
         public virtual DbSet<Moneda> Moneda { get; set; }
         public virtual DbSet<Movimiento> Movimiento { get; set; }
+        public virtual DbSet<Pais> Pais { get; set; }
         public virtual DbSet<PlazoFijo> PlazoFijo { get; set; }
         public virtual DbSet<Provincia> Provincia { get; set; }
         public virtual DbSet<Saldo> Saldo { get; set; }

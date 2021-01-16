@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DBbilleteraModelStoreContainer" CdmEntityContainer="DBbilleteraEntities">
-    <EntitySetMapping Name="Pais">
-      <EntityTypeMapping TypeName="DBbilleteraModel.Pais">
-        <MappingFragment StoreEntitySet="Pais">
+    <EntitySetMapping Name="Destinos">
+      <EntityTypeMapping TypeName="DBbilleteraModel.Destinos">
+        <MappingFragment StoreEntitySet="Destinos">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="idPais" ColumnName="idPais" />
+          <ScalarProperty Name="idUserDestino" ColumnName="idUserDestino" />
+          <ScalarProperty Name="idUserOrigen" ColumnName="idUserOrigen" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -56,6 +59,14 @@
           <ScalarProperty Name="idTipoMov" ColumnName="idTipoMov" />
           <ScalarProperty Name="fecha" ColumnName="fecha" />
           <ScalarProperty Name="idMovimiento" ColumnName="idMovimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="DBbilleteraModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idPais" ColumnName="idPais" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

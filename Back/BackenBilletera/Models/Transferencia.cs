@@ -21,8 +21,8 @@ namespace BackenBilletera.Models
         public int idDestino { get; set; }
         public int idMoneda { get; set; }
     
+        public virtual Destinos Destinos { get; set; }
         public virtual Moneda Moneda { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual Usuario Usuario1 { get; set; }
     }
 }

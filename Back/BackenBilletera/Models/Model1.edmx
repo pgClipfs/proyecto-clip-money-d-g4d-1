@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBbilleteraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Destinos">
+          <Key>
+            <PropertyRef Name="idUserDestino" />
+          </Key>
+          <Property Name="idUserOrigen" Type="int" Nullable="false" />
+          <Property Name="idUserDestino" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Factura">
           <Key>
             <PropertyRef Name="idFactura" />
@@ -258,12 +268,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transferencia_Destino">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+        <Association Name="FK_Transferencia_Destinos">
+          <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
           <End Role="Transferencia" Type="Self.Transferencia" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="idUsuario" />
+            <Principal Role="Destinos">
+              <PropertyRef Name="idUserDestino" />
             </Principal>
             <Dependent Role="Transferencia">
               <PropertyRef Name="idDestino" />
@@ -331,6 +341,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBbilleteraModelStoreContainer">
+          <EntitySet Name="Destinos" EntityType="Self.Destinos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FondoComun" EntityType="Self.FondoComun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
@@ -385,8 +396,8 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transferencia_Destino" Association="Self.FK_Transferencia_Destino">
-            <End Role="Usuario" EntitySet="Usuario" />
+          <AssociationSet Name="FK_Transferencia_Destinos" Association="Self.FK_Transferencia_Destinos">
+            <End Role="Destinos" EntitySet="Destinos" />
             <End Role="Transferencia" EntitySet="Transferencia" />
           </AssociationSet>
           <AssociationSet Name="FK_Transferencia_Moneda" Association="Self.FK_Transferencia_Moneda">
@@ -415,12 +426,13 @@
     <edmx:ConceptualModels>
       <Schema Namespace="DBbilleteraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="DBbilleteraEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Pais" EntityType="DBbilleteraModel.Pais" />
+          <EntitySet Name="Destinos" EntityType="DBbilleteraModel.Destinos" />
           <EntitySet Name="Factura" EntityType="DBbilleteraModel.Factura" />
           <EntitySet Name="FondoComun" EntityType="DBbilleteraModel.FondoComun" />
           <EntitySet Name="Localidad" EntityType="DBbilleteraModel.Localidad" />
           <EntitySet Name="Moneda" EntityType="DBbilleteraModel.Moneda" />
           <EntitySet Name="Movimiento" EntityType="DBbilleteraModel.Movimiento" />
+          <EntitySet Name="Pais" EntityType="DBbilleteraModel.Pais" />
           <EntitySet Name="PlazoFijo" EntityType="DBbilleteraModel.PlazoFijo" />
           <EntitySet Name="Provincia" EntityType="DBbilleteraModel.Provincia" />
           <EntitySet Name="Saldo" EntityType="DBbilleteraModel.Saldo" />
@@ -429,6 +441,10 @@
           <EntitySet Name="TipoMovimiento" EntityType="DBbilleteraModel.TipoMovimiento" />
           <EntitySet Name="Transferencia" EntityType="DBbilleteraModel.Transferencia" />
           <EntitySet Name="Usuario" EntityType="DBbilleteraModel.Usuario" />
+          <AssociationSet Name="FK_Transferencia_Destinos" Association="DBbilleteraModel.FK_Transferencia_Destinos">
+            <End Role="Destinos" EntitySet="Destinos" />
+            <End Role="Transferencia" EntitySet="Transferencia" />
+          </AssociationSet>
           <AssociationSet Name="FK_Factura_Servicio" Association="DBbilleteraModel.FK_Factura_Servicio">
             <End Role="Servicio" EntitySet="Servicio" />
             <End Role="Factura" EntitySet="Factura" />
@@ -485,23 +501,21 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
-          <AssociationSet Name="FK_Transferencia_Destino" Association="DBbilleteraModel.FK_Transferencia_Destino">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Transferencia" EntitySet="Transferencia" />
-          </AssociationSet>
           <AssociationSet Name="FK_Transferencia_Usuario" Association="DBbilleteraModel.FK_Transferencia_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Transferencia" EntitySet="Transferencia" />
           </AssociationSet>
-          </EntityContainer>
-        <EntityType Name="Pais">
+        </EntityContainer>
+        <EntityType Name="Destinos">
           <Key>
-            <PropertyRef Name="idPais" />
+            <PropertyRef Name="idUserDestino" />
           </Key>
-          <Property Name="idPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUserOrigen" Type="Int32" Nullable="false" />
+          <Property Name="idUserDestino" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Provincia" Relationship="DBbilleteraModel.FK_Provincia_Pais" FromRole="Pais" ToRole="Provincia" />
-          <NavigationProperty Name="Usuario" Relationship="DBbilleteraModel.FK_Usuario_Pais" FromRole="Pais" ToRole="Usuario" />
+          <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transferencia" Relationship="DBbilleteraModel.FK_Transferencia_Destinos" FromRole="Destinos" ToRole="Transferencia" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -555,6 +569,15 @@
           <Property Name="numComprobante" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoMovimiento" Relationship="DBbilleteraModel.FK_Movimiento_TipoMovimiento" FromRole="Movimiento" ToRole="TipoMovimiento" />
           <NavigationProperty Name="Usuario" Relationship="DBbilleteraModel.FK_Movimiento_Usuario" FromRole="Movimiento" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="idPais" />
+          </Key>
+          <Property Name="idPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Provincia" Relationship="DBbilleteraModel.FK_Provincia_Pais" FromRole="Pais" ToRole="Provincia" />
+          <NavigationProperty Name="Usuario" Relationship="DBbilleteraModel.FK_Usuario_Pais" FromRole="Pais" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="PlazoFijo">
           <Key>
@@ -626,9 +649,9 @@
           <Property Name="idUsuario" Type="Int32" Nullable="false" />
           <Property Name="idDestino" Type="Int32" Nullable="false" />
           <Property Name="idMoneda" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Destinos" Relationship="DBbilleteraModel.FK_Transferencia_Destinos" FromRole="Transferencia" ToRole="Destinos" />
           <NavigationProperty Name="Moneda" Relationship="DBbilleteraModel.FK_Transferencia_Moneda" FromRole="Transferencia" ToRole="Moneda" />
-          <NavigationProperty Name="Usuario" Relationship="DBbilleteraModel.FK_Transferencia_Destino" FromRole="Transferencia" ToRole="Usuario" />
-          <NavigationProperty Name="Usuario1" Relationship="DBbilleteraModel.FK_Transferencia_Usuario" FromRole="Transferencia" ToRole="Usuario" />
+          <NavigationProperty Name="Usuario" Relationship="DBbilleteraModel.FK_Transferencia_Usuario" FromRole="Transferencia" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -656,9 +679,20 @@
           <NavigationProperty Name="Provincia" Relationship="DBbilleteraModel.FK_Usuario_Provincia" FromRole="Usuario" ToRole="Provincia" />
           <NavigationProperty Name="Saldo" Relationship="DBbilleteraModel.FK_Saldo_Usuario" FromRole="Usuario" ToRole="Saldo" />
           <NavigationProperty Name="Servicio" Relationship="DBbilleteraModel.FK_Servicio_Usuario" FromRole="Usuario" ToRole="Servicio" />
-          <NavigationProperty Name="Transferencia" Relationship="DBbilleteraModel.FK_Transferencia_Destino" FromRole="Usuario" ToRole="Transferencia" />
-          <NavigationProperty Name="Transferencia1" Relationship="DBbilleteraModel.FK_Transferencia_Usuario" FromRole="Usuario" ToRole="Transferencia" />
+          <NavigationProperty Name="Transferencia" Relationship="DBbilleteraModel.FK_Transferencia_Usuario" FromRole="Usuario" ToRole="Transferencia" />
         </EntityType>
+        <Association Name="FK_Transferencia_Destinos">
+          <End Type="DBbilleteraModel.Destinos" Role="Destinos" Multiplicity="1" />
+          <End Type="DBbilleteraModel.Transferencia" Role="Transferencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destinos">
+              <PropertyRef Name="idUserDestino" />
+            </Principal>
+            <Dependent Role="Transferencia">
+              <PropertyRef Name="idDestino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Factura_Servicio">
           <End Type="DBbilleteraModel.Servicio" Role="Servicio" Multiplicity="0..1" />
           <End Type="DBbilleteraModel.Factura" Role="Factura" Multiplicity="*" />
@@ -827,18 +861,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Transferencia_Destino">
-          <End Type="DBbilleteraModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="DBbilleteraModel.Transferencia" Role="Transferencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="Transferencia">
-              <PropertyRef Name="idDestino" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Transferencia_Usuario">
           <End Type="DBbilleteraModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="DBbilleteraModel.Transferencia" Role="Transferencia" Multiplicity="*" />
@@ -857,11 +879,14 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBbilleteraModelStoreContainer" CdmEntityContainer="DBbilleteraEntities">
-          <EntitySetMapping Name="Pais">
-            <EntityTypeMapping TypeName="DBbilleteraModel.Pais">
-              <MappingFragment StoreEntitySet="Pais">
+          <EntitySetMapping Name="Destinos">
+            <EntityTypeMapping TypeName="DBbilleteraModel.Destinos">
+              <MappingFragment StoreEntitySet="Destinos">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idPais" ColumnName="idPais" />
+                <ScalarProperty Name="idUserDestino" ColumnName="idUserDestino" />
+                <ScalarProperty Name="idUserOrigen" ColumnName="idUserOrigen" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -912,6 +937,14 @@
                 <ScalarProperty Name="idTipoMov" ColumnName="idTipoMov" />
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="idMovimiento" ColumnName="idMovimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="DBbilleteraModel.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idPais" ColumnName="idPais" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1004,7 +1037,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

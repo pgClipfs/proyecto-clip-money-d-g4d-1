@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DBbilleteraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Destinos">
+    <Key>
+      <PropertyRef Name="idUserDestino" />
+    </Key>
+    <Property Name="idUserOrigen" Type="int" Nullable="false" />
+    <Property Name="idUserDestino" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Factura">
     <Key>
       <PropertyRef Name="idFactura" />
@@ -253,12 +263,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Transferencia_Destino">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+  <Association Name="FK_Transferencia_Destinos">
+    <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
     <End Role="Transferencia" Type="Self.Transferencia" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="idUsuario" />
+      <Principal Role="Destinos">
+        <PropertyRef Name="idUserDestino" />
       </Principal>
       <Dependent Role="Transferencia">
         <PropertyRef Name="idDestino" />
@@ -326,6 +336,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="DBbilleteraModelStoreContainer">
+    <EntitySet Name="Destinos" EntityType="Self.Destinos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FondoComun" EntityType="Self.FondoComun" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Localidad" EntityType="Self.Localidad" Schema="dbo" store:Type="Tables" />
@@ -380,8 +391,8 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Servicio" EntitySet="Servicio" />
     </AssociationSet>
-    <AssociationSet Name="FK_Transferencia_Destino" Association="Self.FK_Transferencia_Destino">
-      <End Role="Usuario" EntitySet="Usuario" />
+    <AssociationSet Name="FK_Transferencia_Destinos" Association="Self.FK_Transferencia_Destinos">
+      <End Role="Destinos" EntitySet="Destinos" />
       <End Role="Transferencia" EntitySet="Transferencia" />
     </AssociationSet>
     <AssociationSet Name="FK_Transferencia_Moneda" Association="Self.FK_Transferencia_Moneda">

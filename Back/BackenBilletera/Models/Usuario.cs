@@ -23,7 +23,6 @@ namespace BackenBilletera.Models
             this.Saldo = new HashSet<Saldo>();
             this.Servicio = new HashSet<Servicio>();
             this.Transferencia = new HashSet<Transferencia>();
-            this.Transferencia1 = new HashSet<Transferencia>();
         }
     
         public int idUsuario { get; set; }
@@ -56,7 +55,5 @@ namespace BackenBilletera.Models
         public virtual ICollection<Servicio> Servicio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transferencia> Transferencia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transferencia> Transferencia1 { get; set; }
     }
 }

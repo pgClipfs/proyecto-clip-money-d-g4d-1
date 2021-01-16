@@ -79,6 +79,10 @@ export class TransferenciaComponent implements OnInit {
     this.saldoService
       .updateSaldoNumber(this.destinoId, value.monto)
       .subscribe((saldo) => console.log(saldo));
+    this.saldoService
+      .updateSaldoNumber(this.userId, value.monto)
+      .subscribe((saldo) => console.log(saldo));
+
     this.movimientosService
       .newMovimientoNumber(this.userId, value.monto, this.idTipoMov)
       .subscribe((movientos) => console.log(movientos));
