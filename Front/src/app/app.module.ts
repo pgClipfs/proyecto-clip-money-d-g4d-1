@@ -23,6 +23,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditarComponent } from './component/editar/editar.component';
 import { TransferenciaComponent } from './component/transferencia/transferencia.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ModalDestinoComponent } from './component/modal-destino/modal-destino.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,7 @@ import { TransferenciaComponent } from './component/transferencia/transferencia.
     PrincipalComponent,
     EditarComponent,
     TransferenciaComponent,
+    ModalDestinoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +48,16 @@ import { TransferenciaComponent } from './component/transferencia/transferencia.
     [NgbModule],
     AppRoutingModule,
     [FontAwesomeModule],
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
 
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
+  entryComponents: [ModalDestinoComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

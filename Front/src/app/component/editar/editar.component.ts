@@ -33,6 +33,7 @@ export class EditarComponent implements OnInit {
   provincias: IProvincia[];
   returnUrl: string;
   user: IgetUser;
+  userId: number;
 
   singUpForm: FormGroup;
 
@@ -66,7 +67,7 @@ export class EditarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = Number(tokenGet());
+    this.userId = Number(tokenGet());
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
@@ -75,7 +76,7 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
 
-    this.getUserService.getUser(userId).subscribe(
+    this.getUserService.getUser(this.userId).subscribe(
       (userFromApi: IgetUser) => {
         this.user = userFromApi;
 
@@ -119,7 +120,7 @@ export class EditarComponent implements OnInit {
           telefono: value.telefono,
           email: value.email,
           nomUsuario: value.nomUsuario,
-          password: value.password,
+          password: this.user.password,
           idPais: value.idPais,
           idProvincia: value.idProvincia,
           idLocalidad: value.idLocalidad,

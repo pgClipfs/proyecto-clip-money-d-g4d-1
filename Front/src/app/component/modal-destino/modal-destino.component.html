@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+    <form [formGroup]="upDestino " (ngSubmit)="onDestino(upDestino.value) ">
+        <span> Alias del destino: </span>
+        <input class="input " type="text " name="alias " id="alias " placeholder="Alias " formControlName="alias ">
+        <br>
+        <br>
+        <span> Nombre del destino: </span>
+        <input class="input " type="text " name="nombre " id="nombre " placeholder="Nombre " formControlName="nombre ">
+        <br>
+        <br>
+        <span> Apellido del destino: </span>
+        <input class="input " type="text " name="apellido " id="apellido " placeholder="Apellido " formControlName="apellido ">
+        <br>
+        <br>
+        <span> Email del destino: </span>
+        <input class="input " type="text " name="email " id="email " placeholder="Email " formControlName="email ">
+        <br>
+        <br>
+        <button type="submit " class="btn btn-success ">Agregar Destino</button>
+
+    </form>
+</div>
+<div mat-mat-dialog-actions>
+    <button class="btn btn-danger" mat-button [mat-dialog-close]="true">Cerrar</button>
+</div>

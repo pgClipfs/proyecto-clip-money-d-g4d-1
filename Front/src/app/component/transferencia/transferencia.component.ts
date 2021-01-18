@@ -12,7 +12,9 @@ import tokenGet from '../../helpers/get.id';
 import { SaldoService } from '../../service/saldo.service';
 import { GetUserService } from '../../service/get-user.service';
 import { MovimientosService } from '../../service/movimientos.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { MatDialog } from '@angular/material/dialog';
+import { ModalDestinoComponent } from '../modal-destino/modal-destino.component';
 
 @Component({
   selector: 'app-transferencia',
@@ -42,18 +44,13 @@ export class TransferenciaComponent implements OnInit {
     private saldoService: SaldoService,
     private movimientosService: MovimientosService,
     private getUserService: GetUserService,
-    public modal: NgbModal
+
+    public dialog: MatDialog
   ) {
     this.upTransferencia = this.buider.group({
       idUsuario: ['', Validators.required],
       idDestino: ['', Validators.required],
       monto: ['', Validators.required],
-    });
-    this.upDestino = this.buider.group({
-      alias: ['', Validators.required],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
     });
   }
 
@@ -64,6 +61,20 @@ export class TransferenciaComponent implements OnInit {
       },
       (error) => console.error(error)
     );
+  }
+
+  openDialog(): void {
+    const dialoRef = this.dialog.open(ModalDestinoComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  onDestino(value: InewDestino): void {
+    this.userId = Number(tokenGet());
+    this.getUserService
+      .newDestino(value, this.userId)
+      .subscribe((destino) => console.log(destino));
   }
   onSelectAlias(id: number): void {
     this.destinoId = id;
@@ -86,11 +97,5 @@ export class TransferenciaComponent implements OnInit {
     this.movimientosService
       .newMovimientoNumber(this.userId, value.monto, this.idTipoMov)
       .subscribe((movientos) => console.log(movientos));
-  }
-  onDestino(value: InewDestino): void {
-    this.userId = Number(tokenGet());
-    this.getUserService
-      .newDestino(value, this.userId)
-      .subscribe((destino) => console.log(destino));
   }
 }

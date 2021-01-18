@@ -1,5 +1,5 @@
 export interface IgetUser {
-  id: number;
+  idUsuario: number;
   nombre: string;
   apellido: string;
 
