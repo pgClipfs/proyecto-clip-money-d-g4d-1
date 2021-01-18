@@ -13,6 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!-----------------------------titulo de tranferencia-------------------------------------->
                 <div class="title text-center">
                     <span>Tranferencia</span>
                 </div>
@@ -21,9 +22,10 @@
         </div>
         <div class="row">
             <div class="col-12">
+                <!-----------------------------Formulario-------------------------------------->
                 <form [formGroup]="upTransferencia" (ngSubmit)="onSubmit(upTransferencia.value)">
                     <div class="dat-deb">
-                        <span class="header">Datos de debito</span>
+                        <span class="header ">Datos de debito</span>
                         <div class="input">
                             <span>Monto a transferir</span>
                             <input type="text" placeholder="Monto a transferir" name="monto" id="monto" formControlName="monto">
@@ -57,7 +59,7 @@
         </div>
         <div class="row ">
             <div class="col-4 ">
-
+                <!-----------------------------Botones-------------------------------------->
                 <div class="div-button ">
                     <button class="btn btn-primary ">Enviar</button>
                 </div>

@@ -2,6 +2,12 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
 .container {
     display: flex;
     flex-direction: column;

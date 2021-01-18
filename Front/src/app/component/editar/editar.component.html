@@ -17,6 +17,7 @@
             <div>
                 <div class=" fondoLogin">
                     <div class="alto ">
+                        <!-----------------------------hedear de editar-------------------------------------->
                         <div class="header">
                             <div class="arrow">
                                 <a href="/index.html">
@@ -29,8 +30,10 @@
                   seguridad</span>
                             </div>
                         </div>
+                        <!-----------------------------form de editar-------------------------------------->
                         <form [formGroup]="singUpForm" (ngSubmit)="onSubmit( singUpForm.value ) ">
                             <div class="cont-reg">
+                                <!-----------------------------Campos CVU y Alias-------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>CVU</span>
@@ -52,6 +55,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-----------------------------Campos nombre y apellido -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Nombre</span>
@@ -70,7 +74,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <!-----------------------------Campos dni y telefono -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>DNI</span>
@@ -90,7 +94,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <!-----------------------------Campos usuario y email  -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Usuario</span>
@@ -109,6 +113,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-----------------------------Campos pais -------------------------------------->
                                 <div class="inp-reg">
                                     <span>Pais</span>
                                     <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.nombre" (change)="onSelectPais($event.target.value)">
@@ -124,6 +129,7 @@
                                     </div>
 
                                 </div>
+                                <!-----------------------------Campos provincia -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Provincia</span>
@@ -138,6 +144,7 @@
                                             Campo obligatorio*
                                         </div>
                                     </div>
+                                    <!-----------------------------Campos localidad -------------------------------------->
                                     <div class="direc-flex">
                                         <span>Localidad</span>
                                         <select class="form-control" formControlName="idLocalidad">
@@ -151,6 +158,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-----------------------------Campos calle y altura  -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>calle</span>
@@ -169,28 +177,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <form action="#" method="POST" enctype="multipart/form-data">
-                                    <br>
-                                    <div class="direc-reg">
-                                        <div class="direc-flex ">
-                                            <div class="img-user" style="align-items: center;">
 
-                                            </div>
-                                            <label for="foto">Imagen</label>
-                                            <input name="foto" type="file">
-
-                                            <button class="btn-img" type="submit">Subir</button>
-
-
-                                        </div>
-
-
-
-
-                                    </div>
-
-                                </form> -->
-
+                                <!-----------------------------Campos botones   -------------------------------------->
 
                                 <div class="btn-reg">
                                     <button [disabled]="singUpForm.invalid" type="submit" class="btn">Editar</button>

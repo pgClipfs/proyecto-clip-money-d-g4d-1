@@ -1,4 +1,6 @@
 <div mat-dialog-content>
+    <h4 class="text-center">Datos de nuevo destino</h4>
+
     <form [formGroup]="upDestino " (ngSubmit)="onDestino(upDestino.value) ">
         <span> Alias del destino: </span>
         <input class="input " type="text " name="alias " id="alias " placeholder="Alias " formControlName="alias ">

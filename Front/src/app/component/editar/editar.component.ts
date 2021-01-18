@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+/* -----------------Interfaces -------------------------*/
 import { ILocalidad } from '../../models/Ilocalidad';
 import { IPais } from '../../models/Ipais';
 import { IProvincia } from '../../models/Iprovincia';
+import { InewUser } from 'src/app/models/inew-user';
+import { IgetUser } from 'src/app/models/userget';
+
+/* -----------------Servicios -------------------------*/
 import { LocalidadService } from '../../service/localidad.service';
 import { PaisService } from '../../service/pais.service';
 import { ProvinciaService } from '../../service/provincia.service';
 import { GetUserService } from '../../service/get-user.service';
+
+/* -----------------Imports para porgramacioon reactiva -------------------------*/
 
 import {
   FormControl,
@@ -13,12 +20,10 @@ import {
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
+/* -----------------Ruteo -------------------------*/
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { InewUser } from 'src/app/models/inew-user';
-import { IgetUser } from 'src/app/models/userget';
+/* -----------------Tomar id del usuario -------------------------*/
 import tokenGet from '../../helpers/get.id';
-import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-editar',
@@ -69,13 +74,14 @@ export class EditarComponent implements OnInit {
   ngOnInit(): void {
     this.userId = Number(tokenGet());
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    /* -----------------Traemos los paices -------------------------*/
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
         this.paises = paisesFromApi;
       },
       (error) => console.error(error)
     );
-
+    /* -----------------Traemos al usuario logeado -------------------------*/
     this.getUserService.getUser(this.userId).subscribe(
       (userFromApi: IgetUser) => {
         this.user = userFromApi;
@@ -85,6 +91,7 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+  /* -----------------Traemos las provincias segun el pais elegido -------------------------*/
   onSelectPais(id: number): void {
     this.provinciaService.getPorPais(id).subscribe(
       (provinciasFromApi: IProvincia[]) => {
@@ -93,6 +100,7 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+  /* -----------------Traemos las localidades segun la provincia elegida -------------------------*/
   onSelectProvincia(id: number): void {
     console.log(id);
     this.localidadService.getPorProvincia(id).subscribe(
@@ -103,7 +111,7 @@ export class EditarComponent implements OnInit {
       (error) => console.error(error)
     );
   }
-
+  /* -----------------Enviamos el usuario editado -------------------------*/
   onSubmit(value: InewUser): void {
     const userId = Number(tokenGet());
     console.log('jkdkdskdsfk', value);

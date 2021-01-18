@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+/* -----------------Trae  para hacer el modal -------------------------*/
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+/* -----------------Servicios -------------------------*/
 import { SaldoService } from '../../service/saldo.service';
 import { MovimientosService } from '../../service/movimientos.service';
 import { GetUserService } from '../../service/get-user.service';
+/* -----------------Interfaces -------------------------*/
 import { ISaldo, Imonto } from '../../models/saldo';
 import { IgetUser } from '../../models/userget';
 import { IMovi } from '../../models/moviminetos';
 import { ImovMostrar } from '../../models/movMostrar';
+/* -----------------Tomar id del usuario -------------------------*/
 import tokenGet from '../../helpers/get.id';
+/* -----------------Ruteo -------------------------*/
 import { ActivatedRoute, Router } from '@angular/router';
 import {
   FormControl,
@@ -33,6 +38,7 @@ export class HomeComponent implements OnInit {
   numId: number;
   movimientos = false;
   idTipoMov: number;
+  p = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,24 +55,28 @@ export class HomeComponent implements OnInit {
   }
 
   buscarSaldo(): void {
+    /* -----------------Trae el saldos y toma  el id del saldo y el saldo actual -------------------------*/
+    this.user = Number(tokenGet());
     this.saldoService.getSaldo().subscribe(
       (saldoFormApi: ISaldo[]) => {
         this.saldosList = saldoFormApi;
         console.log(this.saldosList);
         for (let i = 0; i < this.saldosList.length; i++) {
-          this.saldoActual = this.saldosList[i].monto;
-          this.numId = this.saldosList[i].idSaldo;
+          if (this.user === this.saldosList[i].idUsuario) {
+            this.saldoActual = this.saldosList[i].monto;
+            this.numId = this.saldosList[i].idSaldo;
+          }
         }
       },
       (error) => console.error(error)
     );
   }
   ngOnInit(): void {
+    /* -----------------Llama a la funcion buscarsaldo() para actualizar -------------------------*/
     this.buscarSaldo();
   }
 
-  armarArrayMov(): void {}
-
+  /* ----------------- Trae los datos para mostrar en la tabla movimientos -------------------------*/
   verMovimientos(): void {
     this.user = Number(tokenGet());
     this.getUserService
@@ -82,7 +92,7 @@ export class HomeComponent implements OnInit {
       });
     this.movimientos = true;
   }
-
+  /* -----------------Manda el saldo a sumar y manda el movimiento nuevo -------------------------*/
   onSubmit(value: Imonto): void {
     this.idTipoMov = 1;
     this.user = Number(tokenGet());

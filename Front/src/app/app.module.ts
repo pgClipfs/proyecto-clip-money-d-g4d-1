@@ -27,6 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ModalDestinoComponent } from './component/modal-destino/modal-destino.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +59,7 @@ import { ModalDestinoComponent } from './component/modal-destino/modal-destino.c
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
   ],
   entryComponents: [ModalDestinoComponent],
   providers: [

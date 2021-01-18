@@ -27,12 +27,14 @@
                             </a>
                         </div>
                         <div class="cont-title">
+                            <!-----------------------------hedear de registrar-------------------------------------->
                             <span class="title">Registro</span>
                             <span class="text-center">*Todos los campos son obligatorios</span>
                         </div>
                     </div>
                     <form [formGroup]="singUpForm" (ngSubmit)="onSubmit(singUpForm.value)">
                         <div class="cont-reg">
+                            <!-----------------------------Campos nombre y apellido -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>Nombre</span>
@@ -51,10 +53,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-----------------------------Campos alias -------------------------------------->
                             <div class="direc-reg">
-
-
-
                                 <div class="direc-flex">
                                     <span>Alias</span>
                                     <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias">
@@ -64,6 +64,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-----------------------------Campos dni y telefono -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>DNI</span>
@@ -84,7 +85,7 @@
                                 </div>
 
                             </div>
-
+                            <!-----------------------------Campos usuario y passaword -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>Usuario</span>
@@ -103,6 +104,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-----------------------------Campos email  -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>E-mail</span>
@@ -112,6 +114,7 @@
                                         Campo obligatorio*
                                     </div>
                                 </div>
+                                <!-----------------------------Campos pais -------------------------------------->
                                 <div class="direc-flex">
                                     <span>Pais</span>
                                     <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
@@ -130,6 +133,7 @@
                             </div>
 
                             <div class="direc-reg">
+                                <!-----------------------------Campos provincia -------------------------------------->
                                 <div class="direc-flex">
                                     <span>Provincia</span>
                                     <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)" class="form-control" formControlName="idProvincia">
@@ -143,6 +147,7 @@
                                         Campo obligatorio*
                                     </div>
                                 </div>
+                                <!-----------------------------Campos localidad -------------------------------------->
                                 <div class="direc-flex">
                                     <span>Localidad</span>
                                     <select class="form-control" formControlName="idLocalidad">
@@ -156,6 +161,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-----------------------------Campos calle y altura -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span>calle</span>
@@ -174,6 +180,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-----------------------------Campos subir una imagen -------------------------------------->
                             <form action="#" method="POST" enctype="multipart/form-data">
                                 <br>
                                 <div class="direc-reg">
@@ -196,7 +203,7 @@
 
                             </form>
 
-
+                            <!-----------------------------Botones -------------------------------------->
                             <div class="btn-reg">
                                 <button [disabled]="singUpForm.invalid" type="submit" class="btn">Aceptar</button>
                                 <button class="btn" routerLink="/login">Cancelar</button>

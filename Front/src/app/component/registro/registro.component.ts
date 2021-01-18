@@ -1,25 +1,27 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+/* -----------------Interfaces -------------------------*/
 import { ILocalidad } from '../../models/Ilocalidad';
 import { IPais } from '../../models/Ipais';
 import { IProvincia } from '../../models/Iprovincia';
+import { InewUser } from 'src/app/models/inew-user';
+import { Imonto } from 'src/app/models/saldo';
+
+/* -----------------Servicios -------------------------*/
 import { LocalidadService } from '../../service/localidad.service';
 import { PaisService } from '../../service/pais.service';
 import { ProvinciaService } from '../../service/provincia.service';
 import { SaldoService } from '../../service/saldo.service';
+import { UserService } from '../../service/user.service';
+import { GetUserService } from '../../service/get-user.service';
+/* -----------------Imports para porgramacioon reactiva -------------------------*/
 import {
   FormControl,
   Validators,
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
+/* -----------------Ruteo -------------------------*/
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../service/user.service';
-import { GetUserService } from '../../service/get-user.service';
-import { InewUser } from 'src/app/models/inew-user';
-import { IgetUser } from '../../models/userget';
-import tokenGet from '../../helpers/get.id';
-import * as bcrypt from 'bcryptjs';
-import { Imonto } from 'src/app/models/saldo';
 
 @Component({
   selector: 'app-registro',
@@ -70,6 +72,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    /* -----------------Traemos los paices -------------------------*/
     this.paisService.getAll().subscribe(
       (paisesFromApi: IPais[]) => {
         this.paises = paisesFromApi;
@@ -77,6 +80,7 @@ export class RegistroComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+  /* -----------------Traemos las provincias segun el pais elegido -------------------------*/
   onSelectPais(id: number): void {
     this.provinciaService.getPorPais(id).subscribe(
       (provinciasFromApi: IProvincia[]) => {
@@ -85,6 +89,7 @@ export class RegistroComponent implements OnInit {
       (error) => console.error(error)
     );
   }
+  /* -----------------Traemos las localidades segun la provincia elegida -------------------------*/
   onSelectProvincia(id: number): void {
     console.log(id);
     this.localidadService.getPorProvincia(id).subscribe(
@@ -95,10 +100,10 @@ export class RegistroComponent implements OnInit {
       (error) => console.error(error)
     );
   }
-
+  /* ----------------- Inicializamos una cuenta saldo y logeamos a usuario nuevo -------------------------*/
   onSubmit(value: InewUser): void {
     this.monto = {
-      monto: 100,
+      monto: 0,
     };
     this.tiempo = 5000;
 
