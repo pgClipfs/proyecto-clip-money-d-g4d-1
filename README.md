@@ -1,12 +1,6 @@
 # **Sistema web para la creación de una billetera digital Clip-Money**
 
-## **TAREAS SEGUNDO SPRINT**
-- _Belen OCHI - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Ivan Burcher - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Marcos Emanuel FLORES - Tarea: Desarrolo en el backend y correcciones
-- _Lautaro Joaquin BUSTOS RAIZ - Tarea: Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
-- _Lisandro MICHLIG - Tarea: Desarrolo en el backend y correcciones
-- _Enzo David VAZQUEZ ALTAMIRANO -Tarea: Hacer la vista principal y modificar vista login
+
 
 ## **Product Backlog**
 
