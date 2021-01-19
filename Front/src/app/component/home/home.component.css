@@ -2,6 +2,23 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.title {
+    margin: 2%;
+    padding: 1%;
+    color: white;
+    background-image: linear-gradient(#24803C, #5EAB97);
+}
+
+.colorsCerrar {
+    background-color: #d9534f !important;
+    color: white;
+}
+
+.colorNuevo {
+    background-color: #5cb85c !important;
+    color: white;
+}
+
 .container {
     display: flex;
     flex-direction: column;

@@ -166,7 +166,8 @@
     <Compile Include="Controllers\Api\MovimientoesController.cs" />
     <Compile Include="Controllers\Api\PaisController.cs" />
     <Compile Include="Controllers\Api\ProvinciasController.cs" />
-    <Compile Include="Controllers\Api\SaldosController.cs" />
+    <Compile Include="Controllers\Api\SaldoesController.cs" />
+    <Compile Include="Controllers\Api\TipoMovimientoesController.cs" />
     <Compile Include="Controllers\Api\TransferenciasController.cs" />
     <Compile Include="Controllers\Api\UsuariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DestinoPost.cs" />
     <Compile Include="Models\Destinos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -187,6 +189,7 @@
     </Compile>
     <Compile Include="Models\GestorLogin.cs" />
     <Compile Include="Models\GetIdDestino.cs" />
+    <Compile Include="Models\GetIdSaldo.cs" />
     <Compile Include="Models\GetIdUsuario.cs" />
     <Compile Include="Models\Localidad.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -238,6 +241,7 @@
     <Compile Include="Models\Transferencia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TransferenciaPost.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>

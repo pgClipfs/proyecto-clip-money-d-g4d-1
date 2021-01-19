@@ -36,9 +36,9 @@
                         <div class="input">
                             <span>Cuenta de destino</span>
 
-                            <select formControlName="alias" [(ngModel)]="selectedDestino.id" class="form-control" id="alias" required (change)="onSelectAlias($event.target.value)">
-                <option *ngFor=" let destino of this.listDestino " value={{destino.idDestino}}>
-                  {{destino.alias}}
+                            <select class="form-control" formControlName="idUserDestino" [(ngModel)]="selectedDestino.alias" class="form-control" required (change)="onSelectAlias($event.target.value)">
+                <option *ngFor="let des of listDestino" value={{des.idUserDestino}}>
+                  {{des.alias}}
 
                 </option>
 
@@ -47,9 +47,10 @@
                         </div>
                         <div class="input ">
                             <span>E-mail de notificacion</span>
-                            <input type="text " required>
+                            <input type="text " required formControlName="email">
                         </div>
                     </div>
+                    <button type="submit" class="btn  colors">Enviar</button>
 
                 </form>
 
@@ -61,18 +62,18 @@
             <div class="col-4 ">
                 <!-----------------------------Botones-------------------------------------->
                 <div class="div-button ">
-                    <button class="btn btn-primary ">Enviar</button>
+
                 </div>
 
             </div>
             <div class="col-4 ">
                 <div class="div-button ">
-                    <button class="btn btn-primary " mat-button (click)="openDialog()">Agregar Destino</button>
+                    <button class="btn  colors" mat-button (click)="openDialog()">Agregar Destino</button>
                 </div>
             </div>
             <div class="col-4 ">
                 <div class="div-button ">
-                    <button class="btn btn-primary " routerLink="/home ">Volver</button>
+                    <button class="btn  colors" routerLink="/home ">Volver</button>
                 </div>
             </div>
         </div>

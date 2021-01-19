@@ -27,7 +27,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class RegistroComponent implements OnInit {
   selectedPais: IPais = { idPais: 0, nombre: '' };

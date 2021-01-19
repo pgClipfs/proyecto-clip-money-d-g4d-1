@@ -33,13 +33,12 @@ export class TransferenciaComponent implements OnInit {
   idTipoMov: number;
   listDestino: IgetDestinos[];
   selectedDestino: IgetDestinos = {
-    idUsuario: 0,
+    idUserOrigen: 0,
     alias: '',
     nombre: '',
     apellido: '',
     email: '',
-    idDestino: 0,
-    id: 0,
+    idUserDestino: 0,
   };
 
   constructor(
@@ -52,20 +51,25 @@ export class TransferenciaComponent implements OnInit {
     public dialog: MatDialog
   ) {
     this.upTransferencia = this.buider.group({
-      idUsuario: ['', Validators.required],
-      idDestino: ['', Validators.required],
+      idUserDestino: ['', Validators.required],
       monto: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
     });
+  }
+  buscarAlias(): void {
+    this.userId = Number(tokenGet());
+    this.getUserService.getidDestino(this.userId).subscribe(
+      (destinosFromApi: IgetDestinos[]) => {
+        this.listDestino = destinosFromApi;
+        console.log(this.listDestino);
+      },
+      (error) => console.error(error)
+    );
   }
 
   ngOnInit(): void {
     /* -----------------Trae los usuarios para mandar dinero  -------------------------*/
-    this.getUserService.getidDestino().subscribe(
-      (destinosFromApi: IgetDestinos[]) => {
-        this.listDestino = destinosFromApi;
-      },
-      (error) => console.error(error)
-    );
+    this.buscarAlias();
   }
   /* -----------------Abre le modal -------------------------*/
   openDialog(): void {
@@ -80,6 +84,7 @@ export class TransferenciaComponent implements OnInit {
     this.getUserService
       .newDestino(value, this.userId)
       .subscribe((destino) => console.log(destino));
+    this.buscarAlias();
   }
   /* -----------------Toma el id del usario destino -------------------------*/
   onSelectAlias(id: number): void {
@@ -95,14 +100,19 @@ export class TransferenciaComponent implements OnInit {
       .subscribe((trasferencia) => {
         console.log(trasferencia);
       });
+    // this.trasferenciaService
+    //   .newTrasferenciasaldo(value, this.userId)
+    //   .subscribe((trasferencia) => {
+    //     console.log(trasferencia);
+    //   });
     /* -----------------Suma el saldo del usuario destino -------------------------*/
-    this.saldoService
-      .updateSaldoNumber(this.destinoId, value.monto)
-      .subscribe((saldo) => console.log(saldo));
+    // this.saldoService
+    //   .updateSaldoNumber(this.destinoId, value.monto)
+    //   .subscribe((saldo) => console.log(saldo));
     /* -----------------Resta el saldo en el usuario actual -------------------------*/
-    this.saldoService
-      .updateSaldoNumber(this.userId, value.monto)
-      .subscribe((saldo) => console.log(saldo));
+    // this.saldoService
+    //   .updateSaldoNumber(this.userId, value.monto)
+    //   .subscribe((saldo) => console.log(saldo));
     /* -----------------Manda para crear el nuevo movimiento -------------------------*/
     this.movimientosService
       .newMovimientoNumber(this.userId, value.monto, this.idTipoMov)

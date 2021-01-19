@@ -34,8 +34,18 @@ export class ModalDestinoComponent implements OnInit {
   ngOnInit(): void {}
   onDestino(value: InewDestino): void {
     this.userId = Number(tokenGet());
+    console.log(this.userId);
     this.getUserService
-      .newDestino(value, this.userId)
+      .newDestino(
+        (value = {
+          alias: value.alias,
+          nombre: value.nombre,
+
+          apellido: value.apellido,
+          email: value.email,
+        }),
+        this.userId
+      )
       .subscribe((destino) => console.log(destino));
   }
 }

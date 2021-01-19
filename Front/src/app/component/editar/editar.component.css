@@ -38,7 +38,7 @@
     .cont-title {
         padding-top: 20px;
         padding-bottom: 20px;
-        background-color: teal;
+        background-image: linear-gradient(#24803C, #5EAB97);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -101,10 +101,10 @@
         padding: 2%;
         display: flex;
         justify-content: center;
-        background-color: #1E1F26;
-        border-color: #81611b;
+        background-color: #5cb85c;
+        border-color: #5cb85c;
         border-radius: 25px;
-        color: #f9ba32;
+        color: white;
     }
     
     .btn-img {

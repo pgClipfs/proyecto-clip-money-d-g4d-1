@@ -13,19 +13,18 @@ using BackenBilletera.Models;
 
 namespace BackenBilletera.Controllers.Api
 {
-  
-    public class SaldosController : ApiController
+    public class SaldoesController : ApiController
     {
         private DBbilleteraEntities db = new DBbilleteraEntities();
 
-        // GET: api/Saldos
+        // GET: api/Saldoes
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Saldo> GetSaldo()
         {
             return db.Saldo;
         }
 
-        // GET: api/Saldos/5
+        // GET: api/Saldoes/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Saldo))]
         public IHttpActionResult GetSaldo(int id)
@@ -39,33 +38,23 @@ namespace BackenBilletera.Controllers.Api
             return Ok(saldo);
         }
 
-        // PUT: api/Saldos/5
+        // PUT: api/Saldoes/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSaldo(int id, SaldoMonto saldo)
+        public IHttpActionResult PutSaldo(int id, Saldo saldo)
         {
-
-            //var usuarios = db.Usuario.Find(id);
-            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            
-
-
-            // Buscar usuario por id
+            // Buscar saldo por id de usuario
             var current = db.Saldo.Find(id);
-
             try
             {
-                
+                // Restar el monto que le estoy pasando al saldo actual del usuario
+                // Luego, actualizar en la base
                 current.monto = current.monto + saldo.monto;
-                
-                                
-
-
                 db.Saldo.Attach(current);
                 db.Entry(current).State = EntityState.Modified;
                 db.SaveChanges();
@@ -73,19 +62,17 @@ namespace BackenBilletera.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                
+
             }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Saldos
+        // POST: api/Saldoes
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Saldo))]
         public IHttpActionResult PostSaldo(string id, Saldo saldo)
         {
-            
-
             GetIdUsuario gGetId = new GetIdUsuario();
             var idUser = gGetId.obtenerId(id);
 
@@ -106,8 +93,7 @@ namespace BackenBilletera.Controllers.Api
             return CreatedAtRoute("DefaultApi", new { id = saldo.idSaldo }, saldo);
         }
 
-        // DELETE: api/Saldos/5
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        // DELETE: api/Saldoes/5
         [ResponseType(typeof(Saldo))]
         public IHttpActionResult DeleteSaldo(int id)
         {

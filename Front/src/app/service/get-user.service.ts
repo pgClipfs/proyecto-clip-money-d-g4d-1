@@ -42,19 +42,15 @@ export class GetUserService {
     return this.http.get<any>(`${environment.apiUrl}/api/Usuarios`);
   }
 
-  getidDestino(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/api/Destino`);
+  getidDestino(idUserOrigen: number): Observable<any> {
+    return this.http.get<any>(
+      `${environment.apiUrl}/api/Destinos/${idUserOrigen}`
+    );
   }
   newDestino(value: InewDestino, idUser: number): Observable<any> {
     return this.http.post<any>(
-      `${environment.apiUrl}/api/Destino`,
-      (value = {
-        idUsuario: idUser,
-        alias: value.alias,
-        nombre: value.nombre,
-        apellido: value.apellido,
-        email: value.email,
-      })
+      `${environment.apiUrl}/api/Destinos/${idUser}`,
+      value
     );
   }
 }

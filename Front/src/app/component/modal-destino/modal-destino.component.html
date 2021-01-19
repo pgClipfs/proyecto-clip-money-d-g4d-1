@@ -1,27 +1,37 @@
 <div mat-dialog-content>
-    <h4 class="text-center">Datos de nuevo destino</h4>
+
+    <h4 class="text-center title ">Datos de nuevo destino</h4>
+    <br>
+
+
+
 
     <form [formGroup]="upDestino " (ngSubmit)="onDestino(upDestino.value) ">
         <span> Alias del destino: </span>
-        <input class="input " type="text " name="alias " id="alias " placeholder="Alias " formControlName="alias ">
+        <input class="input " type="text " name="alias " id="alias " placeholder="Alias " formControlName="alias">
         <br>
         <br>
         <span> Nombre del destino: </span>
-        <input class="input " type="text " name="nombre " id="nombre " placeholder="Nombre " formControlName="nombre ">
+        <input class="input " type="text " name="nombre " id="nombre " placeholder="Nombre " formControlName="nombre">
         <br>
         <br>
         <span> Apellido del destino: </span>
-        <input class="input " type="text " name="apellido " id="apellido " placeholder="Apellido " formControlName="apellido ">
+        <input class="input " type="text " name="apellido " id="apellido " placeholder="Apellido " formControlName="apellido">
         <br>
         <br>
         <span> Email del destino: </span>
-        <input class="input " type="text " name="email " id="email " placeholder="Email " formControlName="email ">
+        <input class="input " type="text " name="email " id="email " placeholder="Email " formControlName="email">
+
         <br>
         <br>
-        <button type="submit " class="btn btn-success ">Agregar Destino</button>
+        <button type="submit " class="btn btn-success colorNuevo">Agregar Destino</button>
+
 
     </form>
+
 </div>
 <div mat-mat-dialog-actions>
-    <button class="btn btn-danger" mat-button [mat-dialog-close]="true">Cerrar</button>
+    <br>
+
+    <button class="btn btn-danger colorsCerrar" mat-button [mat-dialog-close]="true">Cerrar</button>
 </div>

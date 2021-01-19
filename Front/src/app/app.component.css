@@ -29,7 +29,7 @@
 .wrapper .sidebar {
     width: 16%;
     height: 100%;
-    background-image: url(../assets/img/Meridian.jpg);
+    background-image: linear-gradient(#24803C, #5EAB97);
     padding: 0px;
     background-position: center;
     background-size: cover;
@@ -65,7 +65,7 @@
 }
 
 .wrapper .sidebar ul li:hover {
-    background-color: teal;
+    background-color: green;
 }
 
 .wrapper .sidebar ul li:hover a {
@@ -83,7 +83,7 @@
 .wrapper .sidebar .social_media a {
     display: block;
     width: 40px;
-    background: teal;
+    background-image: linear-gradient(#24803C, #5EAB97);
     height: 40px;
     line-height: 45px;
     text-align: center;

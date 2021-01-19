@@ -14,6 +14,7 @@
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="alias" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -515,6 +516,7 @@
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Transferencia" Relationship="DBbilleteraModel.FK_Transferencia_Destinos" FromRole="Destinos" ToRole="Transferencia" />
         </EntityType>
         <EntityType Name="Factura">
@@ -882,6 +884,7 @@
           <EntitySetMapping Name="Destinos">
             <EntityTypeMapping TypeName="DBbilleteraModel.Destinos">
               <MappingFragment StoreEntitySet="Destinos">
+                <ScalarProperty Name="alias" ColumnName="alias" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />

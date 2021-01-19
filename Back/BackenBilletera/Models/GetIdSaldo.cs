@@ -5,16 +5,17 @@ using System.Web;
 
 namespace BackenBilletera.Models
 {
-    public class GetIdDestino
+    public class GetIdSaldo
     {
-        public int ObtenerId(string alias)
+        public int obtenerIdSaldo(int id)
         {
             DBbilleteraEntities db = new DBbilleteraEntities();
-            var lst = from d in db.Usuario
-                      where d.alias == alias
-                      select d.idUsuario;
+            var lst = from d in db.Saldo
+                      where d.idUsuario == id
+                      select d.idSaldo;
             return lst.First();
         }
 
+        
     }
 }

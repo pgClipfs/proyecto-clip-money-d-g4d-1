@@ -16,7 +16,6 @@ export interface InewUser {
 }
 
 export interface InewDestino {
-  idUsuario: number;
   alias: string;
   nombre: string;
   apellido: string;
@@ -24,11 +23,10 @@ export interface InewDestino {
 }
 
 export interface IgetDestinos {
-  idUsuario: number;
+  idUserDestino: number;
   alias: string;
   nombre: string;
   apellido: string;
   email: string;
-  idDestino: number;
-  id: number;
+  idUserOrigen: number;
 }

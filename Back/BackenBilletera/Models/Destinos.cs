@@ -25,6 +25,7 @@ namespace BackenBilletera.Models
         public string nombre { get; set; }
         public string apellido { get; set; }
         public string email { get; set; }
+        public string alias { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transferencia> Transferencia { get; set; }

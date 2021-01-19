@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using BackenBilletera.Models;
 
@@ -17,25 +18,23 @@ namespace BackenBilletera.Controllers.Api
         private DBbilleteraEntities db = new DBbilleteraEntities();
 
         // GET: api/Destinos
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IQueryable<Destinos> GetDestinos()
         {
             return db.Destinos;
         }
 
         // GET: api/Destinos/5
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Destinos))]
-        public IHttpActionResult GetDestinos(int id)
+        public IQueryable GetDestinos(int id)
         {
-            Destinos destinos = db.Destinos.Find(id);
-            if (destinos == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(destinos);
+            var lstDestinos = db.Destinos.Where(x => x.idUserOrigen == id);
+            return lstDestinos;
         }
 
         // PUT: api/Destinos/5
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDestinos(int id, Destinos destinos)
         {
@@ -71,23 +70,33 @@ namespace BackenBilletera.Controllers.Api
         }
 
         // POST: api/Destinos
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Destinos))]
-        public IHttpActionResult PostDestinos(Destinos destinos)
+        public IHttpActionResult PostDestinos(int id, DestinoPost destinoPost)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Destinos.Add(destinos);
-
+            GetIdDestino getIdDestino = new GetIdDestino();
+            var idDestino = getIdDestino.ObtenerId(destinoPost.alias);
+            var oDestino = new Destinos();
             try
             {
+                
+                oDestino.idUserOrigen = id;
+                oDestino.alias = destinoPost.alias;
+                oDestino.nombre = destinoPost.nombre;
+                oDestino.idUserDestino = idDestino;
+                oDestino.apellido = destinoPost.apellido;
+                oDestino.email = destinoPost.email;
+                db.Destinos.Add(oDestino);
                 db.SaveChanges();
             }
             catch (DbUpdateException)
             {
-                if (DestinosExists(destinos.idUserDestino))
+                if (DestinosExists(oDestino.idUserDestino))
                 {
                     return Conflict();
                 }
@@ -97,10 +106,11 @@ namespace BackenBilletera.Controllers.Api
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = destinos.idUserDestino }, destinos);
+            return CreatedAtRoute("DefaultApi", new { id = oDestino.idUserDestino }, oDestino);
         }
 
         // DELETE: api/Destinos/5
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Destinos))]
         public IHttpActionResult DeleteDestinos(int id)
         {

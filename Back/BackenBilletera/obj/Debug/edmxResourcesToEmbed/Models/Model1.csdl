@@ -90,6 +90,7 @@
     <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alias" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Transferencia" Relationship="DBbilleteraModel.FK_Transferencia_Destinos" FromRole="Destinos" ToRole="Transferencia" />
   </EntityType>
   <EntityType Name="Factura">

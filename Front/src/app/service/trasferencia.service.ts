@@ -10,13 +10,23 @@ import { Itransferecia } from '../models/transferencia';
 export class TrasferenciaService {
   constructor(private http: HttpClient) {}
 
+  // newTrasferenciasaldo(value: Itransferecia, userId: number): Observable<any> {
+  //   return this.http.post<any>(
+  //     `${environment.apiUrl}/api/SaldoTransferencia/${userId}`,
+  //     (value = {
+  //       email: value.email,
+  //       monto: value.monto,
+  //       idUserDestino: value.idUserDestino,
+  //     })
+  //   );
+  // }
   newTrasferencia(value: Itransferecia, userId: number): Observable<any> {
     return this.http.post<any>(
-      `${environment.apiUrl}/api/Transferencia`,
+      `${environment.apiUrl}/api/Transferencias/${userId}`,
       (value = {
-        idUsuario: userId,
-        alias: value.alias,
+        email: value.email,
         monto: value.monto,
+        idUserDestino: value.idUserDestino,
       })
     );
   }

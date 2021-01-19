@@ -1,5 +1,5 @@
 export interface Itransferecia {
-  idUsuario: number;
-  alias: number;
+  email: string;
   monto: number;
+  idUserDestino: number;
 }

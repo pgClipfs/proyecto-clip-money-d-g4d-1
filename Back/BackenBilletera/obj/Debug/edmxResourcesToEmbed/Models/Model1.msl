@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Destinos">
       <EntityTypeMapping TypeName="DBbilleteraModel.Destinos">
         <MappingFragment StoreEntitySet="Destinos">
+          <ScalarProperty Name="alias" ColumnName="alias" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="apellido" ColumnName="apellido" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
