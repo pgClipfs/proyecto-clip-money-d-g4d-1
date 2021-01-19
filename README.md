@@ -1,12 +1,25 @@
-# **Sistema web para la creación de una billetera digital Clip-Money**
+# **Billetera Digital Clip-Money**
 
-## **TAREAS SEGUNDO SPRINT**
-- _Belen OCHI - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Ivan Burcher - Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Marcos Emanuel FLORES - Tarea: Desarrolo en el backend y correcciones
-- _Lautaro Joaquin BUSTOS RAIZ - Tarea: Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
-- _Lisandro MICHLIG - Tarea: Desarrolo en el backend y correcciones
-- _Enzo David VAZQUEZ ALTAMIRANO -Tarea: Hacer la vista principal y modificar vista login
+---
+## **Equipo**
+ 
+- _Lautaro Joaquin BUSTOS RAIZ_ - [Github](https://github.com/laubus96) [Product Manager + Desarrollo General]
+- _Marcos Emanuel FLORES_ - [Github](https://github.com/emaflores) [Backend]
+- _Lisandro MICHLIG_ - [Github](https://github.com/lichimichlig) [Backend]
+***
+- _Belen OCHI_ - [Github](https://github.com/belenochi) [Frontend]
+- _Ivan BURCHER_ - [Github](https://github.com/) [Frontend]
+- _Enzo David VAZQUEZ ALTAMIRANO_ - [Github](https://github.com/enzoa96) [Frontend]
+
+---
+
+## **Division de Tareas**
+    Belen OCHI --> Hacer vista y funcionalidad de ingreso de dinero, consulta de transacciones
+    Ivan BURCHER --> Hacer vista y funcionalidad de ingreso de dinero, consulta de transacciones
+    Marcos Emanuel FLORES --> Desarrolo en el backend y correcciones
+    Lautaro Joaquin BUSTOS RAIZ --> Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
+    Lisandro MICHLIG --> Desarrolo en el backend y correcciones
+    Enzo David VAZQUEZ ALTAMIRANO --> Hacer la vista principal y modificar vista login
 
 ## **Product Backlog**
 
@@ -64,11 +77,3 @@ pensar solo en dos servicios por luz y gas, para que sirva de ejemplo)
 - XXIV. Consulta últimas operaciones
 
 ----
-## **Equipo**
- 
-- _Belen OCHI_ - [Github](https://github.com/belenochi)  Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Ivan Burcher - [Github](https://github.com/) Tarea: Hacer vista y funcionalida de ingreso de dinero, consulta de transacciones
-- _Marcos Emanuel FLORES_ - [Github](https://github.com/emaflores) Tarea: Desarrolo en el backend y correcciones
-- _Lautaro Joaquin BUSTOS RAIZ_ - [Github](https://github.com/laubus96) Tarea: Hacer las vista y funcionalidad de editar, navbar principal y modificar vista registro
-- _Lisandro MICHLIG_ - [Github](https://github.com/lichimichlig) Tarea: Desarrolo en el backend y correcciones
-- _Enzo David VAZQUEZ ALTAMIRANO_ - [Github](https://github.com/enzoa96)Tarea: Hacer la vista principal y modificar vista login
