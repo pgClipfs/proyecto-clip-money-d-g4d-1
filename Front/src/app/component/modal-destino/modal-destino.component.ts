@@ -1,5 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
 import {
   FormControl,
   Validators,
@@ -20,6 +24,7 @@ export class ModalDestinoComponent implements OnInit {
   constructor(
     private buider: FormBuilder,
     private getUserService: GetUserService,
+    public dialog: MatDialog,
     public dialogRef: MatDialogRef<ModalDestinoComponent>,
     @Inject(MAT_DIALOG_DATA) public massage: string
   ) {
@@ -47,5 +52,6 @@ export class ModalDestinoComponent implements OnInit {
         this.userId
       )
       .subscribe((destino) => console.log(destino));
+    this.dialog.closeAll();
   }
 }

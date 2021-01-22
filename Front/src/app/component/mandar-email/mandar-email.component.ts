@@ -8,7 +8,11 @@ import {
   FormGroup,
 } from '@angular/forms';
 
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-mandar-email',
@@ -21,6 +25,7 @@ export class MandarEmailComponent implements OnInit {
     private recuContraService: RecuperarContraseñaService,
     private builder: FormBuilder,
     public dialogRef: MatDialogRef<MandarEmailComponent>,
+    public dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public massage: string
   ) {
     this.upMail = this.builder.group({
@@ -33,5 +38,6 @@ export class MandarEmailComponent implements OnInit {
     this.recuContraService.mandarMail(value).subscribe((email) => {
       console.log(email);
     });
+    this.dialog.closeAll();
   }
 }

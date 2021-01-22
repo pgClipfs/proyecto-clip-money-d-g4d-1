@@ -1,36 +1,36 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { MandarEmailComponent } from '../mandar-email/mandar-email.component';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   FormControl,
   Validators,
   FormBuilder,
   FormGroup,
 } from '@angular/forms';
-import { MandarEmailComponent } from '../mandar-email/mandar-email.component';
-import { ModalLoginComponent } from '../modal-login/modal-login.component';
-import { MatDialog } from '@angular/material/dialog';
+
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
+
 @Component({
-  selector: 'app-principal',
-  templateUrl: './principal.component.html',
-  styleUrls: ['./principal.component.css'],
-  // encapsulation: ViewEncapsulation.None,
+  selector: 'app-modal-login',
+  templateUrl: './modal-login.component.html',
+  styleUrls: ['./modal-login.component.css'],
 })
-export class PrincipalComponent implements OnInit {
-  returnUrl: string;
-  error = '';
+export class ModalLoginComponent implements OnInit {
   usernameControl = new FormControl('', Validators.required);
   passwordControl = new FormControl('', Validators.required);
+  returnUrl: string;
+  error = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-
-    public modal: NgbModal,
 
     public dialog: MatDialog
   ) {}
@@ -39,7 +39,7 @@ export class PrincipalComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
   }
   openDialog(): void {
-    const dialoRef = this.dialog.open(ModalLoginComponent, {});
+    const dialoRef = this.dialog.open(MandarEmailComponent, {});
     dialoRef.afterClosed().subscribe((res) => {
       console.log(res);
     });
@@ -56,5 +56,6 @@ export class PrincipalComponent implements OnInit {
           this.error = error;
         }
       );
+    this.dialog.closeAll();
   }
 }

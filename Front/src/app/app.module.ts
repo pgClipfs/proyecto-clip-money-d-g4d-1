@@ -15,7 +15,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
-import { LoginComponent } from './component/login/login.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistroComponent } from './component/registro/registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
@@ -32,12 +32,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RecuperacionComponent } from './component/recuperacion/recuperacion.component';
 
 import { MandarEmailComponent } from './component/mandar-email/mandar-email.component';
+import { ModalLoginComponent } from './component/modal-login/modal-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
+
     RegistroComponent,
     PrincipalComponent,
     EditarComponent,
@@ -46,6 +47,8 @@ import { MandarEmailComponent } from './component/mandar-email/mandar-email.comp
     RecuperacionComponent,
 
     MandarEmailComponent,
+
+    ModalLoginComponent,
   ],
   imports: [
     BrowserModule,
