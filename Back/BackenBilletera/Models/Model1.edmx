@@ -148,6 +148,7 @@
           <Property Name="idPais" Type="int" Nullable="false" />
           <Property Name="calle" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="altura" Type="int" Nullable="false" />
+          <Property Name="tokenMail" Type="varchar" MaxLength="150" />
         </EntityType>
         <Association Name="FK_Factura_Servicio">
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
@@ -673,6 +674,7 @@
           <Property Name="idPais" Type="Int32" Nullable="false" />
           <Property Name="calle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="altura" Type="Int32" Nullable="false" />
+          <Property Name="tokenMail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="FondoComun" Relationship="DBbilleteraModel.FK_FondoComun_1_Usuario" FromRole="Usuario" ToRole="FondoComun" />
           <NavigationProperty Name="Localidad" Relationship="DBbilleteraModel.FK_Usuario_Localidad" FromRole="Usuario" ToRole="Localidad" />
           <NavigationProperty Name="Movimiento" Relationship="DBbilleteraModel.FK_Movimiento_Usuario" FromRole="Usuario" ToRole="Movimiento" />
@@ -1023,6 +1025,7 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="DBbilleteraModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="tokenMail" ColumnName="tokenMail" />
                 <ScalarProperty Name="altura" ColumnName="altura" />
                 <ScalarProperty Name="calle" ColumnName="calle" />
                 <ScalarProperty Name="idPais" ColumnName="idPais" />

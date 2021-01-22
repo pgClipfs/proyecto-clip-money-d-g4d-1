@@ -1,5 +1,25 @@
 /* modal */
 
+.title {
+    margin: 2%;
+    padding: 1%;
+    color: white;
+    background-image: linear-gradient(#24803C, #5EAB97);
+}
+
+.colorsCerrar {
+    background-color: #d9534f !important;
+    color: white;
+}
+
+.colorNuevo {
+    background-color: #5cb85c !important;
+    color: white;
+}
+
+
+/* modal */
+
 .login-form {
     margin-top: 50px;
 }
@@ -156,4 +176,10 @@
 
 #aboutus {
     font-family: 'Gruppo', cursive;
+}
+
+.close {
+    position: relative;
+    top: -440px;
+    right: -15px
 }

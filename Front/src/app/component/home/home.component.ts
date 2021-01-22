@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   upSaldoForm: FormGroup;
   saldoActual: number;
   returnUrl: string;
-  apellido: string;
+  cvuUser: number;
   numId: number;
   movimientos = false;
   idTipoMov: number;
@@ -79,12 +79,7 @@ export class HomeComponent implements OnInit {
   /* ----------------- Trae los datos para mostrar en la tabla movimientos -------------------------*/
   verMovimientos(): void {
     this.user = Number(tokenGet());
-    this.getUserService
-      .getUser(this.user)
-      .subscribe((userFromApi: IgetUser) => {
-        this.apellido = userFromApi.apellido;
-        console.log(this.apellido);
-      });
+
     this.movimientoService
       .getMoviminetos(this.user)
       .subscribe((movimFormApi: IMovi[]) => {

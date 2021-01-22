@@ -247,6 +247,7 @@
     <Property Name="idPais" Type="Int32" Nullable="false" />
     <Property Name="calle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="altura" Type="Int32" Nullable="false" />
+    <Property Name="tokenMail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="FondoComun" Relationship="DBbilleteraModel.FK_FondoComun_1_Usuario" FromRole="Usuario" ToRole="FondoComun" />
     <NavigationProperty Name="Localidad" Relationship="DBbilleteraModel.FK_Usuario_Localidad" FromRole="Usuario" ToRole="Localidad" />
     <NavigationProperty Name="Movimiento" Relationship="DBbilleteraModel.FK_Movimiento_Usuario" FromRole="Usuario" ToRole="Movimiento" />

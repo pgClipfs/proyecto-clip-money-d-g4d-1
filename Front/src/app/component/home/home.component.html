@@ -27,8 +27,8 @@
                 <!------------------- Muestra los datos de tu cuenta y opciones para hacer ------------------------------->
                 <div class="main-cont">
                     <div class="data-cliente">
-                        <span>Caja de ahorro N</span>
-                        <span id="">022222</span>
+                        <span>Caja de ahorro N: </span>
+                        <span id="">{{this.user}}</span>
                     </div>
                     <span>Saldo disponible</span>
                     <span id="">{{this.saldoActual}}</span>
@@ -74,20 +74,24 @@
                                 <th scope="col"></th>
                                 <th scope="col">TipoMov</th>
                                 <th scope="col">Cliente</th>
+                                <th scope="col">Destino</th>
                                 <th scope="col">Monto</th>
                                 <th scope="col">Fecha</th>
+                                <th scope="col">Comprobante</th>
                             </tr>
 
                         </thead>
                         <tbody>
                             <tr *ngFor=" let mov of this.movimientosList | paginate: { itemsPerPage: 10, currentPage: p };">
                                 <th scope="row"></th>
-                                <td scope="row">{{mov.idTipoMov}}
+                                <td scope="row">{{mov.movimiento}}
                                 </td>
-                                <td scope="row">{{this.apellido}}</td>
+                                <td scope="row">{{mov.Apellido}}</td>
+                                <td scope="row">{{mov.ApellidoDestino }}</td>
                                 <td scope="row">{{mov.monto}}</td>
 
                                 <td>{{mov.fecha}}</td>
+                                <td scope="row">{{mov.numComprobante}}</td>
                                 <td></td>
                             </tr>
 
@@ -117,7 +121,7 @@
                     <input type="text" name="saldo" id="saldo" placeholder='Ej: 100' formControlName="monto">
                     <br>
                     <br>
-                    <button type="submit" class="btn colorNuevo">Ingresar Dinero</button>
+                    <button type="submit" class="btn colorNuevo ">Ingresar Dinero</button>
 
                 </form>
 

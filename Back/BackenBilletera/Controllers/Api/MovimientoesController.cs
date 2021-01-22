@@ -19,10 +19,38 @@ namespace BackenBilletera.Controllers.Api
 
         // GET: api/Movimientoes/5
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        public IQueryable<Movimiento> GetMovimiento( int id)
+        public List<MovimientosPorUsuario> GetMovimiento( int id)
         {
             var lstMoviminetos = db.Movimiento.Where(x => x.idUsuario == id);
-            return lstMoviminetos;
+            List<MovimientosPorUsuario> listaMov = new List<MovimientosPorUsuario>();
+            
+            foreach(var mov in lstMoviminetos)
+            {
+                var current = db.Usuario.Find(mov.idUsuario);
+                
+                
+                var nombreMovimiento = db.TipoMovimiento.Find(mov.idTipoMov);
+                
+                GetIdDestino getIdDestino = new GetIdDestino();
+                var currentDestino = getIdDestino.destinoOrNo(mov.idTipoMov, mov.idUsuario);
+                 
+                    
+
+                
+
+                var oMovimineto = new MovimientosPorUsuario();
+                oMovimineto.Apellido = current.apellido;
+                oMovimineto.monto = mov.monto;
+                oMovimineto.fecha = mov.fecha;
+                oMovimineto.numComprobante = mov.numComprobante;
+                oMovimineto.ApellidoDestino = currentDestino.apellido;
+                oMovimineto.movimiento = nombreMovimiento.nombre;
+
+                listaMov.Add(oMovimineto);
+            }
+
+            return listaMov;
+            
         }
 
         // GET: api/Movimientoes/5
@@ -75,7 +103,7 @@ namespace BackenBilletera.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Movimientoes
+        /// POST: api/Movimientoes
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [ResponseType(typeof(Movimiento))]
         public IHttpActionResult PostMovimiento(int id, Movimiento movimiento)

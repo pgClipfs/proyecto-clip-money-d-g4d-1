@@ -1,0 +1,25 @@
+<div mat-dialog-content>
+
+    <h4 class="text-center title ">Ingresar email</h4>
+    <br>
+
+
+
+
+    <form [formGroup]="upMail " (ngSubmit)="onMail(upMail.value) ">
+        <span> Alias del destino: </span>
+        <input class="input " type="text " name="alias " id="alias " placeholder="email " formControlName="email">
+        <br>
+        <br>
+
+        <button type="submit " class="btn btn-success colorNuevo">Agregar Destino</button>
+
+
+    </form>
+
+</div>
+<div mat-mat-dialog-actions>
+    <br>
+
+    <button class="btn btn-danger colorsCerrar" mat-button [mat-dialog-close]="true">Cerrar</button>
+</div>

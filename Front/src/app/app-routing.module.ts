@@ -7,9 +7,13 @@ import { RegistroComponent } from './component/registro/registro.component';
 import { EditarComponent } from './component/editar/editar.component';
 import { PrincipalComponent } from './component/principal/principal.component';
 import { TransferenciaComponent } from './component/transferencia/transferencia.component';
+import { RecuperacionComponent } from './component/recuperacion/recuperacion.component';
+import { MandarEmailComponent } from './component/mandar-email/mandar-email.component';
 
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
+  { path: 'recuperacion/:token', component: RecuperacionComponent },
+  { path: 'mandaremail', component: MandarEmailComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'editar', component: EditarComponent },
   // { path: 'login', component: LoginComponent },

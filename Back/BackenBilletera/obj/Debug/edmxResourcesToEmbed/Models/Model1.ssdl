@@ -143,6 +143,7 @@
     <Property Name="idPais" Type="int" Nullable="false" />
     <Property Name="calle" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="altura" Type="int" Nullable="false" />
+    <Property Name="tokenMail" Type="varchar" MaxLength="150" />
   </EntityType>
   <Association Name="FK_Factura_Servicio">
     <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />

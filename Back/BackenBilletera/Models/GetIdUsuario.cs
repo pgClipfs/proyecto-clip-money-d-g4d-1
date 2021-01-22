@@ -15,5 +15,21 @@ namespace BackenBilletera.Models
                       select d.idUsuario;
             return lst.First();
         }
+        public int obtenerUser(string email)
+        {
+            DBbilleteraEntities db = new DBbilleteraEntities();
+            var lst = from d in db.Usuario
+                      where d.email == email
+                      select d.idUsuario;
+            return lst.First();
+        }
+        public int obtenerUserPorToken(string token)
+        {
+            DBbilleteraEntities db = new DBbilleteraEntities();
+            var lst = from d in db.Usuario
+                      where d.tokenMail == token
+                      select d.idUsuario;
+            return lst.First();
+        }
     }
 }

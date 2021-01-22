@@ -30,3 +30,13 @@ export interface IgetDestinos {
   email: string;
   idUserOrigen: number;
 }
+
+export interface Iemail {
+  email: string;
+}
+
+export interface Ipassword {
+  password: string;
+  passwordsegunda: string;
+  token: string;
+}

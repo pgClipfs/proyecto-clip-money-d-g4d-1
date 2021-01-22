@@ -38,7 +38,7 @@
          color: white;
      }
      
-     span {
+     .span-reg {
          color: white;
      }
      
@@ -97,7 +97,7 @@
          padding: 2%;
      }
      
-     .btn {
+     .bton {
          width: 20%;
          padding: 2%;
          display: flex;

@@ -29,6 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ModalDestinoComponent } from './component/modal-destino/modal-destino.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RecuperacionComponent } from './component/recuperacion/recuperacion.component';
+
+import { MandarEmailComponent } from './component/mandar-email/mandar-email.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EditarComponent,
     TransferenciaComponent,
     ModalDestinoComponent,
+    RecuperacionComponent,
+
+    MandarEmailComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
@@ -17,6 +20,7 @@ namespace BackenBilletera.Controllers.Api
     public class UsuariosController : ApiController
     {
         private DBbilleteraEntities db = new DBbilleteraEntities();
+        string urlDomain = "http://localhost:4200";
 
         // GET: api/Usuarios
         [EnableCors(origins: "*", headers: "*", methods: "*")]
@@ -39,10 +43,42 @@ namespace BackenBilletera.Controllers.Api
             return Ok(usuario);
         }
 
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+
+        [ResponseType(typeof(void))]
+        [HttpPut]
+        public IHttpActionResult PutUsuario( Email email1)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            string token = GetSHA256(Guid.NewGuid().ToString());
+            GetIdUsuario getUser = new GetIdUsuario();
+
+            var idUsuario = getUser.obtenerUser(email1.email);
+            var oUsuario = db.Usuario.Find(idUsuario);
+            oUsuario.tokenMail = token;
+            db.Entry(oUsuario).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+                //enviar mail
+                SendEmail(oUsuario.email, token);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
 
         // PUT: api/Usuarios/5
-        
+
         [EnableCors(origins: "*", headers: "*", methods: "*")]
 
         [ResponseType(typeof(void))]
@@ -170,6 +206,40 @@ namespace BackenBilletera.Controllers.Api
         private bool UsuarioExists(int id)
         {
             return db.Usuario.Count(e => e.idUsuario == id) > 0;
+        }
+
+
+        /* -------------------HELPERS--------------------*/
+        public static string GetSHA256(string str)
+        {
+            SHA256 sha256 = SHA256Managed.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(str));
+            for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+            return sb.ToString();
+        }
+        private void SendEmail(string EmailDestino, string token)
+        {
+            string EmailOrigen = "laubus1234@gmail.com";
+            string Contraseña = "ABcd1234";
+            string url = urlDomain + "/recuperacion/" + token;
+            MailMessage oMailMessage = new MailMessage(EmailOrigen, EmailDestino, "Recuperación de contraseña",
+                "<p>Correo para recuperación de contraseña</p><br>" +
+                "<a href='" + url + "'>Click para recuperar</a>");
+
+            oMailMessage.IsBodyHtml = true;
+
+            SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+            oSmtpClient.EnableSsl = true;
+            oSmtpClient.UseDefaultCredentials = false;
+            oSmtpClient.Port = 587;
+            oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailOrigen, Contraseña);
+
+            oSmtpClient.Send(oMailMessage);
+
+            oSmtpClient.Dispose();
         }
     }
 }

@@ -143,6 +143,7 @@
     <EntitySetMapping Name="Usuario">
       <EntityTypeMapping TypeName="DBbilleteraModel.Usuario">
         <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="tokenMail" ColumnName="tokenMail" />
           <ScalarProperty Name="altura" ColumnName="altura" />
           <ScalarProperty Name="calle" ColumnName="calle" />
           <ScalarProperty Name="idPais" ColumnName="idPais" />

@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {
+  FormControl,
+  Validators,
+  FormBuilder,
+  FormGroup,
+} from '@angular/forms';
+import { MandarEmailComponent } from '../mandar-email/mandar-email.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PrincipalComponent implements OnInit {
   returnUrl: string;
@@ -18,11 +28,20 @@ export class PrincipalComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    public modal: NgbModal
+
+    public modal: NgbModal,
+
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
+  }
+  openDialog(): void {
+    const dialoRef = this.dialog.open(MandarEmailComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+    });
   }
   onSubmit(): void {
     this.authenticationService

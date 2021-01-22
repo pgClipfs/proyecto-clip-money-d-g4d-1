@@ -37,7 +37,7 @@
                             <!-----------------------------Campos nombre y apellido -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>Nombre</span>
+                                    <span class="span-reg">Nombre</span>
                                     <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' formControlName="nombre">
                                     <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">
                                         Campo obligatorio*
@@ -45,7 +45,7 @@
 
                                 </div>
                                 <div class="direc-flex">
-                                    <span>Apellido</span>
+                                    <span class="span-reg ">Apellido</span>
                                     <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez' formControlName="apellido">
                                     <div class="error" *ngIf="singUpForm.get('apellido').hasError('required') &&
                            singUpForm.get('apellido').touched">
@@ -56,7 +56,7 @@
                             <!-----------------------------Campos alias -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>Alias</span>
+                                    <span class="span-reg">Alias</span>
                                     <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias">
                                     <div class="error" *ngIf="singUpForm.get('alias').hasError('required') &&
                            singUpForm.get('apellido').touched">
@@ -67,7 +67,7 @@
                             <!-----------------------------Campos dni y telefono -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>DNI</span>
+                                    <span class="span-reg">DNI</span>
                                     <input type="text" class="form-control" id="dniReg" placeholder='Ej: 11.111.111' formControlName="dni">
                                     <div class="error" *ngIf="singUpForm.get('dni').hasError('required') &&
                            singUpForm.get('dni').touched">
@@ -76,7 +76,7 @@
 
                                 </div>
                                 <div class="direc-flex">
-                                    <span>Telefono</span>
+                                    <span class="span-reg">Telefono</span>
                                     <input type="text" class="form-control" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono">
                                     <div class="error" *ngIf="singUpForm.get('telefono').hasError('required') &&
                            singUpForm.get('telefono').touched">
@@ -88,7 +88,7 @@
                             <!-----------------------------Campos usuario y passaword -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>Usuario</span>
+                                    <span class="span-reg">Usuario</span>
                                     <input type="text" class="form-control" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario">
                                     <div class="error" *ngIf="singUpForm.get('nomUsuario').hasError('required') &&
                            singUpForm.get('nomUsuario').touched">
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="direc-flex">
-                                    <span>Contrasena</span>
+                                    <span class="span-reg">Contrasena</span>
                                     <input type="password" class="form-control" id="passwordReg" placeholder='contrasena123' formControlName="password">
                                     <div class="error" *ngIf="singUpForm.get('password').hasError('required') &&
                            singUpForm.get('password').touched">
@@ -107,7 +107,7 @@
                             <!-----------------------------Campos email  -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>E-mail</span>
+                                    <span class="span-reg">E-mail</span>
                                     <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
                                     <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
                            singUpForm.get('email').touched">
@@ -116,7 +116,7 @@
                                 </div>
                                 <!-----------------------------Campos pais -------------------------------------->
                                 <div class="direc-flex">
-                                    <span>Pais</span>
+                                    <span class="span-reg">Pais</span>
                                     <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.idPais" (change)="onSelectPais($event.target.value)">
                     <option *ngFor="let pais of paises" value={{pais.idPais}}>
                       {{pais.nombre}}
@@ -135,7 +135,7 @@
                             <div class="direc-reg">
                                 <!-----------------------------Campos provincia -------------------------------------->
                                 <div class="direc-flex">
-                                    <span>Provincia</span>
+                                    <span class="span-reg">Provincia</span>
                                     <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)" class="form-control" formControlName="idProvincia">
                     <option *ngFor="let provincia of provincias" value={{provincia.idProvincia}}>
                       {{provincia.nombre}}
@@ -149,7 +149,7 @@
                                 </div>
                                 <!-----------------------------Campos localidad -------------------------------------->
                                 <div class="direc-flex">
-                                    <span>Localidad</span>
+                                    <span class="span-reg">Localidad</span>
                                     <select class="form-control" formControlName="idLocalidad">
                     <option *ngFor="let localidad of localidades" value={{localidad.idLocalidad}}>
                       {{localidad.nombre}}
@@ -164,7 +164,7 @@
                             <!-----------------------------Campos calle y altura -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
-                                    <span>calle</span>
+                                    <span class="span-reg">calle</span>
                                     <input type="text" class="form-control" id="calleReg" placeholder='Ej: Independencia' formControlName="calle">
                                     <div class="error" *ngIf="singUpForm.get('calle').hasError('required') &&
                            singUpForm.get('calle').touched">
@@ -172,7 +172,7 @@
                                     </div>
                                 </div>
                                 <div class="direc-flex">
-                                    <span>Altura</span>
+                                    <span class="span-reg">Altura</span>
                                     <input type="text" class="form-control" id="altReg" placeholder='Ej: 1500' formControlName="altura">
                                     <div class="error" *ngIf="singUpForm.get('altura').hasError('required') &&
                            singUpForm.get('altura').touched">
@@ -205,8 +205,8 @@
 
                             <!-----------------------------Botones -------------------------------------->
                             <div class="btn-reg">
-                                <button [disabled]="singUpForm.invalid" type="submit" class="btn">Aceptar</button>
-                                <button class="btn" routerLink="/login">Cancelar</button>
+                                <button [disabled]="singUpForm.invalid" type="submit" class="bton">Aceptar</button>
+                                <button class="bton" routerLink="/login">Cancelar</button>
                             </div>
                         </div>
                     </form>

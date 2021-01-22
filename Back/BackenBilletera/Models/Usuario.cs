@@ -39,6 +39,7 @@ namespace BackenBilletera.Models
         public int idPais { get; set; }
         public string calle { get; set; }
         public int altura { get; set; }
+        public string tokenMail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FondoComun> FondoComun { get; set; }
