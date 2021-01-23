@@ -24,19 +24,17 @@
                     </div>
 
                     <button type="button" class="btn signin" (click)="onSubmit()"> Iniciar Sesión</button>
-                    <span class="signup">No tienes cuenta? <a class="href-reg" routerLink="/registro">
-              <span class="href-reg">Hace click aqui</span>
-                    </a>
+                    <span class="signup">No tienes cuenta? <button class="dialog" (click)="irRegistro()"
+              routerLink="/registro">Registrate aqui</button>
 
 
-                    </span>
-                    <button type="button" class="close">
-            <span>&times;</span>
-          </button>
+
+          </span>
 
                 </form>
-                <button class=" dialog" mat-button (click)="openDialog()">
-          Recuperar contraseña</button>
+                <span class="signup"> Olvido su contraseña? <button class=" dialog" mat-button (click)="openDialog()">
+            Recuperar contraseña</button></span>
+
             </div>
         </div>
     </div>
@@ -45,5 +43,5 @@
 <div mat-mat-dialog-actions>
     <br>
 
-    <button mat-button [mat-dialog-close]="true"><span>&times;</span></button>
+    <button type="button" mat-button [mat-dialog-close]="true"><span>&times;</span></button>
 </div>

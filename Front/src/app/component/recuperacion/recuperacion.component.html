@@ -20,25 +20,34 @@
 <body>
 
     <div class="container">
-        <div class="row">
-            <div>
-                <h4>Recuperar contraseña</h4>
+        <div class="row ">
+            <div class="col-12">
+                <div class="text-center">
+                    <h4 class="title ">Recuperar contraseña</h4>
+                </div>
             </div>
-
         </div>
         <div class="row">
-            <form [formGroup]="upRecuContra" (submit)="onRecuContra(upRecuContra.value)">
-                <span> Ingrese nueva contraseña </span>
-                <input type="password" name="password" id="password" placeholder="contraseña" formControlName="password">
-                <br>
-                <br>
-                <span> Ingrese nueva contraseña </span>
-                <input type="password" name="passwordsegunda" id="passwordsegunda" placeholder="otra vez contraseña" formControlName="passwordsegunda">
-                <br>
-                <br>
-                <button class="btn btn-success" type="submit">Cambiar contraseña</button>
+            <div class="col-12">
+                <div class="text-center">
+                    <form [formGroup]="upRecuContra" (submit)="onRecuContra(upRecuContra.value)">
+                        <span> Ingrese nueva contraseña: </span>
+                        <input type="password" name="password" id="password" placeholder="contraseña" formControlName="password">
+                        <br>
+                        <br>
+                        <span> Ingrese nueva contraseña: </span>
+                        <input type="password" name="passwordsegunda" id="passwordsegunda" placeholder="otra vez contraseña" formControlName="passwordsegunda">
+                        <br>
+                        <br>
+                        <button class="btn  colorNuevo" type="submit">Cambiar contraseña</button>
 
-            </form>
+                    </form>
+
+                </div>
+
+
+            </div>
+
         </div>
 
     </div>

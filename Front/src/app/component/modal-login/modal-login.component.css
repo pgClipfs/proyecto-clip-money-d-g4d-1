@@ -121,6 +121,7 @@
     color: #47d9f1;
     transition: all 0.3s ease;
     text-transform: capitalize;
+    border: none;
 }
 
 .signup a {

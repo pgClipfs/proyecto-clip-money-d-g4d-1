@@ -13,6 +13,7 @@ using BackenBilletera.Models;
 
 namespace BackenBilletera.Controllers.Api
 {
+    [Authorize]
     public class DestinosController : ApiController
     {
         private DBbilleteraEntities db = new DBbilleteraEntities();

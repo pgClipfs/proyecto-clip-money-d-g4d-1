@@ -58,4 +58,7 @@ export class ModalLoginComponent implements OnInit {
       );
     this.dialog.closeAll();
   }
+  irRegistro(): void {
+    this.dialog.closeAll();
+  }
 }
