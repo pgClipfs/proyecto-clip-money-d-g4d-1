@@ -142,7 +142,7 @@
           <Property Name="telefono" Type="int" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="nomUsuario" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="250" Nullable="false" />
           <Property Name="idProvincia" Type="int" Nullable="false" />
           <Property Name="idLocalidad" Type="int" Nullable="false" />
           <Property Name="idPais" Type="int" Nullable="false" />
@@ -668,7 +668,7 @@
           <Property Name="telefono" Type="Int32" Nullable="false" />
           <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="nomUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="idProvincia" Type="Int32" Nullable="false" />
           <Property Name="idLocalidad" Type="Int32" Nullable="false" />
           <Property Name="idPais" Type="Int32" Nullable="false" />

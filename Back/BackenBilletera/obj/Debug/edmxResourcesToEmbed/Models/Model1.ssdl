@@ -137,7 +137,7 @@
     <Property Name="telefono" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="nomUsuario" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="250" Nullable="false" />
     <Property Name="idProvincia" Type="int" Nullable="false" />
     <Property Name="idLocalidad" Type="int" Nullable="false" />
     <Property Name="idPais" Type="int" Nullable="false" />

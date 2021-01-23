@@ -27,7 +27,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
 })
 export class RegistroComponent implements OnInit {
   selectedPais: IPais = { idPais: 0, nombre: '' };
@@ -105,7 +105,7 @@ export class RegistroComponent implements OnInit {
     this.monto = {
       monto: 0,
     };
-    this.tiempo = 5000;
+    this.tiempo = 20000;
 
     this.userService.addNewUser(value).subscribe((user) => {
       this.router.navigate([this.returnUrl]);

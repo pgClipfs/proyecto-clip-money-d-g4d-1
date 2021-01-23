@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BCrypt.Net;
+
+
 
 namespace BackenBilletera.Models
 {
@@ -9,13 +12,15 @@ namespace BackenBilletera.Models
     {
         public bool validarLogin(LoginRequest login)
         {
+            
             DBbilleteraEntities db = new DBbilleteraEntities();
 
 
             var lst = from d in db.Usuario
-                      where d.nomUsuario == login.Username && d.password == login.Password
-                      select d;
-            if (lst.Count() > 0)
+                      where d.nomUsuario == login.Username
+                      select d.password;
+            var passwordUser = lst.First();
+            if ( BCrypt.Net.BCrypt.Verify(login.password, passwordUser))
             {
 
                 return true;

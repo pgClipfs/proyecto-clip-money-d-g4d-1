@@ -459,3 +459,5 @@ D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\obj\Debug\BackenBilletera.cs
 D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\obj\Debug\BackenBilletera.csproj.CopyComplete
 D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\obj\Debug\BackenBilletera.dll
 D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\obj\Debug\BackenBilletera.pdb
+D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\bin\BCrypt.Net.dll
+D:\proyecto-clip-money-d-g4d-1\Back\BackenBilletera\bin\BCrypt.Net.xml

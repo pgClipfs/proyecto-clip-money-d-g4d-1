@@ -40,3 +40,8 @@ export interface Ipassword {
   passwordsegunda: string;
   token: string;
 }
+
+export interface Ilogin {
+  userName: string;
+  passWord: string;
+}

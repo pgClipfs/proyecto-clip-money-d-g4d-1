@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import * as bcrypt from 'bcryptjs';
 import { environment } from 'src/environments/environment';
+import { Ilogin } from '../models/inew-user';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  loginUser: Ilogin;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(
@@ -28,10 +30,13 @@ export class AuthenticationService {
     const pass = bcrypt.hashSync(password);
     console.log(pass);
     return this.http
-      .post<any>(`${environment.apiUrl}/api/login/authenticate`, {
-        username,
-        password,
-      })
+      .post<any>(
+        `${environment.apiUrl}/api/login/authenticate`,
+        (this.loginUser = {
+          userName: username,
+          passWord: password,
+        })
+      )
       .pipe(
         map((user) => {
           localStorage.setItem('currentUser', JSON.stringify(user));
