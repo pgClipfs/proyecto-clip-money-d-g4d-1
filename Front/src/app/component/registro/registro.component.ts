@@ -30,6 +30,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   // encapsulation: ViewEncapsulation.None,
 })
 export class RegistroComponent implements OnInit {
+  private isValidPatter = /\S+@\S+\.\S+/;
+
   selectedPais: IPais = { idPais: 0, nombre: '' };
   selectedProvincia: IProvincia = { idProvincia: 0, nombre: '', idPais: 0 };
   localidades: ILocalidad[];
@@ -58,9 +60,12 @@ export class RegistroComponent implements OnInit {
       apellido: ['', Validators.required],
       alias: ['', Validators.required],
       telefono: ['', Validators.required],
-      email: ['', Validators.compose([Validators.email, Validators.required])],
+      email: [
+        '',
+        [Validators.required, Validators.pattern(this.isValidPatter)],
+      ],
       nomUsuario: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.maxLength(8)]],
       idProvincia: [Validators.required],
       idLocalidad: [Validators.required],
       idPais: [Validators.required],
@@ -115,5 +120,25 @@ export class RegistroComponent implements OnInit {
         .newSaldo(value.nomUsuario, this.monto)
         .subscribe((saldo) => console.log());
     }, this.tiempo);
+  }
+
+  getErrorMessage(field: string): string {
+    let message;
+    if (this.singUpForm.get(field).errors.required) {
+      message = 'Debe completar el campo. ';
+    } else if (this.singUpForm.get(field).hasError('pattern')) {
+      message = 'No es un mail valido';
+    } else if (this.singUpForm.get(field).hasError('maxLength')) {
+      const minLenght = this.singUpForm.get(field).errors?.maxLength;
+      message = `La contraseña debe tener al menos ${minLenght} letras`;
+    }
+    return message;
+  }
+  isValidField(field: string): boolean {
+    return (
+      (this.singUpForm.get(field).touched ||
+        this.singUpForm.get(field).dirty) &&
+      !this.singUpForm.get(field).valid
+    );
   }
 }

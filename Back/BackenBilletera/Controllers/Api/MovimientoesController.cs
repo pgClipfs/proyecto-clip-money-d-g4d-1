@@ -113,15 +113,39 @@ namespace BackenBilletera.Controllers.Api
             {
                 return BadRequest(ModelState);
             }
-            var oMovimiento = new Movimiento();
-            oMovimiento.idTipoMov = movimiento.idTipoMov;
-            oMovimiento.idUsuario = id;
-            oMovimiento.monto = movimiento.monto;
-            oMovimiento.fecha = DateTime.Now;
-            oMovimiento.numComprobante = 112541;
+            var list = (from d in db.Movimiento
+                       select d).AsEnumerable();
+            if(list.Count()  > 0)
 
-            db.Movimiento.Add(oMovimiento);
-            db.SaveChanges();
+            {
+                var mov = list.Last();
+                var oMovimiento = new Movimiento();
+                oMovimiento.idTipoMov = movimiento.idTipoMov;
+                oMovimiento.idUsuario = id;
+                oMovimiento.monto = movimiento.monto;
+                oMovimiento.fecha = DateTime.Now;
+                oMovimiento.numComprobante = mov.numComprobante + 1;
+
+                db.Movimiento.Add(oMovimiento);
+                db.SaveChanges();
+
+
+            }
+            else
+            {
+                var oMovimiento = new Movimiento();
+                oMovimiento.idTipoMov = movimiento.idTipoMov;
+                oMovimiento.idUsuario = id;
+                oMovimiento.monto = movimiento.monto;
+                oMovimiento.fecha = DateTime.Now;
+                oMovimiento.numComprobante = 100000;
+
+                db.Movimiento.Add(oMovimiento);
+                db.SaveChanges();
+                
+
+            }
+           
 
             return CreatedAtRoute("DefaultApi", new { id = movimiento.idMovimiento }, movimiento);
         }

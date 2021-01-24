@@ -74,7 +74,7 @@
                                 <th scope="col"></th>
                                 <th scope="col">TipoMov</th>
                                 <th scope="col">Cliente</th>
-                                <th scope="col">Destino</th>
+                                <!-- <th scope="col">Destino</th> -->
                                 <th scope="col">Monto</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Comprobante</th>
@@ -87,7 +87,7 @@
                                 <td scope="row">{{mov.movimiento}}
                                 </td>
                                 <td scope="row">{{mov.Apellido}}</td>
-                                <td scope="row">{{mov.ApellidoDestino }}</td>
+                                <!-- <td scope="row">{{mov.ApellidoDestino }}</td> -->
                                 <td scope="row">{{mov.monto}}</td>
 
                                 <td>{{mov.fecha}}</td>
@@ -119,9 +119,14 @@
                 <form [formGroup]="upSaldoForm" (ngSubmit)="onSubmit(upSaldoForm.value)" class="text-center">
                     <span> Depositar: </span>
                     <input type="text" name="saldo" id="saldo" placeholder='Ej: 100' formControlName="monto">
+                    <div class="error" *ngIf="upSaldoForm.get('monto').hasError('required') &&
+                           upSaldoForm.get('monto').touched">
+                        Campo obligatorio*
+                    </div>
                     <br>
                     <br>
-                    <button type="submit" class="btn colorNuevo ">Ingresar Dinero</button>
+                    <button type="submit" class="btn colorNuevo " [disabled]="upSaldoForm.invalid">Ingresar
+            Dinero</button>
 
                 </form>
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatPaginatorModule } from '@angular/material/Paginator';
 import { MatProgressBarModule } from '@angular/material/Progress-bar';
@@ -50,6 +51,7 @@ import { ModalLoginComponent } from './component/modal-login/modal-login.compone
 
     ModalLoginComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     MatPaginatorModule,
@@ -63,6 +65,7 @@ import { ModalLoginComponent } from './component/modal-login/modal-login.compone
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
+    MatFormFieldModule,
 
     FormsModule,
     ReactiveFormsModule,

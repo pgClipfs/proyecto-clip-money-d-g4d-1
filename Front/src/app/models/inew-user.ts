@@ -42,6 +42,11 @@ export interface Ipassword {
 }
 
 export interface Ilogin {
+  username: string;
+  password: string;
+}
+
+export interface IloginService {
   userName: string;
   passWord: string;
 }

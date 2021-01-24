@@ -19,6 +19,7 @@ import { GetUserService } from '../../service/get-user.service';
   styleUrls: ['./modal-destino.component.css'],
 })
 export class ModalDestinoComponent implements OnInit {
+  private isValidPatter = /\S+@\S+\.\S+/;
   upDestino: FormGroup;
   userId: number;
   constructor(
@@ -32,7 +33,10 @@ export class ModalDestinoComponent implements OnInit {
       alias: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      email: [
+        '',
+        [Validators.required, Validators.pattern(this.isValidPatter)],
+      ],
     });
   }
 

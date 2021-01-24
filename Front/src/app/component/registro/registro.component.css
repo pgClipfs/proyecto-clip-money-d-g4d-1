@@ -124,7 +124,7 @@
      }
      
      .fondoLogin {
-         background-image: url(../../../assets/img/Meridian.jpg);
+         background-image: linear-gradient(#24803C, #5EAB97);
          padding: 0;
          background-position: center;
          background-size: cover;

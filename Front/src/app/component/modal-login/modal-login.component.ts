@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { MandarEmailComponent } from '../mandar-email/mandar-email.component';
+import { Ilogin } from '../../models/inew-user';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import {
   FormControl,
@@ -26,14 +28,22 @@ export class ModalLoginComponent implements OnInit {
   passwordControl = new FormControl('', Validators.required);
   returnUrl: string;
   error = '';
+  uplogin: FormGroup;
+  private isValidPatter = /\S+@\S+\.\S+/;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
 
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private builder: FormBuilder
+  ) {
+    this.uplogin = this.builder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.maxLength(8)]],
+    });
+  }
 
   ngOnInit(): void {
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
@@ -45,17 +55,15 @@ export class ModalLoginComponent implements OnInit {
     });
     // this.dialog.closeAll();
   }
-  onSubmit(): void {
-    this.authenticationService
-      .login(this.usernameControl.value, this.passwordControl.value)
-      .subscribe(
-        (data) => {
-          this.router.navigate([this.returnUrl]);
-        },
-        (error) => {
-          this.error = error;
-        }
-      );
+  onSubmit(value: Ilogin): void {
+    this.authenticationService.login(value.username, value.password).subscribe(
+      (data) => {
+        this.router.navigate([this.returnUrl]);
+      },
+      (error) => {
+        this.error = error;
+      }
+    );
     this.dialog.closeAll();
   }
   irRegistro(): void {

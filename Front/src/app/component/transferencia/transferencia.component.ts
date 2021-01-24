@@ -26,6 +26,7 @@ import { ModalDestinoComponent } from '../modal-destino/modal-destino.component'
   styleUrls: ['./transferencia.component.css'],
 })
 export class TransferenciaComponent implements OnInit {
+  private isValidPatter = /\S+@\S+\.\S+/;
   upTransferencia: FormGroup;
   upDestino: FormGroup;
   userId: number;
@@ -53,7 +54,10 @@ export class TransferenciaComponent implements OnInit {
     this.upTransferencia = this.buider.group({
       idUserDestino: ['', Validators.required],
       monto: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
+      email: [
+        '',
+        [Validators.required, Validators.pattern(this.isValidPatter)],
+      ],
     });
   }
   buscarAlias(): void {

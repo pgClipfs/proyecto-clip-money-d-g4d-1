@@ -35,15 +35,28 @@
                     <form [formGroup]="singUpForm" (ngSubmit)="onSubmit(singUpForm.value)">
                         <div class="cont-reg">
                             <!-----------------------------Campos nombre y apellido -------------------------------------->
+
+
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span class="span-reg">Nombre</span>
                                     <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' formControlName="nombre">
-                                    <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">
+                                    <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') &&
+                           singUpForm.get('nombre').touched">
                                         Campo obligatorio*
                                     </div>
 
+
                                 </div>
+
+
+
+
+
+
+
+
+
                                 <div class="direc-flex">
                                     <span class="span-reg ">Apellido</span>
                                     <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez' formControlName="apellido">
@@ -59,9 +72,10 @@
                                     <span class="span-reg">Alias</span>
                                     <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias">
                                     <div class="error" *ngIf="singUpForm.get('alias').hasError('required') &&
-                           singUpForm.get('apellido').touched">
+                           singUpForm.get('alias').touched">
                                         Campo obligatorio*
                                     </div>
+
                                 </div>
                             </div>
                             <!-----------------------------Campos dni y telefono -------------------------------------->
@@ -102,16 +116,26 @@
                            singUpForm.get('password').touched">
                                         Campo obligatorio*
                                     </div>
+                                    <div class="error" *ngIf="singUpForm.get('password').hasError('maxLength') &&
+                           singUpForm.get('password').touched">
+                                        Minimo 8 caracteres*
+
+                                    </div>
                                 </div>
                             </div>
                             <!-----------------------------Campos email  -------------------------------------->
                             <div class="direc-reg">
                                 <div class="direc-flex">
                                     <span class="span-reg">E-mail</span>
-                                    <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
-                                    <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
+                                    <input type="text" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email">
+                                    <div class="error" *ngIf="singUpForm.get('email').hasError('required')  &&
                            singUpForm.get('email').touched">
                                         Campo obligatorio*
+                                    </div>
+                                    <div class="error" *ngIf="singUpForm.get('email').hasError('pattern') &&
+                           singUpForm.get('email').touched">
+                                        No es un email valido*
+
                                     </div>
                                 </div>
                                 <!-----------------------------Campos pais -------------------------------------->

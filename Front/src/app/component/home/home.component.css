@@ -2,6 +2,12 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.error {
+    color: red;
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
 .title {
     margin: 2%;
     padding: 1%;

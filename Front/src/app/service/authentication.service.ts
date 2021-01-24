@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../models/user';
 import * as bcrypt from 'bcryptjs';
 import { environment } from 'src/environments/environment';
-import { Ilogin } from '../models/inew-user';
+import { IloginService } from '../models/inew-user';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ import { Ilogin } from '../models/inew-user';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  loginUser: Ilogin;
+  loginUser: IloginService;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(

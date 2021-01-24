@@ -29,6 +29,10 @@
                         <div class="input">
                             <span>Monto a transferir</span>
                             <input type="text" placeholder="Monto a transferir" name="monto" id="monto" formControlName="monto">
+                            <div class="error" *ngIf="upTransferencia.get('monto').hasError('required') &&
+                           upTransferencia.get('monto').touched">
+                                Campo obligatorio*
+                            </div>
                         </div>
                     </div>
                     <div class="dat-deb">
@@ -48,9 +52,18 @@
                         <div class="input ">
                             <span>E-mail de notificacion</span>
                             <input type="text " required formControlName="email">
+                            <div class="error" *ngIf="upTransferencia.get('email').hasError('required')  &&
+                           upTransferencia.get('email').touched">
+                                Campo obligatorio*
+                            </div>
+                            <div class="error" *ngIf="upTransferencia.get('email').hasError('pattern') &&
+                           upTransferencia.get('email').touched">
+                                No es un email valido*
+
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn  colors">Enviar</button>
+                    <button type="submit" class="btn  colors" [disabled]="upTransferencia.invalid" routerLink="/transferir">Enviar</button>
 
                 </form>
 
@@ -68,7 +81,8 @@
             </div>
             <div class="col-4 ">
                 <div class="div-button ">
-                    <button class="btn  colors" mat-button (click)="openDialog()">Agregar Destino</button>
+                    <button class="btn  colors" mat-button (click)="openDialog()">Agregar
+            Destino</button>
                 </div>
             </div>
             <div class="col-4 ">

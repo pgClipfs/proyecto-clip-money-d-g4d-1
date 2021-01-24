@@ -33,13 +33,22 @@
                     <form [formGroup]="upRecuContra" (submit)="onRecuContra(upRecuContra.value)">
                         <span> Ingrese nueva contraseña: </span>
                         <input type="password" name="password" id="password" placeholder="contraseña" formControlName="password">
+                        <div class="error" *ngIf="upRecuContra.get('password').hasError('required')  &&
+                           upRecuContra.get('password').touched">
+                            Campo obligatorio*
+                        </div>
                         <br>
                         <br>
                         <span> Ingrese nueva contraseña: </span>
                         <input type="password" name="passwordsegunda" id="passwordsegunda" placeholder="otra vez contraseña" formControlName="passwordsegunda">
+                        <div class="error" *ngIf="upRecuContra.get('passwordsegunda').hasError('required')  &&
+                           upRecuContra.get('passwordsegunda').touched">
+                            Campo obligatorio*
+                        </div>
                         <br>
                         <br>
-                        <button class="btn  colorNuevo" type="submit">Cambiar contraseña</button>
+                        <button class="btn  colorNuevo" [disabled]="upRecuContra.invalid" type="submit">Cambiar
+              contraseña</button>
 
                     </form>
 

@@ -20,6 +20,7 @@ import {
   styleUrls: ['./mandar-email.component.css'],
 })
 export class MandarEmailComponent implements OnInit {
+  private isValidPatter = /\S+@\S+\.\S+/;
   upMail: FormGroup;
   constructor(
     private recuContraService: RecuperarContraseñaService,
@@ -29,7 +30,10 @@ export class MandarEmailComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public massage: string
   ) {
     this.upMail = this.builder.group({
-      email: ['', Validators.required],
+      email: [
+        '',
+        [Validators.required, Validators.pattern(this.isValidPatter)],
+      ],
     });
   }
 

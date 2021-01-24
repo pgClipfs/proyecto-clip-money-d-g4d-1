@@ -14,3 +14,9 @@
     background-color: #5cb85c !important;
     color: white;
 }
+
+.error {
+    color: red;
+    font-family: sans-serif;
+    font-size: 10px;
+}
