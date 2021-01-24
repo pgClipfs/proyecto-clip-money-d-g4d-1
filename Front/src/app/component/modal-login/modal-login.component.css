@@ -20,9 +20,7 @@
 
 /* modal */
 
-.login-form {
-    margin-top: 50px;
-}
+.login-form {}
 
 .login {
     max-width: 330px;
@@ -31,6 +29,7 @@
     border-radius: 4px;
     padding: 50px 45px 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    height: 100%;
 }
 
 .form-icon {
@@ -45,7 +44,6 @@
 
 .login .form-horizontal {
     padding: 40px 0;
-    margin-top: 45px;
 }
 
 .login .form-group {
@@ -104,7 +102,6 @@
     border-radius: 20px;
     transition: all 0.3s ease;
     outline: 0;
-    margin-top: 30px;
     padding: 10px 40px;
 }
 
@@ -113,7 +110,6 @@
     text-align: center;
     display: block;
     color: #bec6d4;
-    margin-top: 25px;
     font-weight: 300;
 }
 

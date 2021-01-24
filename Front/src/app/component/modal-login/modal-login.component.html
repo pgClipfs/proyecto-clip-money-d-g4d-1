@@ -33,34 +33,13 @@
                         <div class="error" *ngIf="uplogin.get('password').hasError('maxLength') &&
                            uplogin.get('password').touched">
                             Minimo 8 caracteres*
-
                         </div>
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <button type="submit" [disabled]="uplogin.invalid" class="btn signin" (click)="onSubmit(uplogin.value)">
             Iniciar Sesión</button>
                     <span class="signup">No tienes cuenta? <button class="dialog" (click)="irRegistro()"
               routerLink="/registro">Registrate aqui</button>
-
-
-
           </span>
-
                 </form>
                 <span class="signup"> Olvido su contraseña? <button class=" dialog" mat-button (click)="openDialog()">
             Recuperar contraseña</button></span>
