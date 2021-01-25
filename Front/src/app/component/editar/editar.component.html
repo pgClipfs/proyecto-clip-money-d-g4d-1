@@ -24,10 +24,9 @@
                                     <img class="img-arr" src="../../img/arrow-1.png" alt="">
                                 </a>
                             </div>
-                            <div class="cont-title">
-                                <span class="title">Editar sus datos</span>
-                                <span class="text-center">Solo podra editar los datos permitdos, los demas no podra hacerlo por
-                  seguridad</span>
+                            <div class="title">
+                                <span>Aqui podra ver y editar sus datos</span>
+
                             </div>
                         </div>
                         <!-----------------------------form de editar-------------------------------------->
@@ -36,8 +35,8 @@
                                 <!-----------------------------Campos CVU y Alias-------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
-                                        <span>CVU</span>
-                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: 123654122' formControlName="cvu" [(ngModel)]="this.user.idUsuario">
+                                        <span>CVU:</span>
+                                        <input type="text" id="lastnameReg" placeholder='Ej: 123654122' disabled formControlName="cvu" [(ngModel)]="this.user.idUsuario">
                                         <div class="error" *ngIf="singUpForm.get('cvu').hasError('required') &&
                            singUpForm.get('cvu').touched">
                                             Campo obligatorio*
@@ -47,8 +46,8 @@
 
 
                                     <div class="direc-flex">
-                                        <span>Alias</span>
-                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias" [(ngModel)]="this.user.alias">
+                                        <span>Alias:</span>
+                                        <input type="text" id="lastnameReg" placeholder='Ej: Lopez.juan.toto' formControlName="alias" [(ngModel)]="this.user.alias">
                                         <div class="error" *ngIf="singUpForm.get('alias').hasError('required') &&
                            singUpForm.get('alias').touched">
                                             Campo obligatorio*
@@ -58,16 +57,16 @@
                                 <!-----------------------------Campos nombre y apellido -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
-                                        <span>Nombre</span>
-                                        <input type="text" class="form-control" id="nameReg" placeholder='Ej: Rodrigo' disabled formControlName="nombre" [(ngModel)]="this.user.nombre">
+                                        <span>Nombre:</span>
+                                        <input type="text" id="nameReg" placeholder='Ej: Rodrigo' disabled formControlName="nombre" [(ngModel)]="this.user.nombre">
                                         <div class="error" *ngIf="singUpForm.get('nombre').hasError('required') && singUpForm.get('nombre').touched">
                                             Campo obligatorio*
                                         </div>
 
                                     </div>
                                     <div class="direc-flex">
-                                        <span>Apellido</span>
-                                        <input type="text" class="form-control" id="lastnameReg" placeholder='Ej: Lopez' disabled formControlName="apellido" [(ngModel)]="this.user.apellido">
+                                        <span>Apellido:</span>
+                                        <input type="text" id="lastnameReg" placeholder='Ej: Lopez' disabled formControlName="apellido" [(ngModel)]="this.user.apellido">
                                         <div class="error" *ngIf="singUpForm.get('apellido').hasError('required') &&
                            singUpForm.get('apellido').touched">
                                             Campo obligatorio*
@@ -77,8 +76,8 @@
                                 <!-----------------------------Campos dni y telefono -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
-                                        <span>DNI</span>
-                                        <input type="text" class="form-control" id="dniReg" placeholder='Ej: 11.111.111' disabled formControlName="dni" [(ngModel)]="this.user.dni">
+                                        <span>DNI:</span>
+                                        <input type="text" id="dniReg" placeholder='Ej: 11.111.111' disabled formControlName="dni" [(ngModel)]="this.user.dni">
                                         <div class="error" *ngIf="singUpForm.get('dni').hasError('required') &&
                            singUpForm.get('dni').touched">
                                             Campo obligatorio*
@@ -86,8 +85,8 @@
 
                                     </div>
                                     <div class="direc-flex">
-                                        <span>Telefono</span>
-                                        <input type="text" class="form-control" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono" [(ngModel)]="this.user.telefono">
+                                        <span>Telefono:</span>
+                                        <input type="text" id="telReg" placeholder='Ej: 155 55 5555' formControlName="telefono" [(ngModel)]="this.user.telefono">
                                         <div class="error" *ngIf="singUpForm.get('telefono').hasError('required') &&
                            singUpForm.get('telefono').touched">
                                             Campo obligatorio*
@@ -97,16 +96,16 @@
                                 <!-----------------------------Campos usuario y email  -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
-                                        <span>Usuario</span>
-                                        <input type="text" class="form-control" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario" [(ngModel)]="this.user.nomUsuario">
+                                        <span>Usuario:</span>
+                                        <input type="text" id="userReg" placeholder='Ej: rlopez-2' formControlName="nomUsuario" [(ngModel)]="this.user.nomUsuario">
                                         <div class="error" *ngIf="singUpForm.get('nomUsuario').hasError('required') &&
                            singUpForm.get('nomUsuario').touched">
                                             Campo obligatorio*
                                         </div>
                                     </div>
-                                    <div class="inp-reg">
-                                        <span>E-mail</span>
-                                        <input type="email" class="form-control" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email" [(ngModel)]="this.user.email">
+                                    <div class="direc-flex">
+                                        <span>E-mail:</span>
+                                        <input type="email" id="emailReg" placeholder='Ej: rlopez@clipmoney.com' formControlName="email" [(ngModel)]="this.user.email">
                                         <div class="error" *ngIf="singUpForm.get('email').hasError('required') && singUpForm.get('email').hasError('email') &&
                            singUpForm.get('email').touched">
                                             Campo obligatorio*
@@ -116,7 +115,8 @@
                                 <!-----------------------------Campos pais -------------------------------------->
                                 <div class="inp-reg">
                                     <span>Pais</span>
-                                    <select formControlName="idPais" class="form-control" id="paisReg" required [(ngModel)]="selectedPais.nombre" (change)="onSelectPais($event.target.value)">
+                                    <select formControlName="idPais" id="paisReg" required [(ngModel)]="selectedPais.nombre" (change)="onSelectPais($event.target.value)">
+                    <option value="">Eliga un pais</option>
                     <option *ngFor="let pais of paises" value={{pais.idPais}}>
                       {{pais.nombre}}
 
@@ -133,7 +133,8 @@
                                 <div class="direc-reg">
                                     <div class="direc-flex">
                                         <span>Provincia</span>
-                                        <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)" class="form-control" formControlName="idProvincia">
+                                        <select required [(ngModel)]="selectedProvincia.idProvincia" (change)="onSelectProvincia($event.target.value)" formControlName="idProvincia">
+                      <option value="">Eliga una provincia</option>
                       <option *ngFor="let provincia of provincias" value={{provincia.idProvincia}}>
                         {{provincia.nombre}}
 
@@ -147,7 +148,8 @@
                                     <!-----------------------------Campos localidad -------------------------------------->
                                     <div class="direc-flex">
                                         <span>Localidad</span>
-                                        <select class="form-control" formControlName="idLocalidad">
+                                        <select formControlName="idLocalidad">
+                      <option value="">Eliga una localidad</option>
                       <option *ngFor="let localidad of localidades" value={{localidad.idLocalidad}}>
                         {{localidad.nombre}}
                       </option>
@@ -161,16 +163,16 @@
                                 <!-----------------------------Campos calle y altura  -------------------------------------->
                                 <div class="direc-reg">
                                     <div class="direc-flex">
-                                        <span>calle</span>
-                                        <input type="text" class="form-control" id="calleReg" placeholder='Ej: Independencia' formControlName="calle" [(ngModel)]="this.user.calle">
+                                        <span>calle:</span>
+                                        <input type="text" id="calleReg" placeholder='Ej: Independencia' formControlName="calle" [(ngModel)]="this.user.calle">
                                         <div class="error" *ngIf="singUpForm.get('calle').hasError('required') &&
                            singUpForm.get('calle').touched">
                                             Campo obligatorio*
                                         </div>
                                     </div>
                                     <div class="direc-flex">
-                                        <span>Altura</span>
-                                        <input type="text" class="form-control" id="altReg" placeholder='Ej: 1500' formControlName="altura" [(ngModel)]="this.user.altura">
+                                        <span>Altura:</span>
+                                        <input type="text" id="altReg" placeholder='Ej: 1500' formControlName="altura" [(ngModel)]="this.user.altura">
                                         <div class="error" *ngIf="singUpForm.get('altura').hasError('required') &&
                            singUpForm.get('altura').touched">
                                             Campo obligatorio*

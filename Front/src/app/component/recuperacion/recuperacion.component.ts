@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Ipassword } from '../../models/inew-user';
+import { ComponenteMensageOkComponent } from '../componente-mensage-ok/componente-mensage-ok.component';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
+
 import {
   FormControl,
   Validators,
@@ -22,6 +29,7 @@ export class RecuperacionComponent implements OnInit {
     private builder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    public dialog: MatDialog,
 
     private reuContraService: RecuperarContraseñaService
   ) {
@@ -41,6 +49,13 @@ export class RecuperacionComponent implements OnInit {
       console.log('andaaaa');
     });
   }
+  openDialog(): void {
+    const dialoRef = this.dialog.open(ComponenteMensageOkComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+      this.dialog.closeAll();
+    });
+  }
   onRecuContra(value: Ipassword): void {
     this.returnUrl =
       this.activatedRoute.snapshot.queryParams.returnUrl || '/home';
@@ -56,5 +71,6 @@ export class RecuperacionComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
         console.log('ta esta');
       });
+    this.openDialog();
   }
 }

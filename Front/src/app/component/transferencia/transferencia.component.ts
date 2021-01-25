@@ -19,6 +19,7 @@ import tokenGet from '../../helpers/get.id';
 /* -----------------Para hacer el modal -------------------------*/
 import { MatDialog } from '@angular/material/dialog';
 import { ModalDestinoComponent } from '../modal-destino/modal-destino.component';
+import { ComponenteMensageOkComponent } from '../componente-mensage-ok/componente-mensage-ok.component';
 
 @Component({
   selector: 'app-transferencia',
@@ -82,6 +83,13 @@ export class TransferenciaComponent implements OnInit {
       console.log(res);
     });
   }
+  openDialogMensage(): void {
+    const dialoRef = this.dialog.open(ComponenteMensageOkComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+      this.dialog.closeAll();
+    });
+  }
   /* -----------------Crea el usuario destino  nuevo -------------------------*/
   onDestino(value: InewDestino): void {
     this.userId = Number(tokenGet());
@@ -121,5 +129,6 @@ export class TransferenciaComponent implements OnInit {
     this.movimientosService
       .newMovimientoNumber(this.userId, value.monto, this.idTipoMov)
       .subscribe((movientos) => console.log(movientos));
+    this.openDialogMensage();
   }
 }

@@ -34,6 +34,9 @@ import { RecuperacionComponent } from './component/recuperacion/recuperacion.com
 
 import { MandarEmailComponent } from './component/mandar-email/mandar-email.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
+import { ComponenteContruccionComponent } from './component/componente-contruccion/componente-contruccion.component';
+import { ComponenteMensageOkComponent } from './component/componente-mensage-ok/componente-mensage-ok.component';
+import { ModalIngresoDineroComponent } from './component/modal-ingreso-dinero/modal-ingreso-dinero.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,12 @@ import { ModalLoginComponent } from './component/modal-login/modal-login.compone
     MandarEmailComponent,
 
     ModalLoginComponent,
+
+    ComponenteContruccionComponent,
+
+    ComponenteMensageOkComponent,
+
+    ModalIngresoDineroComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

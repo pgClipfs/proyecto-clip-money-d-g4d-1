@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ModalIngresoDineroComponent } from '../modal-ingreso-dinero/modal-ingreso-dinero.component';
+import { ComponenteMensageOkComponent } from '../componente-mensage-ok/componente-mensage-ok.component';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -29,11 +29,11 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-modal-ingreso-dinero',
+  templateUrl: './modal-ingreso-dinero.component.html',
+  styleUrls: ['./modal-ingreso-dinero.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class ModalIngresoDineroComponent implements OnInit {
   saldosList: ISaldo[];
   movimientosList: IMovi[];
   movMostrarList: ImovMostrar[];
@@ -46,19 +46,26 @@ export class HomeComponent implements OnInit {
   movimientos = false;
   idTipoMov: number;
   p = 1;
-
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private saldoService: SaldoService,
     private movimientoService: MovimientosService,
     private getUserService: GetUserService,
+    private router: Router,
+    private route: ActivatedRoute,
     private builder: FormBuilder,
-    public modal: NgbModal,
+    public dialogRef: MatDialogRef<ModalIngresoDineroComponent>,
+    public dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA) public massage: string
+  ) {
+    this.upSaldoForm = this.builder.group({
+      monto: ['', Validators.required],
+    });
+  }
 
-    public dialog: MatDialog
-  ) {}
-
+  ngOnInit(): void {
+    this.buscarSaldo();
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/home';
+  }
   buscarSaldo(): void {
     /* -----------------Trae el saldos y toma  el id del saldo y el saldo actual -------------------------*/
     this.user = Number(tokenGet());
@@ -76,26 +83,31 @@ export class HomeComponent implements OnInit {
       (error) => console.error(error)
     );
   }
-  ngOnInit(): void {
-    /* -----------------Llama a la funcion buscarsaldo() para actualizar -------------------------*/
-    this.buscarSaldo();
-  }
   openDialog(): void {
-    const dialoRef = this.dialog.open(ModalIngresoDineroComponent, {});
+    const dialoRef = this.dialog.open(ComponenteMensageOkComponent, {});
     dialoRef.afterClosed().subscribe((res) => {
       console.log(res);
+      this.buscarSaldo();
+      this.dialog.closeAll();
+      this.buscarSaldo();
     });
   }
-
-  /* ----------------- Trae los datos para mostrar en la tabla movimientos -------------------------*/
-  verMovimientos(): void {
+  /* -----------------Manda el saldo a sumar y manda el movimiento nuevo -------------------------*/
+  onSubmit(value: Imonto): void {
+    this.idTipoMov = 1;
     this.user = Number(tokenGet());
-
-    this.movimientoService
-      .getMoviminetos(this.user)
-      .subscribe((movimFormApi: IMovi[]) => {
-        this.movimientosList = movimFormApi;
+    if (this.saldosList.length > 0) {
+      this.saldoService.updateSaldo(this.numId, value).subscribe((saldo) => {
+        console.log();
       });
-    this.movimientos = true;
+      this.movimientoService
+        .newMovimiento(this.user, value, this.idTipoMov)
+        .subscribe((movimiento) => {
+          this.buscarSaldo();
+        });
+    } else {
+      console.log('yata');
+    }
+    this.openDialog();
   }
 }

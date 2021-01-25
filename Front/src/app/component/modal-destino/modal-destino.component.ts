@@ -13,6 +13,8 @@ import {
 import { InewDestino } from '../../models/inew-user';
 import tokenGet from '../../helpers/get.id';
 import { GetUserService } from '../../service/get-user.service';
+import { ComponenteMensageOkComponent } from '../componente-mensage-ok/componente-mensage-ok.component';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-modal-destino',
   templateUrl: './modal-destino.component.html',
@@ -41,6 +43,13 @@ export class ModalDestinoComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  openDialog(): void {
+    const dialoRef = this.dialog.open(ComponenteMensageOkComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+      this.dialog.closeAll();
+    });
+  }
   onDestino(value: InewDestino): void {
     this.userId = Number(tokenGet());
     console.log(this.userId);
@@ -56,6 +65,6 @@ export class ModalDestinoComponent implements OnInit {
         this.userId
       )
       .subscribe((destino) => console.log(destino));
-    this.dialog.closeAll();
+    this.openDialog();
   }
 }

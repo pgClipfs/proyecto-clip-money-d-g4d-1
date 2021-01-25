@@ -33,12 +33,12 @@
                     <span>Saldo disponible</span>
                     <span id="">{{this.saldoActual}}</span>
                     <div>
-                        <button class="btn btn-success ml-2" (click)="modal.open(content)">
+                        <button class="btn colorNuevo ml-2" mat-button (click)="openDialog()">
               Depositar</button>
 
-                        <button class="btn btn-success ml-2" routerLink="/transferir">Transferir</button>
+                        <button class="btn colorNuevo ml-2" mat-button routerLink="/transferir">Transferir</button>
 
-                        <button class="btn btn-success ml-2" (click)="verMovimientos()"> Movimientos</button>
+                        <button class="btn colorNuevo ml-2" mat-button (click)="verMovimientos()"> Movimientos</button>
 
                     </div>
 
@@ -111,7 +111,7 @@
         </div>
 
         <!-------------------Modal para ingresar un monto a la cuenta ------------------------------->
-        <ng-template #content let-modal>
+        <!-- <ng-template #content let-modal>
             <div class="modal-header"></div>
             <h4 class="modal-title title text-center">Depositar Dinero</h4>
 
@@ -134,7 +134,7 @@
             <div class="modal-footer">
                 <button class="btn colorsCerrar" type="button" (click)="modal.close()">Salir</button>
             </div>
-        </ng-template>
+        </ng-template> -->
 
 
 

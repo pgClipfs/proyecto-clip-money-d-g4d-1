@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatDialog,
+} from '@angular/material/dialog';
+import { ComponenteMensageOkComponent } from '../componente-mensage-ok/componente-mensage-ok.component';
 /* -----------------Interfaces -------------------------*/
 import { ILocalidad } from '../../models/Ilocalidad';
 import { IPais } from '../../models/Ipais';
@@ -31,8 +37,12 @@ import tokenGet from '../../helpers/get.id';
   styleUrls: ['./editar.component.css'],
 })
 export class EditarComponent implements OnInit {
-  selectedPais: IPais = { idPais: 0, nombre: '' };
-  selectedProvincia: IProvincia = { idProvincia: 0, nombre: '', idPais: 0 };
+  selectedPais: IPais = { idPais: 0, nombre: 'Pais' };
+  selectedProvincia: IProvincia = {
+    idProvincia: 0,
+    nombre: 'Provincia',
+    idPais: 0,
+  };
   localidades: ILocalidad[];
   paises: IPais[];
   provincias: IProvincia[];
@@ -50,7 +60,8 @@ export class EditarComponent implements OnInit {
     private paisService: PaisService,
     private provinciaService: ProvinciaService,
 
-    private getUserService: GetUserService
+    private getUserService: GetUserService,
+    public dialog: MatDialog
   ) {
     this.singUpForm = this.builder.group({
       dni: ['', Validators.required],
@@ -90,6 +101,13 @@ export class EditarComponent implements OnInit {
       },
       (error) => console.error(error)
     );
+  }
+  openDialog(): void {
+    const dialoRef = this.dialog.open(ComponenteMensageOkComponent, {});
+    dialoRef.afterClosed().subscribe((res) => {
+      console.log(res);
+      this.dialog.closeAll();
+    });
   }
   /* -----------------Traemos las provincias segun el pais elegido -------------------------*/
   onSelectPais(id: number): void {
@@ -139,5 +157,6 @@ export class EditarComponent implements OnInit {
       .subscribe((user) => {
         console.log('hecho');
       });
+    this.openDialog();
   }
 }

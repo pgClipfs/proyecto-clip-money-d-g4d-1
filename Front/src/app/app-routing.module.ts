@@ -10,6 +10,7 @@ import { TransferenciaComponent } from './component/transferencia/transferencia.
 import { RecuperacionComponent } from './component/recuperacion/recuperacion.component';
 import { MandarEmailComponent } from './component/mandar-email/mandar-email.component';
 import { ModalLoginComponent } from './component/modal-login/modal-login.component';
+import { ComponenteContruccionComponent } from './component/componente-contruccion/componente-contruccion.component';
 const routes: Routes = [
   { path: '', component: PrincipalComponent },
   { path: 'recuperacion/:token', component: RecuperacionComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'login', component: ModalLoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'transferir', component: TransferenciaComponent },
+  { path: 'construccion', component: ComponenteContruccionComponent },
 
   { path: '**', redirectTo: '' },
 ];
