@@ -53,7 +53,7 @@
     border-radius: 20px;
     margin-left: 0;
     margin-right: 0;
-    box-shadow: 0px 2px 5px 0px #47d9f1;
+    box-shadow: 0px 2px 5px 0px #5cb85c;
 }
 
 .login .input-icon {
@@ -94,7 +94,7 @@
 
 .btn.signin {
     color: rgba(255, 255, 255, 0.8);
-    background: #47D9F4;
+    background: #5cb85c;
     font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -114,14 +114,14 @@
 }
 
 .dialog {
-    color: #47d9f1;
+    color: #5cb85c;
     transition: all 0.3s ease;
     text-transform: capitalize;
     border: none;
 }
 
 .signup a {
-    color: #47d9f1;
+    color: #5cb85c;
     transition: all 0.3s ease;
 }
 
@@ -139,7 +139,7 @@
 
 .login .modal-title {
     font-size: 30px;
-    color: #47d9f4;
+    color: #5cb85c;
 }
 
 .Condiciones label {

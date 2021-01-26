@@ -1,5 +1,10 @@
 /* modal */
 
+.colorNuevo {
+    background-color: #5cb85c !important;
+    color: white;
+}
+
 .title {
     margin: 2%;
     padding: 1%;
@@ -175,7 +180,7 @@
 }
 
 #aboutus {
-    font-family: 'Gruppo', cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .close {

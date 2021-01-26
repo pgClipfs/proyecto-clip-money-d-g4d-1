@@ -57,7 +57,11 @@ export class HomeComponent implements OnInit {
     public modal: NgbModal,
 
     public dialog: MatDialog
-  ) {}
+  ) {
+    this.upSaldoForm = this.builder.group({
+      monto: ['', Validators.required],
+    });
+  }
 
   buscarSaldo(): void {
     /* -----------------Trae el saldos y toma  el id del saldo y el saldo actual -------------------------*/
@@ -97,5 +101,21 @@ export class HomeComponent implements OnInit {
         this.movimientosList = movimFormApi;
       });
     this.movimientos = true;
+  }
+  onSubmit(value: Imonto): void {
+    this.idTipoMov = 1;
+    this.user = Number(tokenGet());
+    if (this.saldosList.length > 0) {
+      this.saldoService.updateSaldo(this.numId, value).subscribe((saldo) => {
+        console.log();
+      });
+      this.movimientoService
+        .newMovimiento(this.user, value, this.idTipoMov)
+        .subscribe((movimiento) => {
+          this.buscarSaldo();
+        });
+    } else {
+      console.log('yata');
+    }
   }
 }
